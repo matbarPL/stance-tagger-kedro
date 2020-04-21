@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Opinion minder login</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'><link rel="stylesheet" href="../static/assets/css/login style.css">
+  <link rel="icon" href="../static/assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up" onclick="window.location.href='{{ url_for('register') }}'";>
+		<label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+					<ul>
+						{% for message in messages %}
+						<li>{{ message }}</li>
+						{% endfor %}
+					</ul>
+					{% endif %}
+				{% endwith %}
+				<form action="" method="post" novalidate>
+					{{ login_form.hidden_tag() }}
+					<div class="group">
+						<label for="user" class="label">{{ login_form.username.label }}</label>
+						{{ login_form.username(size=32, id="user", type="text", class="input", value="barry") }}
+						{% for error in login_form.username.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						 {% endfor %}
+					</div>
+					<div class="group">
+						<label for="pass" class="label">{{ login_form.password.label }}</label>
+						{{ login_form.password(size=32, id="pass", type="password", class="input", value="password") }}
+						{% for error in login_form.password.errors %}
+						<span style="color: red;">[{{ error }}]</span>
+						{% endfor %}
+					</div>
+					<div class="group">
+						<label for="check">{{ login_form.remember_me(id="check") }} {{ login_form.remember_me.label }}</label>
+					</div>
+					<div class="group">
+					{{ login_form.submit(class="button") }}
+					</div>
+					<div class="hr"></div>
+					<div class="foot-lnk">
+						<a href="#forgot">Forgot Password?</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
