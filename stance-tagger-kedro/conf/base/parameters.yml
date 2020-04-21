@@ -1,0 +1,15 @@
+
+# Parameters for the example pipeline. Feel free to delete these once you
+# remove the example pipeline from pipeline.py and the example nodes in
+# `src/pipelines/`
+model_classification_name: "classification"
+model_favour_against_name: "favour_against"
+example_test_data_ratio: 0.2
+example_num_train_iter: 10000
+example_learning_rate: 0.01
+lr: 0.5
+epoch: 25 
+wordNgrams: 2 
+bucket: 200000
+dim: 50
+loss: "hs"
