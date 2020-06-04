@@ -15,4 +15,4 @@ Bachelor thesis for stance detectionwith React, Kedro, Flask, fasttext and MySQL
 
 ![Kedro model](https://github.com/matbarPL/stance-tagger-kedro/blob/master/photos/model.png)
 
-![Kedro model retrain](https://github.com/matbarPL/stance-tagger-kedro/blob/master/photos/retrain-model.png)
+![Kedro model retrain](https://github.com/matbarPL/stance-tagger-kedro/blob/master/photos/retrain-kedro.png)
