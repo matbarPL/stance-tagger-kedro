@@ -1,7 +1,7 @@
 # stance-tagger-kedro
 Bachelor thesis for stance detectionwith React, Kedro, Flask, fasttext and MySQL
 
-![Sign in](https://github.com/matbarPL/stance-tagger-kedro/new/master/photos/sign-in.png)
+![Sign in](https://github.com/matbarPL/stance-tagger-kedro/master/photos/sign-in.png)
 
 ![Sign up](https://github.com/matbarPL/stance-tagger-kedro/new/master/photos/sign-up.png)
 
