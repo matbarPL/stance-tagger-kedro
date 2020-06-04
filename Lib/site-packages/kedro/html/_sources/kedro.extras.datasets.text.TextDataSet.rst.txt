@@ -1,0 +1,39 @@
+kedro.extras.datasets.text.TextDataSet
+======================================
+
+.. currentmodule:: kedro.extras.datasets.text
+
+.. autoclass:: TextDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      TextDataSet.DEFAULT_LOAD_ARGS
+      TextDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      TextDataSet.__init__
+      TextDataSet.exists
+      TextDataSet.from_config
+      TextDataSet.get_last_load_version
+      TextDataSet.get_last_save_version
+      TextDataSet.invalidate_cache
+      TextDataSet.load
+      TextDataSet.release
+      TextDataSet.save
+    
+   

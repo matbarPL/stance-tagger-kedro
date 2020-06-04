@@ -1,0 +1,47 @@
+kedro.contrib.colors.logging.ColorHandler
+=========================================
+
+.. currentmodule:: kedro.contrib.colors.logging
+
+.. autoclass:: ColorHandler
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      ColorHandler.name
+      ColorHandler.terminator
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ColorHandler.__init__
+      ColorHandler.acquire
+      ColorHandler.addFilter
+      ColorHandler.close
+      ColorHandler.createLock
+      ColorHandler.emit
+      ColorHandler.filter
+      ColorHandler.flush
+      ColorHandler.format
+      ColorHandler.get_name
+      ColorHandler.handle
+      ColorHandler.handleError
+      ColorHandler.release
+      ColorHandler.removeFilter
+      ColorHandler.setFormatter
+      ColorHandler.setLevel
+      ColorHandler.set_name
+    
+   

@@ -1,0 +1,1502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced IO &mdash; Kedro 0.15.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/qb1-sphinx-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme-overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/copybutton.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with PySpark" href="09_pyspark.html" />
+    <link rel="prev" title="Logging" href="07_logging.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Kedro
+          
+
+          
+            
+            <img src="../_static/kedro_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/01_introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#learning-about-kedro">Learning about Kedro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#assumptions">Assumptions</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://www.python.org/">Official Python programming language website</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#python">List of free programming books and tutorials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/01_prerequisites.html">Installation prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#macos-linux">macOS / Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#python-virtual-environments">Python virtual environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#using-conda">Using <code class="docutils literal notranslate"><span class="pre">conda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#create-an-environment-with-conda">Create an environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#activate-an-environment-with-conda">Activate an environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#other-conda-commands">Other <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#alternatives-to-conda">Alternatives to <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/02_install.html">Installation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/03_new_project.html">Creating a new project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#create-a-new-project-interactively">Create a new project interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#create-a-new-project-from-a-configuration-file">Create a new project from a configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#starting-with-an-existing-project">Starting with an existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#install-project-dependencies">Install project dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/04_hello_world.html">A “Hello World” example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-directory-structure">Project directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-source-code">Project source code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/04_hello_world.html#writing-code">Writing code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-components">Project components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#example-pipeline">Example pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-specific-configuration">Project-specific configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/04_hello_world.html#sensitive-or-personal-configuration">Sensitive or personal configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#running-the-example">Running the example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/01_workflow.html">Typical Kedro workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/01_workflow.html#development-workflow">Development workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#set-up-the-project-template">1. Set up the project template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#set-up-the-data">2. Set up the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#create-the-pipeline">3. Create the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#package-the-project">4. Package the project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/01_workflow.html#git-workflow">Git workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#creating-a-project-repository">Creating a project repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#submitting-your-changes-to-github">Submitting your changes to GitHub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html">Kedro Spaceflights tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#creating-the-tutorial-project">Creating the tutorial project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#install-project-dependencies">Install project dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#project-configuration">Project configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/03_set_up_data.html">Setting up the data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#adding-your-datasets-to-data">Adding your datasets to <code class="docutils literal notranslate"><span class="pre">data</span></code></a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/reviews.csv">reviews.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/companies.csv">companies.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/shuttles.xlsx">shuttles.xlsx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#reference-all-datasets">Reference all datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#creating-custom-datasets">Creating custom datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#contributing-a-custom-dataset-implementation">Contributing a custom dataset implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html">Creating a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#node-basics">Node basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#assemble-nodes-into-a-pipeline">Assemble nodes into a pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#persisting-pre-processed-data">Persisting pre-processed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#creating-a-master-table">Creating a master table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#working-in-a-jupyter-notebook">Working in a Jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#extending-the-project-s-code">Extending the project’s code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#working-with-multiple-pipelines">Working with multiple pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#partial-pipeline-runs">Partial pipeline runs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#using-pipeline-name">Using pipeline name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#using-tags">Using tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#using-decorators-for-nodes-and-pipelines">Using decorators for nodes and pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#decorating-the-nodes">Decorating the nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#decorating-the-pipeline">Decorating the pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#kedro-runners">Kedro runners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/05_package_a_project.html">Packaging a project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#add-documentation-to-your-project">Add documentation to your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#package-your-project">Package your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#manage-project-dependencies">Manage project dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#extend-your-project">Extend your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#what-is-next">What is next?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_setting_up_vscode.html">Setting up Visual Studio Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_setting_up_vscode.html#advanced-for-those-using-venv-virtualenv">Advanced: For those using <code class="docutils literal notranslate"><span class="pre">venv</span></code> / <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_setting_up_vscode.html#setting-up-tasks">Setting up tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_setting_up_vscode.html#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01_setting_up_vscode.html#advanced-remote-interpreter-debugging">Advanced: Remote Interpreter / Debugging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_setting_up_pycharm.html">Setting up PyCharm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_setting_up_pycharm.html#set-up-run-configurations">Set up Run configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_setting_up_pycharm.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_setting_up_pycharm.html#advanced-remote-ssh-interpreter">Advanced: Remote SSH interpreter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03_configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#local-and-base-configuration">Local and base configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#loading">Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#additional-configuration-environments">Additional configuration environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#templating-configuration">Templating configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#parameters">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#loading-parameters">Loading parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#specifying-parameters-at-runtime">Specifying parameters at runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#using-parameters">Using parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#credentials">Credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#aws-credentials">AWS credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#configuring-kedro-run-arguments">Configuring <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code> arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_data_catalog.html">The Data Catalog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#using-the-data-catalog-within-kedro-configuration">Using the Data Catalog within Kedro configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#specifying-the-location-of-the-dataset">Specifying the location of the dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#using-the-data-catalog-with-the-yaml-api">Using the Data Catalog with the YAML API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#adding-parameters">Adding parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#feeding-in-credentials">Feeding in credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#loading-multiple-datasets-that-have-similar-configuration">Loading multiple datasets that have similar configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#transcoding-datasets">Transcoding datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#a-typical-example-of-transcoding">A typical example of transcoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#how-does-transcoding-work">How does transcoding work?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#transforming-datasets">Transforming datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#applying-built-in-transformers">Applying built-in transformers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#developing-your-own-transformer">Developing your own transformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#versioning-datasets-and-ml-models">Versioning datasets and ML models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#using-the-data-catalog-with-the-code-api">Using the Data Catalog with the Code API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#configuring-a-data-catalog">Configuring a Data Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#loading-datasets">Loading datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#behind-the-scenes">Behind the scenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#viewing-the-available-data-sources">Viewing the available data sources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#saving-data">Saving data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#saving-data-to-memory">Saving data to memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#saving-data-to-a-sql-database-for-querying">Saving data to a SQL database for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#saving-data-in-parquet">Saving data in parquet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#creating-your-own-dataset">Creating your own dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05_nodes.html">Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_nodes.html#creating-a-pipeline-node">Creating a pipeline node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#node-definition-syntax">Node definition syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#syntax-for-input-variables">Syntax for input variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#syntax-for-output-variables">Syntax for output variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05_nodes.html#tagging-nodes">Tagging nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_nodes.html#running-nodes">Running nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#applying-decorators-to-nodes">Applying decorators to nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#applying-multiple-decorators-to-nodes">Applying multiple decorators to nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="06_pipelines.html">Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#building-pipelines">Building pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#tagging-pipeline-nodes">Tagging pipeline nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#merging-pipelines">Merging pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#fetching-pipeline-nodes">Fetching pipeline nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#developing-modular-pipelines">Developing modular pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#what-are-modular-pipelines">What are modular pipelines?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#how-do-we-construct-modular-pipelines">How do we construct modular pipelines?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="06_pipelines.html#structure">Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="06_pipelines.html#ease-of-use-and-portability">Ease of use and portability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#a-modular-pipeline-example-template">A modular pipeline example template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#datasets">Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#connecting-existing-pipelines">Connecting existing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#using-a-modular-pipeline-twice">Using a modular pipeline twice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#bad-pipelines">Bad pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#pipeline-with-bad-nodes">Pipeline with bad nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#pipeline-with-circular-dependencies">Pipeline with circular dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#running-pipelines">Running pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#runners">Runners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#running-a-pipeline-by-name">Running a pipeline by name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#modifying-a-kedro-run">Modifying a <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#applying-decorators-on-pipelines">Applying decorators on pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#running-pipelines-with-io">Running pipelines with IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#outputting-to-a-file">Outputting to a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_pipelines.html#partial-pipelines">Partial pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#partial-pipeline-starting-from-inputs">Partial pipeline starting from inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#partial-pipeline-starting-from-nodes">Partial pipeline starting from nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#partial-pipeline-ending-at-nodes">Partial pipeline ending at nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#partial-pipeline-from-nodes-with-tags">Partial pipeline from nodes with tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#running-only-some-nodes">Running only some nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="06_pipelines.html#recreating-missing-outputs">Recreating Missing Outputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07_logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="07_logging.html#configure-logging">Configure logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_logging.html#use-logging">Use logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_logging.html#logging-for-anyconfig">Logging for <code class="docutils literal notranslate"><span class="pre">anyconfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced IO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#abstractdataset">AbstractDataSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#versioning">Versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-namedtuple"><code class="docutils literal notranslate"><span class="pre">version</span></code> namedtuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versioning-using-the-yaml-api">Versioning using the YAML API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#versioning-using-the-code-api">Versioning using the Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-datasets">Supported datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#partitioned-dataset">Partitioned dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#partitioned-dataset-definition">Partitioned dataset definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dataset-definition">Dataset definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#partitioned-dataset-credentials">Partitioned dataset credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#partitioned-dataset-load">Partitioned dataset load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partitioned-dataset-save">Partitioned dataset save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#incremental-loads-with-incrementaldataset">Incremental loads with <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#incremental-dataset-load">Incremental dataset load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incremental-dataset-save">Incremental dataset save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#incremental-dataset-confirm">Incremental dataset confirm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checkpoint-configuration">Checkpoint configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#special-checkpoint-config-keys">Special checkpoint config keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="09_pyspark.html">Working with PySpark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_pyspark.html#initialising-a-sparksession">Initialising a <code class="docutils literal notranslate"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_pyspark.html#creating-a-sparkdataset">Creating a <code class="docutils literal notranslate"><span class="pre">SparkDataSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="09_pyspark.html#code-api">Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="09_pyspark.html#yaml-api">YAML API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="09_pyspark.html#working-with-pyspark-and-kedro-pipelines">Working with PySpark and Kedro pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_developing_plugins.html">Developing Kedro plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#global-and-project-commands">global and project commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_developing_plugins.html#suggested-command-convention">Suggested command convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#working-with-click">Working with <code class="docutils literal notranslate"><span class="pre">click</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#contributing-process">Contributing process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#example-of-a-simple-plugin">Example of a simple plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#supported-plugins">Supported plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#community-developed-plugins">Community-developed plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_ipython.html">Working with IPython and Jupyter Notebooks / Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#startup-script">Startup script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#working-with-context">Working with <code class="docutils literal notranslate"><span class="pre">context</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#additional-parameters-for-context-run">Additional parameters for <code class="docutils literal notranslate"><span class="pre">context.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#adding-global-variables">Adding global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#working-with-ipython">Working with IPython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#loading-datacatalog-in-ipython">Loading <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in IPython</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#working-from-jupyter">Working from Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#idle-notebooks">Idle notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#what-if-i-cannot-run-kedro-jupyter-notebook">What if I cannot run <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#loading-datacatalog-in-jupyter">Loading <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#saving-datacatalog-in-jupyter">Saving <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#using-parameters">Using parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#running-the-pipeline">Running the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#converting-functions-from-jupyter-notebooks-into-kedro-nodes">Converting functions from Jupyter Notebooks into Kedro nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#extras">Extras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#ipython-loader">IPython loader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="11_ipython.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="11_ipython.html#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_working_with_databricks.html">Working with Databricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="12_working_with_databricks.html#databricks-connect-recommended">Databricks Connect (recommended)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_working_with_databricks.html#github-workflow-with-databricks">GitHub workflow with Databricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="13_journal.html">Journal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="13_journal.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13_journal.html#context-journal-record">Context journal record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_journal.html#dataset-journal-record">Dataset journal record</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_journal.html#steps-to-manually-reproduce-your-code-and-run-the-previous-pipeline">Steps to manually reproduce your code and run the previous pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="14_create_a_new_dataset.html">Creating a new dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#scenario">Scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#project-setup">Project setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#problem">Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#the-anatomy-of-a-dataset">The anatomy of a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#implement-the-load-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_load</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#implement-the-save-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_save</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#implement-the-describe-method">Implement the <code class="docutils literal notranslate"><span class="pre">_describe</span></code> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#bringing-it-all-together">Bringing it all together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#integrating-with-partitioneddataset">Integrating with <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#adding-versioning">Adding Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#thread-safety-consideration">Thread-safety consideration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#handling-credentials-and-different-filesystems">Handling credentials and different filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#contribute-your-dataset-to-kedro">Contribute your dataset to Kedro</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/01_faq.html">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-are-the-primary-advantages-of-kedro">What are the primary advantages of Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-does-kedro-compare-to-other-projects">How does Kedro compare to other projects?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#kedro-vs-workflow-schedulers">Kedro vs workflow schedulers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#kedro-vs-other-etl-frameworks">Kedro vs other ETL frameworks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-can-i-find-out-more-about-kedro">How can I find out more about Kedro?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#articles-podcasts-and-talks">Articles, podcasts and talks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#kedro-used-on-real-world-use-cases">Kedro used on real-world use cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#community-interaction">Community interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-is-data-engineering-convention">What is data engineering convention?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-version-of-python-does-kedro-use">What version of Python does Kedro use?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-upgrade-kedro">How do I upgrade Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-best-practice-should-i-follow-to-avoid-leaking-confidential-data">What best practice should I follow to avoid leaking confidential data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-is-the-philosophy-behind-kedro">What is the philosophy behind Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#where-do-i-store-my-custom-editor-configuration">Where do I store my custom editor configuration?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-look-up-an-api-function">How do I look up an API function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-build-documentation-for-my-project">How do I build documentation for my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-build-documentation-about-kedro">How do I build documentation about Kedro?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/02_architecture_overview.html">Kedro architecture overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/02_architecture_overview.html#building-blocks">Building blocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/02_architecture_overview.html#project">Project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-cli-py"><code class="docutils literal notranslate"><span class="pre">kedro_cli.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#run-py"><code class="docutils literal notranslate"><span class="pre">run.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-yml"><code class="docutils literal notranslate"><span class="pre">.kedro.yml</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-init-py"><code class="docutils literal notranslate"><span class="pre">00-kedro-init.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#projectcontext"><code class="docutils literal notranslate"><span class="pre">ProjectContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/02_architecture_overview.html#framework">Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-cli"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-cli-cli-py"><code class="docutils literal notranslate"><span class="pre">kedro/cli/cli.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#plugins"><code class="docutils literal notranslate"><span class="pre">plugins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#get-project-context"><code class="docutils literal notranslate"><span class="pre">get_project_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#load-context"><code class="docutils literal notranslate"><span class="pre">load_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedrocontext"><code class="docutils literal notranslate"><span class="pre">KedroContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/02_architecture_overview.html#library">Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#configloader"><code class="docutils literal notranslate"><span class="pre">ConfigLoader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#pipeline"><code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#abstractrunner"><code class="docutils literal notranslate"><span class="pre">AbstractRunner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#datacatalog"><code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#abstractdataset"><code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/03_commands_reference.html">Guide to CLI commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#autocomplete">Autocomplete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#global-kedro-commands">Global Kedro commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#project-specific-kedro-commands">Project-specific Kedro commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-run"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-install"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-test"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">test</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-package"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-build-docs"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">build-docs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-jupyter-notebook-kedro-jupyter-lab-kedro-ipython"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>, <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">lab</span></code>, <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">ipython</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-jupyter-convert"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">convert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-lint"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">lint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-activate-nbstripout"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">activate-nbstripout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#using-python">Using Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/04_lint.html">Linting your Kedro project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/05_logos.html">Images and icons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/05_logos.html#white-background">White background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#icon">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#icon-with-text">Icon with text</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/05_logos.html#black-background">Black background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#id1">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#id2">Icon with text</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kedro.html">kedro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.config.html">kedro.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.ConfigLoader.html">kedro.config.ConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.TemplatedConfigLoader.html">kedro.config.TemplatedConfigLoader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.io.html">kedro.io</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#data-catalog">Data Catalog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataCatalog.html">kedro.io.DataCatalog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#data-sets">Data Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CSVLocalDataSet.html">kedro.io.CSVLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CSVHTTPDataSet.html">kedro.io.CSVHTTPDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CSVS3DataSet.html">kedro.io.CSVS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.HDFLocalDataSet.html">kedro.io.HDFLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.HDFS3DataSet.html">kedro.io.HDFS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.JSONLocalDataSet.html">kedro.io.JSONLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.JSONDataSet.html">kedro.io.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.LambdaDataSet.html">kedro.io.LambdaDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.MemoryDataSet.html">kedro.io.MemoryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.ParquetLocalDataSet.html">kedro.io.ParquetLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.PartitionedDataSet.html">kedro.io.PartitionedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.IncrementalDataSet.html">kedro.io.IncrementalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.PickleLocalDataSet.html">kedro.io.PickleLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.PickleS3DataSet.html">kedro.io.PickleS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.SQLTableDataSet.html">kedro.io.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.SQLQueryDataSet.html">kedro.io.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.TextLocalDataSet.html">kedro.io.TextLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.ExcelLocalDataSet.html">kedro.io.ExcelLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CachedDataSet.html">kedro.io.CachedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataCatalogWithDefault.html">kedro.io.DataCatalogWithDefault</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataSetAlreadyExistsError.html">kedro.io.DataSetAlreadyExistsError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataSetError.html">kedro.io.DataSetError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataSetNotFoundError.html">kedro.io.DataSetNotFoundError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.AbstractDataSet.html">kedro.io.AbstractDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.AbstractVersionedDataSet.html">kedro.io.AbstractVersionedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.AbstractTransformer.html">kedro.io.AbstractTransformer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.Version.html">kedro.io.Version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.pipeline.html">kedro.pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.Pipeline.html">kedro.pipeline.Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.node.Node.html">kedro.pipeline.node.Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.node.html">kedro.pipeline.node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.decorators.log_time.html">kedro.pipeline.decorators.log_time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.runner.html">kedro.runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.AbstractRunner.html">kedro.runner.AbstractRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.SequentialRunner.html">kedro.runner.SequentialRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.ParallelRunner.html">kedro.runner.ParallelRunner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.context.html">kedro.context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.context.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.context.KedroContext.html">kedro.context.KedroContext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.context.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.context.load_context.html">kedro.context.load_context</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.context.html#errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.context.KedroContextError.html">kedro.context.KedroContextError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.contrib.html">kedro.contrib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.io.html">kedro.contrib.io</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.catalog_with_default.DataCatalogWithDefault.html">kedro.contrib.io.catalog_with_default.DataCatalogWithDefault</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.azure.CSVBlobDataSet.html">kedro.contrib.io.azure.CSVBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.azure.JSONBlobDataSet.html">kedro.contrib.io.azure.JSONBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet.html">kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.cached.CachedDataSet.html">kedro.contrib.io.cached.CachedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.feather.FeatherLocalDataSet.html">kedro.contrib.io.feather.FeatherLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.matplotlib.MatplotlibLocalWriter.html">kedro.contrib.io.matplotlib.MatplotlibLocalWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.matplotlib.MatplotlibS3Writer.html">kedro.contrib.io.matplotlib.MatplotlibS3Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.parquet.ParquetS3DataSet.html">kedro.contrib.io.parquet.ParquetS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.pyspark.SparkDataSet.html">kedro.contrib.io.pyspark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.pyspark.SparkHiveDataSet.html">kedro.contrib.io.pyspark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.pyspark.SparkJDBCDataSet.html">kedro.contrib.io.pyspark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.yaml_local.YAMLLocalDataSet.html">kedro.contrib.io.yaml_local.YAMLLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.gcs.CSVGCSDataSet.html">kedro.contrib.io.gcs.CSVGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.gcs.JSONGCSDataSet.html">kedro.contrib.io.gcs.JSONGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.gcs.ParquetGCSDataSet.html">kedro.contrib.io.gcs.ParquetGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.networkx.NetworkXLocalDataSet.html">kedro.contrib.io.networkx.NetworkXLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.transformers.ProfileTimeTransformer.html">kedro.contrib.io.transformers.ProfileTimeTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.config.templated_config.TemplatedConfigLoader.html">kedro.contrib.config.templated_config.TemplatedConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.colors.logging.ColorHandler.html">kedro.contrib.colors.logging.ColorHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.pyspark.pandas_to_spark.html">kedro.contrib.decorators.pyspark.pandas_to_spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.pyspark.spark_to_pandas.html">kedro.contrib.decorators.pyspark.spark_to_pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.retry.retry.html">kedro.contrib.decorators.retry.retry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.memory_profiler.mem_profile.html">kedro.contrib.decorators.memory_profiler.mem_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.cli.html">kedro.cli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.cli.get_project_context.html">kedro.cli.get_project_context</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.versioning.html">kedro.versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.versioning.Journal.html">kedro.versioning.Journal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.html#modules">Modules</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.html#errors">Errors</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.datasets.html">kedro.extras.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.datasets.html#data-sets">Data Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.biosequence.BioSequenceDataSet.html">kedro.extras.datasets.biosequence.BioSequenceDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.dask.ParquetDataSet.html">kedro.extras.datasets.dask.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.matplotlib.MatplotlibWriter.html">kedro.extras.datasets.matplotlib.MatplotlibWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.networkx.NetworkXDataSet.html">kedro.extras.datasets.networkx.NetworkXDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.CSVBlobDataSet.html">kedro.extras.datasets.pandas.CSVBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.CSVDataSet.html">kedro.extras.datasets.pandas.CSVDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.ExcelDataSet.html">kedro.extras.datasets.pandas.ExcelDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.FeatherDataSet.html">kedro.extras.datasets.pandas.FeatherDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.GBQTableDataSet.html">kedro.extras.datasets.pandas.GBQTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.HDFDataSet.html">kedro.extras.datasets.pandas.HDFDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.JSONBlobDataSet.html">kedro.extras.datasets.pandas.JSONBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.JSONDataSet.html">kedro.extras.datasets.pandas.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.ParquetDataSet.html">kedro.extras.datasets.pandas.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.SQLQueryDataSet.html">kedro.extras.datasets.pandas.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.SQLTableDataSet.html">kedro.extras.datasets.pandas.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkDataSet.html">kedro.extras.datasets.spark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkHiveDataSet.html">kedro.extras.datasets.spark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkJDBCDataSet.html">kedro.extras.datasets.spark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.text.TextDataSet.html">kedro.extras.datasets.text.TextDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.yaml.YAMLDataSet.html">kedro.extras.datasets.yaml.YAMLDataSet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.decorators.html">kedro.extras.decorators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.decorators.retry_node.retry.html">kedro.extras.decorators.retry_node.retry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.decorators.memory_profiler.mem_profile.html">kedro.extras.decorators.memory_profiler.mem_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.transformers.html">kedro.extras.transformers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.transformers.time_profiler.ProfileTimeTransformer.html">kedro.extras.transformers.time_profiler.ProfileTimeTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.logging.html">kedro.extras.logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.logging.ColorHandler.html">kedro.extras.logging.ColorHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kedro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Advanced IO</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/quantumblacklabs/kedro/tree/develop/docs/source" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="advanced-io">
+<h1>Advanced IO<a class="headerlink" href="#advanced-io" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Note:</em> This documentation is based on <code class="docutils literal notranslate"><span class="pre">Kedro</span> <span class="pre">0.15.8</span></code>, if you spot anything that is incorrect then please create an <a class="reference external" href="https://github.com/quantumblacklabs/kedro/issues">issue</a> or pull request.</div></blockquote>
+<p>In this tutorial, you will learn about advanced uses of the <a class="reference internal" href="../kedro.io.html"><span class="std std-ref">Kedro IO</span></a> module and understand the underlying implementation.</p>
+<p>Relevant API documentation: <a class="reference internal" href="../kedro.io.AbstractDataSet.html"><span class="doc">AbstractDataSet</span></a>, <a class="reference internal" href="../kedro.io.DataSetError.html"><span class="doc">DataSetError</span></a></p>
+<div class="section" id="error-handling">
+<h2>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h2>
+<p>We have custom exceptions for the main classes of errors that you can handle to deal with failures.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">(</span><span class="n">data_sets</span><span class="o">=</span><span class="nb">dict</span><span class="p">())</span>  <span class="c1"># empty catalog</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cars_df</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;cars&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">DataSetError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error raised.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="abstractdataset">
+<h2>AbstractDataSet<a class="headerlink" href="#abstractdataset" title="Permalink to this headline">¶</a></h2>
+<p>To understand what is going on behind the scenes, you should study the <a class="reference internal" href="../kedro.io.AbstractDataSet.html"><span class="doc">AbstractDataSet interface</span></a>. <code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code> is the underlying interface that all datasets extend. It requires subclasses to override the <code class="docutils literal notranslate"><span class="pre">_load</span></code> and <code class="docutils literal notranslate"><span class="pre">_save</span></code> and provides <code class="docutils literal notranslate"><span class="pre">load</span></code> and <code class="docutils literal notranslate"><span class="pre">save</span></code> methods that enrich the corresponding private methods with uniform error handling. It also requires subclasses to override <code class="docutils literal notranslate"><span class="pre">_describe</span></code>, which is used in logging the internal information about the instances of your custom <code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code> implementation.</p>
+<p>If you have a dataset called <code class="docutils literal notranslate"><span class="pre">parts</span></code>, you can make direct calls to it like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parts_df</span> <span class="o">=</span> <span class="n">parts</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>However, we recommend using a <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> instead (for more details, see <a class="reference internal" href="04_data_catalog.html"><span class="doc">this section</span></a> in the User Guide) as it has been designed to make all datasets available to project members.</p>
+<p>For contributors, if you would like to submit a new dataset, you will have to extend <code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code>. For a complete guide, please read <a class="reference internal" href="14_create_a_new_dataset.html"><span class="doc">Creating a new dataset</span></a>.</p>
+</div>
+<div class="section" id="versioning">
+<h2>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h2>
+<p>In order to enable versioning, you need to update the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> config file and set the <code class="docutils literal notranslate"><span class="pre">versioned</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">true</span></code> for the given dataset. If this is a custom dataset, the implementation must also:</p>
+<ol class="simple">
+<li>extend <code class="docutils literal notranslate"><span class="pre">kedro.io.core.AbstractVersionedDataSet</span></code> AND</li>
+<li>add <code class="docutils literal notranslate"><span class="pre">version</span></code> namedtuple as an argument to its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method AND</li>
+<li>call <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code> with positional arguments <code class="docutils literal notranslate"><span class="pre">filepath</span></code>, <code class="docutils literal notranslate"><span class="pre">version</span></code>, and, optionally, with a <code class="docutils literal notranslate"><span class="pre">glob</span></code> and an <code class="docutils literal notranslate"><span class="pre">exists</span></code> functions if it uses non-local filesystem (see <a class="reference internal" href="../kedro.extras.datasets.pandas.CSVDataSet.html"><span class="doc">kedro.extras.datasets.pandas.CSVDataSet</span></a> as an example) AND</li>
+<li>modify its <code class="docutils literal notranslate"><span class="pre">_describe</span></code>, <code class="docutils literal notranslate"><span class="pre">_load</span></code> and <code class="docutils literal notranslate"><span class="pre">_save</span></code> methods respectively to support versioning (see <a class="reference internal" href="../kedro.extras.datasets.pandas.CSVDataSet.html"><span class="doc">kedro.extras.datasets.pandas.CSVDataSet</span></a> for an example implementation)</li>
+</ol>
+<p>An example dataset could look similar to the below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">AbstractVersionedDataSet</span>
+
+
+<span class="k">class</span> <span class="nc">MyOwnDataSet</span><span class="p">(</span><span class="n">AbstractVersionedDataSet</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">,</span> <span class="n">filepath</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">),</span> <span class="n">version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_param1</span> <span class="o">=</span> <span class="n">param1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_param2</span> <span class="o">=</span> <span class="n">param2</span>
+
+    <span class="k">def</span> <span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+        <span class="n">load_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_load_path</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">load_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">save_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_save_path</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_version</span><span class="p">,</span> <span class="n">param1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_param1</span><span class="p">,</span> <span class="n">param2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_param2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> specifying:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;path-to-my-own-dataset&gt;.MyOwnDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/01_raw/my_data.csv</span>
+  <span class="nt">versioned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<div class="section" id="version-namedtuple">
+<h3><code class="docutils literal notranslate"><span class="pre">version</span></code> namedtuple<a class="headerlink" href="#version-namedtuple" title="Permalink to this headline">¶</a></h3>
+<p>Versioned dataset <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method must have an optional argument called <code class="docutils literal notranslate"><span class="pre">version</span></code> with a default value of <code class="docutils literal notranslate"><span class="pre">None</span></code>. If provided, this argument must be an instance of <a class="reference internal" href="../kedro.io.Version.html"><span class="doc">kedro.io.core.Version</span></a>. Its <code class="docutils literal notranslate"><span class="pre">load</span></code> and <code class="docutils literal notranslate"><span class="pre">save</span></code> attributes must either be <code class="docutils literal notranslate"><span class="pre">None</span></code> or contain string values representing exact load and save versions:</p>
+<ul class="simple">
+<li>If <code class="docutils literal notranslate"><span class="pre">version</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then the dataset is considered <em>not versioned</em>.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">version.load</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then the latest available version will be used to load the dataset, otherwise a string representing exact load version must be provided.</li>
+<li>If <code class="docutils literal notranslate"><span class="pre">version.save</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> then a new save version string will be generated by calling <code class="docutils literal notranslate"><span class="pre">kedro.io.core.generate_timestamp()</span></code>, otherwise a string representing exact save version must be provided.</li>
+</ul>
+</div>
+<div class="section" id="versioning-using-the-yaml-api">
+<h3>Versioning using the YAML API<a class="headerlink" href="#versioning-using-the-yaml-api" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to version a specific dataset is to change the corresponding entry in the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>.</p>
+<blockquote>
+<div><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> only allows you to choose to version your datasets but it does not allow to choose which version to load or save. In rare case it is strongly required you may want to instantiate your versioned datasets using Code API and define version parameter explicitly (see the <a class="reference external" href="#versioning-using-the-code-api">corresponding section</a> below).</div></blockquote>
+<p>For example, if the following dataset was defined in the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">cars</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">pandas.CSVDataSet</span>
+  <span class="nt">filepath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">data/01_raw/company/car_data.csv</span>
+  <span class="nt">versioned</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+<p>the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> will create a versioned <code class="docutils literal notranslate"><span class="pre">CSVDataSet</span></code> called <code class="docutils literal notranslate"><span class="pre">cars</span></code>. The actual csv file location will look like <code class="docutils literal notranslate"><span class="pre">data/01_raw/company/car_data.csv/&lt;version&gt;/car_data.csv</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;version&gt;</span></code> corresponds to a global save version string formatted as <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DDThh.mm.ss.sssZ</span></code>. Every time the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> is instantiated, it generates a new global save version, which is propagated to all versioned datasets it contains.</p>
+<blockquote>
+<div><strong>Important:</strong> the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> does not re-generate save versions between instantiations. Therefore, if you call <code class="docutils literal notranslate"><span class="pre">catalog.save('cars',</span> <span class="pre">some_data)</span></code> twice, then the second call will fail, since it tries to overwrite a versioned dataset using the same save version. To mitigate this, reload your data catalog by calling <code class="docutils literal notranslate"><span class="pre">%reload_kedro</span></code> line magic. This limitation does not apply to <code class="docutils literal notranslate"><span class="pre">load</span></code> operation.</div></blockquote>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> will load the latest version of the dataset. However, it is also possible to specify an exact load version. In order to do that, you can pass a dictionary with exact load versions to <code class="docutils literal notranslate"><span class="pre">DataCatalog.from_config</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">load_versions</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cars&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-02-13T14.35.36.518Z&quot;</span><span class="p">}</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">catalog_config</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">load_versions</span><span class="o">=</span><span class="n">load_versions</span><span class="p">)</span>
+<span class="n">cars</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;cars&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The last row in the example above would attempt to load a CSV file from <code class="docutils literal notranslate"><span class="pre">data/01_raw/company/car_data.csv/2019-02-13T14.35.36.518Z/car_data.csv</span></code>.</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">load_versions</span></code> configuration has an effect only if a dataset versioning has been enabled in the catalog config file - see the example above.</div></blockquote>
+<blockquote>
+<div><strong>Important:</strong> we recommend not to override <code class="docutils literal notranslate"><span class="pre">save_version</span></code> argument in <code class="docutils literal notranslate"><span class="pre">DataCatalog.from_config</span></code> unless strongly required to do so, since it may lead to inconsistencies between loaded and saved versions of the versioned datasets.</div></blockquote>
+</div>
+<div class="section" id="versioning-using-the-code-api">
+<h3>Versioning using the Code API<a class="headerlink" href="#versioning-using-the-code-api" title="Permalink to this headline">¶</a></h3>
+<p>Although we recommend enabling versioning using the <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> config file as described in the section above, you may require more control over load and save versions of a specific dataset. To achieve this you can instantiate <code class="docutils literal notranslate"><span class="pre">Version</span></code> and pass it as a parameter to the dataset initialisation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">DataCatalog</span><span class="p">,</span> <span class="n">Version</span>
+<span class="kn">from</span> <span class="nn">kedro.extras.datasets.pandas</span> <span class="kn">import</span> <span class="n">CSVDataSet</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;col1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;col2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;col3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;col1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="s2">&quot;col2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="s2">&quot;col3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">]})</span>
+<span class="n">version</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span>
+    <span class="n">load</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># load the latest available version</span>
+    <span class="n">save</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="c1"># generate save version automatically on each save operation</span>
+<span class="p">)</span>
+
+<span class="n">test_data_set</span> <span class="o">=</span> <span class="n">CSVDataSet</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;data/01_raw/test.csv&quot;</span><span class="p">,</span> <span class="n">save_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
+
+<span class="p">)</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">({</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">:</span> <span class="n">test_data_set</span><span class="p">})</span>
+
+<span class="c1"># save the dataset to data/01_raw/test.csv/&lt;version&gt;/test.csv</span>
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">,</span> <span class="n">data1</span><span class="p">)</span>
+<span class="c1"># save the dataset into a new file data/01_raw/test.csv/&lt;version&gt;/test.csv</span>
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">,</span> <span class="n">data2</span><span class="p">)</span>
+
+<span class="c1"># load the latest version from data/test.csv/*/test.csv</span>
+<span class="n">reloaded</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">data2</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">reloaded</span><span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> In the example above we did not fix any versions. If we do, then the behaviour of load and save operations becomes slightly different:</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span>
+    <span class="n">load</span><span class="o">=</span><span class="s2">&quot;my_exact_version&quot;</span><span class="p">,</span>  <span class="c1"># load exact version</span>
+    <span class="n">save</span><span class="o">=</span><span class="s2">&quot;my_exact_version&quot;</span><span class="p">,</span>  <span class="c1"># save to exact version</span>
+<span class="p">)</span>
+
+<span class="n">test_data_set</span> <span class="o">=</span> <span class="n">CSVDataSet</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;data/01_raw/test.csv&quot;</span><span class="p">,</span> <span class="n">save_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
+
+<span class="p">)</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">({</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">:</span> <span class="n">test_data_set</span><span class="p">})</span>
+
+<span class="c1"># save the dataset to data/01_raw/test.csv/my_exact_version/test.csv</span>
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">,</span> <span class="n">data1</span><span class="p">)</span>
+<span class="c1"># load from data/01_raw/test.csv/my_exact_version/test.csv</span>
+<span class="n">reloaded</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">data1</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">reloaded</span><span class="p">)</span>
+
+<span class="c1"># raises DataSetError since the path</span>
+<span class="c1"># data/01_raw/test.csv/my_exact_version/test.csv already exists</span>
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">,</span> <span class="n">data2</span><span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><strong>Important:</strong> Passing exact load and/or save versions to the dataset instantiation is not recommended, since it may lead to inconsistencies between operations. For example, if versions for load and save operations do not match, save operation would result in a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code> indicating that save a load versions do not match. Load after save may also return an error if the corresponding load version is not found:</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">version</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span>
+    <span class="n">load</span><span class="o">=</span><span class="s2">&quot;exact_load_version&quot;</span><span class="p">,</span>  <span class="c1"># load exact version</span>
+    <span class="n">save</span><span class="o">=</span><span class="s2">&quot;exact_save_version&quot;</span><span class="p">,</span>  <span class="c1"># save to exact version</span>
+<span class="p">)</span>
+
+<span class="n">test_data_set</span> <span class="o">=</span> <span class="n">CSVDataSet</span><span class="p">(</span>
+    <span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;data/01_raw/test.csv&quot;</span><span class="p">,</span> <span class="n">save_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span>
+
+<span class="p">)</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">({</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">:</span> <span class="n">test_data_set</span><span class="p">})</span>
+
+<span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">,</span> <span class="n">data1</span><span class="p">)</span>  <span class="c1"># emits a UserWarning due to version inconsistency</span>
+
+<span class="c1"># raises DataSetError since the data/01_raw/test.csv/exact_load_version/test.csv</span>
+<span class="c1"># file does not exist</span>
+<span class="n">reloaded</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;test_data_set&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="supported-datasets">
+<h3>Supported datasets<a class="headerlink" href="#supported-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Currently the following datasets support versioning:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.matplotlib.Matplotlib</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.networkx.NetworkXDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.CSVBlobDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.CSVDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.ExcelDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.FeatherDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.HDFDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.JSONDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.ParquetDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pickle.PickleDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.text.TextDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.spark.SparkDataSet</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.yaml.YAMLDataSet</span></code></li>
+</ul>
+<blockquote>
+<div><em>Note:</em> Although, HTTPs is a supported file system in the dataset implementations, it does not support versioning.</div></blockquote>
+</div>
+</div>
+<div class="section" id="partitioned-dataset">
+<h2>Partitioned dataset<a class="headerlink" href="#partitioned-dataset" title="Permalink to this headline">¶</a></h2>
+<p>These days distributed systems play an increasingly important role in ETL data pipelines. They significantly increase the processing throughput, enabling us to work with much larger volumes of input data. However, these benefits sometimes come at a cost. When dealing with the input data generated by such distributed systems, you may encounter a situation where your Kedro node needs to read the data from a directory full of uniform files of the same type (e.g. JSON, CSV, Parquet, etc.) rather than from a single file. Tools like <code class="docutils literal notranslate"><span class="pre">PySpark</span></code> and the corresponding <a class="reference internal" href="../kedro.contrib.io.pyspark.SparkDataSet.html"><span class="doc">SparkDataSet</span></a> cater for such use cases, but the use of Spark is not always feasible.</p>
+<p>This is the reason why Kedro provides a built-in <a class="reference internal" href="../kedro.io.PartitionedDataSet.html"><span class="doc">PartitionedDataSet</span></a>, which has the following features:</p>
+<ol class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> can recursively load all or specific files from a given location.</li>
+<li>Is platform agnostic and can work with any filesystem implementation supported by <a class="reference external" href="https://filesystem-spec.readthedocs.io/">fsspec</a> including local, S3, GCS, and many more.</li>
+<li>Implements a <a class="reference external" href="https://en.wikipedia.org/wiki/Lazy_loading">lazy loading</a> approach and does not attempt to load any partition data until a processing node explicitly requests it.</li>
+</ol>
+<blockquote>
+<div><em>Note:</em> In this section each individual file inside a given location is called a <strong>partition</strong>.</div></blockquote>
+<div class="section" id="partitioned-dataset-definition">
+<h3>Partitioned dataset definition<a class="headerlink" href="#partitioned-dataset-definition" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> definition can be put in your <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> like any other regular dataset definition; the definition represents the following structure:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf/base/catalog.yml</span>
+
+<span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;PartitionedDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>  <span class="c1"># path to the location of partitions</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>  <span class="c1"># shorthand notation for the dataset which will handle individual partitions</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="s">&quot;my_credentials&quot;</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">load_arg1</span><span class="p">:</span> <span class="s">&quot;value1&quot;</span>
+    <span class="nt">load_arg2</span><span class="p">:</span> <span class="s">&quot;value2&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div>Note: As any other dataset <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> can also be instantiated programmatically in Python:</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.extras.datasets.pandas</span> <span class="kn">import</span> <span class="n">CSVDataSet</span>
+<span class="kn">from</span> <span class="nn">kedro.io</span> <span class="kn">import</span> <span class="n">PartitionedDataSet</span>
+
+<span class="n">my_credentials</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>  <span class="c1"># credentials dictionary</span>
+
+<span class="n">my_partitioned_dataset</span> <span class="o">=</span> <span class="n">PartitionedDataSet</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;s3://my-bucket-name/path/to/folder&quot;</span><span class="p">,</span>
+    <span class="n">dataset</span><span class="o">=</span><span class="n">CSVDataSet</span><span class="p">,</span>
+    <span class="n">credentials</span><span class="o">=</span><span class="n">my_credentials</span><span class="p">,</span>
+    <span class="n">load_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;load_arg1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="s2">&quot;load_arg2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, if you need more granular configuration of the underlying dataset, its definition can be provided in full:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf/base/catalog.yml</span>
+
+<span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;PartitionedDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span>  <span class="c1"># full dataset config notation</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+    <span class="nt">load_args</span><span class="p">:</span>
+      <span class="nt">delimiter</span><span class="p">:</span> <span class="s">&quot;,&quot;</span>
+    <span class="nt">save_args</span><span class="p">:</span>
+      <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">credentials</span><span class="p">:</span> <span class="s">&quot;my_credentials&quot;</span>
+  <span class="nt">load_args</span><span class="p">:</span>
+    <span class="nt">load_arg1</span><span class="p">:</span> <span class="s">&quot;value1&quot;</span>
+    <span class="nt">load_arg2</span><span class="p">:</span> <span class="s">&quot;value2&quot;</span>
+  <span class="nt">filepath_arg</span><span class="p">:</span> <span class="s">&quot;filepath&quot;</span>  <span class="c1"># the argument of the dataset to pass the filepath to</span>
+  <span class="nt">filename_suffix</span><span class="p">:</span> <span class="s">&quot;.csv&quot;</span>
+</pre></div>
+</div>
+<p>Here is an exhaustive list of the arguments supported by <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code>:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="9%" />
+<col width="14%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Required</th>
+<th class="head">Supported types</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">path</span></code></td>
+<td>Yes</td>
+<td><code class="code docutils literal notranslate"><span class="pre">str</span></code></td>
+<td>Path to the folder containing partitioned data. If path starts with the protocol (e.g., <code class="code docutils literal notranslate"><span class="pre">s3://</span></code>) then the corresponding <code class="code docutils literal notranslate"><span class="pre">fsspec</span></code> concrete filesystem implementation will be used. If protocol is not specified, local filesystem will be used</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">dataset</span></code></td>
+<td>Yes</td>
+<td><code class="code docutils literal notranslate"><span class="pre">str</span></code>,  <code class="code docutils literal notranslate"><span class="pre">Type[AbstractDataSet]</span></code>,
+<code class="code docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">Any]</span></code></td>
+<td>Underlying dataset definition, for more details see [the section below](#dataset-definition)</td>
+</tr>
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">credentials</span></code></td>
+<td>No</td>
+<td><code class="code docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">Any]</span></code></td>
+<td>Protocol-specific options that will be passed to <code class="code docutils literal notranslate"><span class="pre">fsspec.filesystemcall</span></code>, for more details see [the section below](#partitioned-dataset-credentials)</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">load_args</span></code></td>
+<td>No</td>
+<td><code class="code docutils literal notranslate"><span class="pre">Dict[str,</span> <span class="pre">Any]</span></code></td>
+<td>Keyword arguments to be passed into <code class="code docutils literal notranslate"><span class="pre">find()</span></code> method of the corresponding filesystem implementation</td>
+</tr>
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">filepath_arg</span></code></td>
+<td>No
+(defaults to <code class="code docutils literal notranslate"><span class="pre">filepath</span></code>)</td>
+<td><code class="code docutils literal notranslate"><span class="pre">str</span></code></td>
+<td>Argument name of the underlying dataset initializer that will contain a path to an individual partition</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">filename_suffix</span></code></td>
+<td>No
+(defaults to an empty string)</td>
+<td><code class="code docutils literal notranslate"><span class="pre">str</span></code></td>
+<td>If specified, partitions that don’t end with this string will be ignored</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="dataset-definition">
+<h4>Dataset definition<a class="headerlink" href="#dataset-definition" title="Permalink to this headline">¶</a></h4>
+<p>Dataset definition should be passed into the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code>. The dataset definition is used to instantiate a new dataset object for each individual partition, and use that dataset object for load and save operations. Dataset definition supports shorthand and full notations.</p>
+<div class="section" id="shorthand-notation">
+<h5>Shorthand notation<a class="headerlink" href="#shorthand-notation" title="Permalink to this headline">¶</a></h5>
+<p>Requires you to only specify a class of the underlying dataset either as a string (e.g. <code class="docutils literal notranslate"><span class="pre">pandas.CSVDataSet</span></code> or a fully qualified class path like <code class="docutils literal notranslate"><span class="pre">kedro.extras.datasets.pandas.CSVDataSet</span></code>) or as a class object that is a subclass of the <a class="reference internal" href="../kedro.io.AbstractDataSet.html"><span class="doc">AbstractDataSet</span></a>.</p>
+</div>
+<div class="section" id="full-notation">
+<h5>Full notation<a class="headerlink" href="#full-notation" title="Permalink to this headline">¶</a></h5>
+<p>Full notation allows you to specify a dictionary with the full underlying dataset definition <em>except</em> the following arguments:</p>
+<ul class="simple">
+<li>The argument that receives the partition path (<code class="docutils literal notranslate"><span class="pre">filepath</span></code> by default) - if specified, a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code> will be emitted stating that this value will be overridden by individual partition paths</li>
+<li><code class="docutils literal notranslate"><span class="pre">credentials</span></code> key - specifying it will result in <code class="docutils literal notranslate"><span class="pre">DataSetError</span></code> being raised; dataset credentials should be passed into <code class="docutils literal notranslate"><span class="pre">credentials</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> rather than underlying dataset definition - see <a class="reference external" href="#partitioned-dataset-credentials">the section below</a> for details</li>
+<li><code class="docutils literal notranslate"><span class="pre">versioned</span></code> flag - specifying it will result in <code class="docutils literal notranslate"><span class="pre">DataSetError</span></code> being raised; versioning cannot be enabled for the underlying datasets</li>
+</ul>
+</div>
+</div>
+<div class="section" id="partitioned-dataset-credentials">
+<h4>Partitioned dataset credentials<a class="headerlink" href="#partitioned-dataset-credentials" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><em>Note:</em> Support for <code class="docutils literal notranslate"><span class="pre">dataset_credentials</span></code> key in the credentials for <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> is now deprecated. The dataset credentials should be specified explicitly inside the dataset config.</div></blockquote>
+<p>Credentials management for <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> is somewhat special in a sense that it may contain credentials for both <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> itself <em>and</em> the underlying dataset that is used for partition load and save. Top-level credentials are passed to the underlying dataset config (unless such config already has credentials configured), but not the other way around - dataset credentials are never propagated to the filesystem.</p>
+<p>Here is the full list of possible scenarios:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="11%" />
+<col width="37%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Top-level
+credentials</th>
+<th class="head">Underlying dataset
+credentials</th>
+<th class="head">Example <code class="code docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> definition</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Undefined</td>
+<td>Undefined</td>
+<td><code class="code docutils literal notranslate"><span class="pre">PartitionedDataSet(path=&quot;s3://bucket-name/path/to/folder&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">dataset=&quot;CSVDataSet&quot;)</span></code></td>
+<td>Credentials are not passed to the underlying dataset or the filesystem</td>
+</tr>
+<tr class="row-odd"><td>Undefined</td>
+<td>Specified</td>
+<td><code class="code docutils literal notranslate"><span class="pre">PartitionedDataSet(path=&quot;s3://bucket-name/path/to/folder&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">dataset={&quot;type&quot;:</span> <span class="pre">&quot;CSVDataSet&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">&quot;credentials&quot;:</span> <span class="pre">{&quot;secret&quot;:</span> <span class="pre">True}})</span></code></td>
+<td>Underlying dataset credentials are passed to the <code class="code docutils literal notranslate"><span class="pre">CSVDataSet</span></code>
+constructor, filesystem is instantiated without credentials</td>
+</tr>
+<tr class="row-even"><td>Specified</td>
+<td>Undefined</td>
+<td><code class="code docutils literal notranslate"><span class="pre">PartitionedDataSet(path=&quot;s3://bucket-name/path/to/folder&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">dataset=&quot;CSVDataSet&quot;,</span> <span class="pre">credentials={&quot;secret&quot;:</span> <span class="pre">True})</span></code></td>
+<td>Top-level credentials are passed to the underlying <code class="code docutils literal notranslate"><span class="pre">CSVDataSet</span></code>
+constructor and the filesystem</td>
+</tr>
+<tr class="row-odd"><td>Specified</td>
+<td><code class="code docutils literal notranslate"><span class="pre">None</span></code></td>
+<td><code class="code docutils literal notranslate"><span class="pre">PartitionedDataSet(path=&quot;s3://bucket-name/path/to/folder&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">dataset={&quot;type&quot;:</span> <span class="pre">&quot;CSVDataSet&quot;,</span> <span class="pre">&quot;credentials&quot;:</span> <span class="pre">None},</span></code>
+<code class="code docutils literal notranslate"><span class="pre">credentials={&quot;dataset_secret&quot;:</span> <span class="pre">True})</span></code></td>
+<td>Top-level credentials are passed to the filesystem, <code class="code docutils literal notranslate"><span class="pre">CSVDataSet</span></code> is
+instantiated without credentials - this way you can stop the top-level
+credentials from propagating into the dataset config</td>
+</tr>
+<tr class="row-even"><td>Specified</td>
+<td>Specified</td>
+<td><code class="code docutils literal notranslate"><span class="pre">PartitionedDataSet(path=&quot;s3://bucket-name/path/to/folder&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">dataset={&quot;type&quot;:</span> <span class="pre">&quot;CSVDataSet&quot;,</span></code>
+<code class="code docutils literal notranslate"><span class="pre">&quot;credentials&quot;:{&quot;dataset_secret&quot;:</span> <span class="pre">True}},</span></code>
+<code class="code docutils literal notranslate"><span class="pre">credentials={&quot;secret&quot;:</span> <span class="pre">True})</span></code></td>
+<td>Top-level credentials are passed to the filesystem, underlying dataset
+credentials are passed to the <code class="code docutils literal notranslate"><span class="pre">CSVDataSet</span></code> constructor</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="partitioned-dataset-load">
+<h3>Partitioned dataset load<a class="headerlink" href="#partitioned-dataset-load" title="Permalink to this headline">¶</a></h3>
+<p>Let’s assume that the Kedro pipeline that you are working with contains the node defined as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">node</span><span class="p">(</span><span class="n">concat_partitions</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;my_partitioned_dataset&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;concatenated_result&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The underlying node function <code class="docutils literal notranslate"><span class="pre">concat_partitions</span></code> may look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">concat_partitions</span><span class="p">(</span><span class="n">partitioned_input</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Concatenate input partitions into one pandas DataFrame.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        partitioned_input: A dictionary with partition ids as keys and load functions as values.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Pandas DataFrame representing a concatenation of all loaded partitions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">partition_key</span><span class="p">,</span> <span class="n">partition_load_func</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">partitioned_input</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="n">partition_data</span> <span class="o">=</span> <span class="n">partition_load_func</span><span class="p">()</span>  <span class="c1"># load the actual partition data</span>
+        <span class="c1"># concat with existing result</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">result</span><span class="p">,</span> <span class="n">partition_data</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>As you can see from the example above, on load <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> <em>does not</em> automatically load the data from the located partitions. Instead, <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> returns a dictionary with partition IDs as keys and the corresponding load functions as values. It allows the node that consumes the <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> to implement the logic that defines what partitions need to be loaded and how this data is going to be processed.</p>
+<blockquote>
+<div><p><em>Note:</em> Partition ID <em>does not</em> represent the whole partition path, but only a part of it that is unique for a given partition <em>and</em> filename suffix:</p>
+<p>Example 1: if <code class="docutils literal notranslate"><span class="pre">path=&quot;s3://my-bucket-name/folder&quot;</span></code> and partition is stored in <code class="docutils literal notranslate"><span class="pre">s3://my-bucket-name/folder/2019-12-04/data.csv</span></code> then its Partition ID is <code class="docutils literal notranslate"><span class="pre">2019-12-04/data.csv</span></code>.</p>
+<p>Example 2: if <code class="docutils literal notranslate"><span class="pre">path=&quot;s3://my-bucket-name/folder&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">filename_suffix=&quot;.csv&quot;</span></code> and partition is stored in <code class="docutils literal notranslate"><span class="pre">s3://my-bucket-name/folder/2019-12-04/data.csv</span></code> then its Partition ID is <code class="docutils literal notranslate"><span class="pre">2019-12-04/data</span></code>.</p>
+</div></blockquote>
+<blockquote>
+<div><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> implements caching on load operation, which means that if multiple nodes consume the same <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code>, they will all receive the same partition dictionary even if some new partitions were added to the folder after the first load has been completed. This is done deliberately to guarantee the consistency of load operations between the nodes and avoid race conditions. You can reset cache by calling <code class="docutils literal notranslate"><span class="pre">.invalidate_cache()</span></code> method of the partitioned dataset object.</div></blockquote>
+</div>
+<div class="section" id="partitioned-dataset-save">
+<h3>Partitioned dataset save<a class="headerlink" href="#partitioned-dataset-save" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code> also supports a save operation. Let’s assume the following configuration:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># conf/base/catalog.yml</span>
+
+<span class="nt">new_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;PartitionedDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+  <span class="nt">filename_suffix</span><span class="p">:</span> <span class="s">&quot;.csv&quot;</span>
+</pre></div>
+</div>
+<p>node definition:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="n">node</span><span class="p">(</span><span class="n">create_partitions</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;new_partitioned_dataset&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and underlying node function <code class="docutils literal notranslate"><span class="pre">create_partitions</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">create_partitions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Create new partitions and save using PartitionedDataSet.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with the partitions to create.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="c1"># create a file &quot;s3://my-bucket-name/part/foo.csv&quot;</span>
+        <span class="s2">&quot;part/foo&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}),</span>
+        <span class="c1"># create a file &quot;s3://my-bucket-name/part/bar.csv.csv&quot;</span>
+        <span class="s2">&quot;part/bar.csv&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}),</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> Writing to an existing partition may result in its data being overwritten, if this case is not specifically handled by the underlying dataset implementation. You should implement your own checks to ensure that no existing data is lost when writing to a <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code>. The simplest safety mechanism could be to use <em>partition IDs</em> that have a high chance of uniqueness - for example, the current timestamp.</div></blockquote>
+</div>
+<div class="section" id="incremental-loads-with-incrementaldataset">
+<h3>Incremental loads with <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code><a class="headerlink" href="#incremental-loads-with-incrementaldataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../kedro.io.IncrementalDataSet.html"><span class="doc">IncrementalDataSet</span></a> is a subclass of <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code>, which stores the information about the last processed partition in the so-called <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code>. <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> addresses the use case when partitions have to be processed incrementally, i.e. each subsequent pipeline run should only process the partitions which were not processed by the previous runs.</p>
+<p>This checkpoint, by default, is persisted to the location of the data partitions. For example, for <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> instantiated with path <code class="docutils literal notranslate"><span class="pre">s3://my-bucket-name/path/to/folder</span></code> the checkpoint will be saved to <code class="docutils literal notranslate"><span class="pre">s3://my-bucket-name/path/to/folder/CHECKPOINT</span></code>, unless checkpoint configuration is <a class="reference external" href="#checkpoint-configuration">explicitly overwritten</a>.</p>
+<blockquote>
+<div><em>Note:</em> The checkpoint file is only created <em>after</em> the partitioned dataset is explicitly <a class="reference external" href="#incremental-dataset-confirm">confirmed</a>.</div></blockquote>
+<div class="section" id="incremental-dataset-load">
+<h4>Incremental dataset load<a class="headerlink" href="#incremental-dataset-load" title="Permalink to this headline">¶</a></h4>
+<p>Loading <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> works similarly to <a class="reference external" href="#partitioned-dataset-load"><code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code></a> with several exceptions:</p>
+<ol class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> loads the data <em>eagerly</em>, so the values in the returned dictionary represent the actual data stored in the corresponding partition, rather than a pointer to the load function. <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> considers a partition relevant for processing if its ID satisfies the comparison function, given the checkpoint value.</li>
+<li><code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> <em>does not</em> raise a <code class="docutils literal notranslate"><span class="pre">DataSetError</span></code> if load finds no partitions to return - an empty dictionary is returned instead. An empty list of available partitions is part of a normal workflow for <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code>.</li>
+</ol>
+</div>
+<div class="section" id="incremental-dataset-save">
+<h4>Incremental dataset save<a class="headerlink" href="#incremental-dataset-save" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> save operation is identical to the <a class="reference external" href="#partitioned-dataset-save">save operation</a> of the <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code>.</p>
+</div>
+<div class="section" id="incremental-dataset-confirm">
+<h4>Incremental dataset confirm<a class="headerlink" href="#incremental-dataset-confirm" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><em>Note:</em> The checkpoint value <em>is not</em> automatically updated by the fact that a new set of partitions was successfully loaded or saved.</div></blockquote>
+<p>Partitioned dataset checkpoint update is triggered by an explicit <code class="docutils literal notranslate"><span class="pre">confirms</span></code> instruction in one of the nodes downstream. It can be the same node, which processes the partitioned dataset:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span>
+
+<span class="c1"># process and then confirm `IncrementalDataSet` within the same node</span>
+<span class="n">node</span><span class="p">(</span>
+    <span class="n">process_partitions</span><span class="p">,</span>
+    <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;my_partitioned_dataset&quot;</span><span class="p">,</span>
+    <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;my_processed_dataset&quot;</span><span class="p">,</span>
+    <span class="n">confirms</span><span class="o">=</span><span class="s2">&quot;my_partitioned_dataset&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, confirmation can be deferred to one of nodes downstream, allowing to implement extra validations before the loaded partitions are considered successfully processed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">node</span>
+
+<span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">process_partitions</span><span class="p">,</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;my_partitioned_dataset&quot;</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;my_processed_dataset&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="c1"># do something else</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">confirm_partitions</span><span class="p">,</span>
+            <span class="c1"># note that the node may not require &#39;my_partitioned_dataset&#39; as an input</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;my_processed_dataset&quot;</span><span class="p">,</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">confirms</span><span class="o">=</span><span class="s2">&quot;my_partitioned_dataset&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="c1"># ...</span>
+        <span class="n">node</span><span class="p">(</span>
+            <span class="n">func</span><span class="o">=</span><span class="n">do_something_else_with_partitions</span><span class="p">,</span>
+            <span class="c1"># will return the same partitions even though they were already confirmed</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;my_partitioned_dataset&quot;</span><span class="p">,</span> <span class="s2">&quot;my_processed_dataset&quot;</span><span class="p">],</span>
+            <span class="n">outputs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Here are 2 important notes about the confirmation operation:</p>
+<ol class="simple">
+<li>Confirming partitioned dataset does not affect any subsequent loads within the same run. All downstream nodes that input the same partitioned dataset as input, will all receive the <em>same</em> partitions. Partitions that are created externally during the run will also not affect the dataset loads and won’t appear in the list of loaded partitions until the next run or until the dataset object is <a class="reference external" href="/kedro.io.IncrementalDataSet#kedro.io.IncrementalDataSet.release">released</a>.</li>
+<li>A pipeline cannot contain more than one node confirming the same dataset.</li>
+</ol>
+</div>
+<div class="section" id="checkpoint-configuration">
+<h4>Checkpoint configuration<a class="headerlink" href="#checkpoint-configuration" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> does not require explicit configuration of the checkpoint unless there is a need to deviate from the defaults. To update the checkpoint configuration, add a <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> key containing the valid dataset configuration. This may be required if, say, the pipeline has read-only permissions to the location of partitions (or write operations are undesirable for any other reason), in such case <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code> can be configured to save the checkpoint elsewhere. <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> key also supports partial config updates where only some checkpoint attributes are overwritten, while the defaults are kept for the rest:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;IncrementalDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+  <span class="nt">checkpoint</span><span class="p">:</span>
+    <span class="c1"># update the filepath and load_args, but keep the dataset type unchanged</span>
+    <span class="nt">filepath</span><span class="p">:</span> <span class="s">&quot;gcs://other-bucket/CHECKPOINT&quot;</span>
+    <span class="nt">load_args</span><span class="p">:</span>
+      <span class="nt">k1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="special-checkpoint-config-keys">
+<h4>Special checkpoint config keys<a class="headerlink" href="#special-checkpoint-config-keys" title="Permalink to this headline">¶</a></h4>
+<p>Along with the standard dataset attributes, <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> config also accepts 2 special optional keys:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">comparison_func</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">operator.gt</span></code>) - fully qualified import path to the function that will be used to compare a partition ID with the checkpoint value, to determine if a partition should be processed. Such function must accept 2 positional string arguments - partition ID and checkpoint value, and return <code class="docutils literal notranslate"><span class="pre">True</span></code> if such partition is considered to be past the checkpoint. Specifying your own <code class="docutils literal notranslate"><span class="pre">comparison_func</span></code> may be useful if you need to customise checkpoint filtration mechanism - for example, you may want to implement windowed loading, where you always want to load the partitions representing the last calendar month. See the example config specifying a custom comparison function:</li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;IncrementalDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+  <span class="nt">checkpoint</span><span class="p">:</span>
+    <span class="nt">comparison_func</span><span class="p">:</span> <span class="s">&quot;my_module.path.to.custom_comparison_function&quot;</span>  <span class="c1"># the path must be importable</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">force_checkpoint</span></code> - if set, partitioned dataset will use this value as the checkpoint instead of loading the corresponding checkpoint file. This might be useful if you need to rollback the processing steps and reprocess some (or all) of the available partitions. See the example config forcing the checkpoint value:</li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;IncrementalDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+  <span class="nt">checkpoint</span><span class="p">:</span>
+    <span class="nt">force_checkpoint</span><span class="p">:</span> <span class="s">&quot;2020-01-01/data.csv&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> Specification of <code class="docutils literal notranslate"><span class="pre">force_checkpoint</span></code> is also supported via the shorthand notation as follows:</div></blockquote>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;IncrementalDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+  <span class="nt">checkpoint</span><span class="p">:</span> <span class="s">&quot;2020-01-01/data.csv&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> If you need to force the partitioned dataset to load all available partitions, set <code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> to an empty string:</div></blockquote>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">my_partitioned_dataset</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="s">&quot;IncrementalDataSet&quot;</span>
+  <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;s3://my-bucket-name/path/to/folder&quot;</span>
+  <span class="nt">dataset</span><span class="p">:</span> <span class="s">&quot;pandas.CSVDataSet&quot;</span>
+  <span class="nt">checkpoint</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="09_pyspark.html" class="btn btn-neutral float-right" title="Working with PySpark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="07_logging.html" class="btn btn-neutral float-left" title="Logging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, QuantumBlack Visual Analytics Limited
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

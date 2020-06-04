@@ -1,0 +1,6 @@
+kedro.extras.decorators.retry\_node.retry
+=========================================
+
+.. currentmodule:: kedro.extras.decorators.retry_node
+
+.. autofunction:: retry

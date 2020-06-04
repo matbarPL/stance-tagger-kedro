@@ -1,0 +1,38 @@
+kedro.extras.datasets.pandas.SQLTableDataSet
+============================================
+
+.. currentmodule:: kedro.extras.datasets.pandas
+
+.. autoclass:: SQLTableDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      SQLTableDataSet.DEFAULT_LOAD_ARGS
+      SQLTableDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      SQLTableDataSet.__init__
+      SQLTableDataSet.exists
+      SQLTableDataSet.from_config
+      SQLTableDataSet.get_last_load_version
+      SQLTableDataSet.get_last_save_version
+      SQLTableDataSet.load
+      SQLTableDataSet.release
+      SQLTableDataSet.save
+    
+   

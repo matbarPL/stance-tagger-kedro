@@ -1,0 +1,32 @@
+kedro.io.Version
+================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: Version
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      Version.load
+      Version.save
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      Version.count
+      Version.index
+    
+   

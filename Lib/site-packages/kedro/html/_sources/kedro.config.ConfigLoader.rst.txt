@@ -1,0 +1,25 @@
+kedro.config.ConfigLoader
+=========================
+
+.. currentmodule:: kedro.config
+
+.. autoclass:: ConfigLoader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ConfigLoader.__init__
+      ConfigLoader.get
+    
+   

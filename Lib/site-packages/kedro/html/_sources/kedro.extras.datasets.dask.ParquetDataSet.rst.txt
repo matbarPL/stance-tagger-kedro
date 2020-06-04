@@ -1,0 +1,39 @@
+kedro.extras.datasets.dask.ParquetDataSet
+=========================================
+
+.. currentmodule:: kedro.extras.datasets.dask
+
+.. autoclass:: ParquetDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      ParquetDataSet.DEFAULT_LOAD_ARGS
+      ParquetDataSet.DEFAULT_SAVE_ARGS
+      ParquetDataSet.fs_args
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ParquetDataSet.__init__
+      ParquetDataSet.exists
+      ParquetDataSet.from_config
+      ParquetDataSet.get_last_load_version
+      ParquetDataSet.get_last_save_version
+      ParquetDataSet.load
+      ParquetDataSet.release
+      ParquetDataSet.save
+    
+   

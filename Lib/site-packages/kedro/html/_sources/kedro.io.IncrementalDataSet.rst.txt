@@ -1,0 +1,40 @@
+kedro.io.IncrementalDataSet
+===========================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: IncrementalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      IncrementalDataSet.DEFAULT_CHECKPOINT_FILENAME
+      IncrementalDataSet.DEFAULT_CHECKPOINT_TYPE
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      IncrementalDataSet.__init__
+      IncrementalDataSet.confirm
+      IncrementalDataSet.exists
+      IncrementalDataSet.from_config
+      IncrementalDataSet.get_last_load_version
+      IncrementalDataSet.get_last_save_version
+      IncrementalDataSet.invalidate_cache
+      IncrementalDataSet.load
+      IncrementalDataSet.release
+      IncrementalDataSet.save
+    
+   

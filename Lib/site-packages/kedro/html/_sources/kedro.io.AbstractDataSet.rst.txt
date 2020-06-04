@@ -1,0 +1,30 @@
+kedro.io.AbstractDataSet
+========================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: AbstractDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      AbstractDataSet.exists
+      AbstractDataSet.from_config
+      AbstractDataSet.get_last_load_version
+      AbstractDataSet.get_last_save_version
+      AbstractDataSet.load
+      AbstractDataSet.release
+      AbstractDataSet.save
+    
+   

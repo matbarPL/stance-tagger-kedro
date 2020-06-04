@@ -1,0 +1,38 @@
+kedro.contrib.io.networkx.NetworkXLocalDataSet
+==============================================
+
+.. currentmodule:: kedro.contrib.io.networkx
+
+.. autoclass:: NetworkXLocalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      NetworkXLocalDataSet.DEFAULT_LOAD_ARGS
+      NetworkXLocalDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      NetworkXLocalDataSet.__init__
+      NetworkXLocalDataSet.exists
+      NetworkXLocalDataSet.from_config
+      NetworkXLocalDataSet.get_last_load_version
+      NetworkXLocalDataSet.get_last_save_version
+      NetworkXLocalDataSet.load
+      NetworkXLocalDataSet.release
+      NetworkXLocalDataSet.save
+    
+   

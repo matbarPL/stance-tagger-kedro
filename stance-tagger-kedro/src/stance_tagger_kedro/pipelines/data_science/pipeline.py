@@ -45,22 +45,24 @@ def create_pipeline(**kwargs):
                 ["classification_train", "params:model_classification_name","parameters"],
                 "fasttext_classification_model_path",
             ),
-            # node(
-            #     predict,
-            #     dict(model="fasttext_model", test_x="test"),
-            #     "example_predictions",
-            # ),
             node(report_accuracy_fasttext, ["fasttext_classification_model_path", "classification_test"], None),
             node(
                 train_fasttext_model,
                 ["favour_against_train", "params:model_favour_against_name", "parameters"],
                 "fasttext_favour_against_model_path",
             ),
-            # node(
-            #     predict,
-            #     dict(model="fasttext_model", test_x="test"),
-            #     "example_predictions",
-            # ),
-            node(report_accuracy_fasttext, ["fasttext_favour_against_model_path", "favour_against_test"], None)
+            node(report_accuracy_fasttext, ["fasttext_favour_against_model_path", "favour_against_test"], None),
+            node(
+                train_fasttext_model,
+                ["opinion_towards_train", "params:model_opinion_towards_name", "parameters"],
+                "fasttext_opinion_towards_model_path",
+            ),
+            node(report_accuracy_fasttext, ["fasttext_opinion_towards_model_path", "opinion_towards_test"], None),
+            node(
+                train_fasttext_model,
+                ["sentiment_train", "params:model_sentiment_name", "parameters"],
+                "fasttext_sentiment_model_path",
+            ),
+            node(report_accuracy_fasttext, ["fasttext_sentiment_model_path", "sentiment_test"], None)
         ]
     )

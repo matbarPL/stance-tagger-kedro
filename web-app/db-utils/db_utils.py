@@ -24,7 +24,7 @@ file_path = "..\\..\\stance-tagger-kedro\\data\\01_raw\\stances.csv"
 
 def add_text_to_database(file_path):
     d1 = datetime.strptime('1/1/2020 1:30 PM', '%m/%d/%Y %I:%M %p')
-    d2 = datetime.strptime('4/22/2020 4:50 AM', '%m/%d/%Y %I:%M %p')
+    d2 = datetime.strptime('5/30/2020 4:50 AM', '%m/%d/%Y %I:%M %p')
     df = pd.read_csv(file_path,delimiter = ",")
     for index,row in df.iterrows():
         text = Text(user_id = 1, body=row["Tweet"], title="", stance=row["Stance"],

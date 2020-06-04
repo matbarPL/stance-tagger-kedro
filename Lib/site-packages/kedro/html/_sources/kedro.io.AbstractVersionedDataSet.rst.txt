@@ -1,0 +1,31 @@
+kedro.io.AbstractVersionedDataSet
+=================================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: AbstractVersionedDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      AbstractVersionedDataSet.__init__
+      AbstractVersionedDataSet.exists
+      AbstractVersionedDataSet.from_config
+      AbstractVersionedDataSet.get_last_load_version
+      AbstractVersionedDataSet.get_last_save_version
+      AbstractVersionedDataSet.load
+      AbstractVersionedDataSet.release
+      AbstractVersionedDataSet.save
+    
+   

@@ -1,0 +1,25 @@
+kedro.io.AbstractTransformer
+============================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: AbstractTransformer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      AbstractTransformer.load
+      AbstractTransformer.save
+    
+   

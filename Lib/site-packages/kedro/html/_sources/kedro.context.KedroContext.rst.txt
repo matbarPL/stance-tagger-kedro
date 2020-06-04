@@ -1,0 +1,41 @@
+kedro.context.KedroContext
+==========================
+
+.. currentmodule:: kedro.context
+
+.. autoclass:: KedroContext
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      KedroContext.CONF_ROOT
+      KedroContext.catalog
+      KedroContext.config_loader
+      KedroContext.io
+      KedroContext.params
+      KedroContext.pipeline
+      KedroContext.pipelines
+      KedroContext.project_name
+      KedroContext.project_path
+      KedroContext.project_version
+      KedroContext.run_id
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      KedroContext.__init__
+      KedroContext.run
+    
+   

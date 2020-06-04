@@ -43,18 +43,19 @@
 # This is a data set used by the "Hello World" example pipeline provided with the project
 # template. Please feel free to remove it once you remove the example pipeline.
 
-example_iris_data:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/iris.csv
+#example_iris_data:
+#  type: pandas.CSVDataSet
+#  filepath: data/01_raw/iris.csv
+#
+#companies:
+#  type: pandas.CSVDataSet
+#  filepath: data/01_raw/companies.csv
+#
+#reviews:
+#  type: pandas.CSVDataSet
+#  filepath: data/01_raw/reviews.csv
 
-companies:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/companies.csv
 
-reviews:
-  type: pandas.CSVDataSet
-  filepath: data/01_raw/reviews.csv
-  
 stances_data:
-  type: pandas.CSVDataSet
+  type: CSVLocalDataSet
   filepath: data/01_raw/stances.csv

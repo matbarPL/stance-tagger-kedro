@@ -1,0 +1,38 @@
+kedro.pipeline.node.Node
+========================
+
+.. currentmodule:: kedro.pipeline.node
+
+.. autoclass:: Node
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      Node.confirms
+      Node.inputs
+      Node.name
+      Node.outputs
+      Node.short_name
+      Node.tags
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      Node.__init__
+      Node.decorate
+      Node.run
+      Node.tag
+    
+   

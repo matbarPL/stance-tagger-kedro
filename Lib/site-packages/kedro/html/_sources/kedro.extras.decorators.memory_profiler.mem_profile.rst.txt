@@ -1,0 +1,6 @@
+kedro.extras.decorators.memory\_profiler.mem\_profile
+=====================================================
+
+.. currentmodule:: kedro.extras.decorators.memory_profiler
+
+.. autofunction:: mem_profile

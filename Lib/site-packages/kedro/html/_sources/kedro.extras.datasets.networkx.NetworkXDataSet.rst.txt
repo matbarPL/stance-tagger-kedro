@@ -1,0 +1,39 @@
+kedro.extras.datasets.networkx.NetworkXDataSet
+==============================================
+
+.. currentmodule:: kedro.extras.datasets.networkx
+
+.. autoclass:: NetworkXDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      NetworkXDataSet.DEFAULT_LOAD_ARGS
+      NetworkXDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      NetworkXDataSet.__init__
+      NetworkXDataSet.exists
+      NetworkXDataSet.from_config
+      NetworkXDataSet.get_last_load_version
+      NetworkXDataSet.get_last_save_version
+      NetworkXDataSet.invalidate_cache
+      NetworkXDataSet.load
+      NetworkXDataSet.release
+      NetworkXDataSet.save
+    
+   

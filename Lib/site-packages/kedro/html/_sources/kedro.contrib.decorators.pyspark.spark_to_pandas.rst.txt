@@ -1,0 +1,6 @@
+kedro.contrib.decorators.pyspark.spark\_to\_pandas
+==================================================
+
+.. currentmodule:: kedro.contrib.decorators.pyspark
+
+.. autofunction:: spark_to_pandas

@@ -1,0 +1,38 @@
+kedro.contrib.io.pyspark.SparkJDBCDataSet
+=========================================
+
+.. currentmodule:: kedro.contrib.io.pyspark
+
+.. autoclass:: SparkJDBCDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      SparkJDBCDataSet.DEFAULT_LOAD_ARGS
+      SparkJDBCDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      SparkJDBCDataSet.__init__
+      SparkJDBCDataSet.exists
+      SparkJDBCDataSet.from_config
+      SparkJDBCDataSet.get_last_load_version
+      SparkJDBCDataSet.get_last_save_version
+      SparkJDBCDataSet.load
+      SparkJDBCDataSet.release
+      SparkJDBCDataSet.save
+    
+   

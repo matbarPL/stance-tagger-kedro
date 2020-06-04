@@ -3,11 +3,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from app import login
 from flask import url_for
-import base64
 from datetime import datetime, timedelta
-import os
 from flask_jwt_extended import (create_access_token)
-from flask import g
 
 @login.user_loader
 def load_user(id):
@@ -38,12 +35,10 @@ class PaginatedAPIMixin(object):
 
 class User(PaginatedAPIMixin, UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), unique=True)
-    password = db.Column(db.String(64), unique=True)
+    email = db.Column(db.String(64), unique=True)
     password_hash = db.Column(db.String(64))
     first_name = db.Column(db.String(120))
     last_name = db.Column(db.String(120))
-    email = db.Column(db.String(120), unique=True, index=True)
     token = db.Column(db.String(32), index=True, unique=True)
     token_expiration = db.Column(db.DateTime)
 
@@ -54,7 +49,7 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def from_dict(self, data, new_user=False):
-        for field in ['username', 'email']:
+        for field in ['first_name', 'last_name', 'email']:
             if field in data:
                 setattr(self, field, data[field])
         if new_user and 'password' in data:
@@ -63,7 +58,9 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
     def to_dict(self, include_email=False):
         data = {
             'id': self.id,
-            'username': self.username,
+            'email': self.email,
+            'frst_name': self.first_name,
+            'last_name': self.last_name,
             'token': self.token,
             '_links': {
                 'self': url_for('api.get_user', id=self.id)
@@ -79,7 +76,7 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
             return self.token
         # setattr(self, 'token', base64.b64encode(os.urandom(24)).decode('utf-8'))
         access_token = create_access_token(
-            identity={'username': self.username, 'email': self.email})
+            identity={'email': self.email, 'first_name': self.first_name, 'last_name': self.last_name})
         setattr(self, 'token', access_token)
         setattr(self,'token_expiration', now + timedelta(seconds=expires_in))
         db.session.add(self)
@@ -96,7 +93,7 @@ class User(PaginatedAPIMixin, UserMixin, db.Model):
         return user
 
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<User {} Password {}>'.format(self.email, self.password_hash)
 
 class Text(PaginatedAPIMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -112,7 +109,7 @@ class Text(PaginatedAPIMixin, db.Model):
     def to_dict(self):
         data = {
             'id': self.id,
-            'publication_date': self.publication_date,
+            'publication_date': self.publication_date.strftime("%d-%m-%Y"),
             'user_id': self.user_id,
             'body': self.body,
             'title': self.title,
@@ -125,8 +122,8 @@ class Text(PaginatedAPIMixin, db.Model):
 
     def from_dict(self, data):
         setattr(self, 'body', data['body'])
-        setattr(self, 'title', data['title'])
-        #add marking label and favour against
+        if 'title' in data:
+            setattr(self, 'title', data['title'])
 
     def __eq__(self, other):
         return self.body == other.body

@@ -1,0 +1,1509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>kedro.cli.cli &mdash; Kedro 0.15.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/qb1-sphinx-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme-overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/copybutton.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Kedro
+          
+
+          
+            
+            <img src="../../../_static/kedro_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_introduction/01_introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../01_introduction/01_introduction.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../01_introduction/01_introduction.html#learning-about-kedro">Learning about Kedro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../01_introduction/01_introduction.html#assumptions">Assumptions</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://www.python.org/">Official Python programming language website</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#python">List of free programming books and tutorials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html">Installation prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#macos-linux">macOS / Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#python-virtual-environments">Python virtual environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#using-conda">Using <code class="docutils literal notranslate"><span class="pre">conda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#create-an-environment-with-conda">Create an environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#activate-an-environment-with-conda">Activate an environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#other-conda-commands">Other <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../02_getting_started/01_prerequisites.html#alternatives-to-conda">Alternatives to <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_getting_started/02_install.html">Installation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_getting_started/03_new_project.html">Creating a new project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/03_new_project.html#create-a-new-project-interactively">Create a new project interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/03_new_project.html#create-a-new-project-from-a-configuration-file">Create a new project from a configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/03_new_project.html#starting-with-an-existing-project">Starting with an existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/03_new_project.html#install-project-dependencies">Install project dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html">A “Hello World” example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#project-directory-structure">Project directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#project-source-code">Project source code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#writing-code">Writing code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#project-components">Project components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#example-pipeline">Example pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#project-specific-configuration">Project-specific configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#sensitive-or-personal-configuration">Sensitive or personal configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#running-the-example">Running the example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../02_getting_started/04_hello_world.html#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_tutorial/01_workflow.html">Typical Kedro workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#development-workflow">Development workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#set-up-the-project-template">1. Set up the project template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#set-up-the-data">2. Set up the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#create-the-pipeline">3. Create the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#package-the-project">4. Package the project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#git-workflow">Git workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#creating-a-project-repository">Creating a project repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/01_workflow.html#submitting-your-changes-to-github">Submitting your changes to GitHub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_tutorial/02_tutorial_template.html">Kedro Spaceflights tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/02_tutorial_template.html#creating-the-tutorial-project">Creating the tutorial project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/02_tutorial_template.html#install-project-dependencies">Install project dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/02_tutorial_template.html#project-configuration">Project configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_tutorial/03_set_up_data.html">Setting up the data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/03_set_up_data.html#adding-your-datasets-to-data">Adding your datasets to <code class="docutils literal notranslate"><span class="pre">data</span></code></a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/reviews.csv">reviews.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/companies.csv">companies.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/shuttles.xlsx">shuttles.xlsx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/03_set_up_data.html#reference-all-datasets">Reference all datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/03_set_up_data.html#creating-custom-datasets">Creating custom datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/03_set_up_data.html#contributing-a-custom-dataset-implementation">Contributing a custom dataset implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html">Creating a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#node-basics">Node basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#assemble-nodes-into-a-pipeline">Assemble nodes into a pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#persisting-pre-processed-data">Persisting pre-processed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#creating-a-master-table">Creating a master table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#working-in-a-jupyter-notebook">Working in a Jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#extending-the-project-s-code">Extending the project’s code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#working-with-multiple-pipelines">Working with multiple pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#partial-pipeline-runs">Partial pipeline runs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#using-pipeline-name">Using pipeline name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#using-tags">Using tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#using-decorators-for-nodes-and-pipelines">Using decorators for nodes and pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#decorating-the-nodes">Decorating the nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#decorating-the-pipeline">Decorating the pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/04_create_pipelines.html#kedro-runners">Kedro runners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_tutorial/05_package_a_project.html">Packaging a project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/05_package_a_project.html#add-documentation-to-your-project">Add documentation to your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/05_package_a_project.html#package-your-project">Package your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/05_package_a_project.html#manage-project-dependencies">Manage project dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/05_package_a_project.html#extend-your-project">Extend your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../03_tutorial/05_package_a_project.html#what-is-next">What is next?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/01_setting_up_vscode.html">Setting up Visual Studio Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/01_setting_up_vscode.html#advanced-for-those-using-venv-virtualenv">Advanced: For those using <code class="docutils literal notranslate"><span class="pre">venv</span></code> / <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/01_setting_up_vscode.html#setting-up-tasks">Setting up tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/01_setting_up_vscode.html#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/01_setting_up_vscode.html#advanced-remote-interpreter-debugging">Advanced: Remote Interpreter / Debugging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/02_setting_up_pycharm.html">Setting up PyCharm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/02_setting_up_pycharm.html#set-up-run-configurations">Set up Run configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/02_setting_up_pycharm.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/02_setting_up_pycharm.html#advanced-remote-ssh-interpreter">Advanced: Remote SSH interpreter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/03_configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#local-and-base-configuration">Local and base configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#loading">Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#additional-configuration-environments">Additional configuration environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#templating-configuration">Templating configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#parameters">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#loading-parameters">Loading parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#specifying-parameters-at-runtime">Specifying parameters at runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#using-parameters">Using parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#credentials">Credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#aws-credentials">AWS credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/03_configuration.html#configuring-kedro-run-arguments">Configuring <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code> arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html">The Data Catalog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#using-the-data-catalog-within-kedro-configuration">Using the Data Catalog within Kedro configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#specifying-the-location-of-the-dataset">Specifying the location of the dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#using-the-data-catalog-with-the-yaml-api">Using the Data Catalog with the YAML API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#adding-parameters">Adding parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#feeding-in-credentials">Feeding in credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#loading-multiple-datasets-that-have-similar-configuration">Loading multiple datasets that have similar configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#transcoding-datasets">Transcoding datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#a-typical-example-of-transcoding">A typical example of transcoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#how-does-transcoding-work">How does transcoding work?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#transforming-datasets">Transforming datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#applying-built-in-transformers">Applying built-in transformers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#developing-your-own-transformer">Developing your own transformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#versioning-datasets-and-ml-models">Versioning datasets and ML models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#using-the-data-catalog-with-the-code-api">Using the Data Catalog with the Code API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#configuring-a-data-catalog">Configuring a Data Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#loading-datasets">Loading datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#behind-the-scenes">Behind the scenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#viewing-the-available-data-sources">Viewing the available data sources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#saving-data">Saving data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#saving-data-to-memory">Saving data to memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#saving-data-to-a-sql-database-for-querying">Saving data to a SQL database for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#saving-data-in-parquet">Saving data in parquet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/04_data_catalog.html#creating-your-own-dataset">Creating your own dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/05_nodes.html">Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#creating-a-pipeline-node">Creating a pipeline node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#node-definition-syntax">Node definition syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#syntax-for-input-variables">Syntax for input variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#syntax-for-output-variables">Syntax for output variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#tagging-nodes">Tagging nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#running-nodes">Running nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#applying-decorators-to-nodes">Applying decorators to nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/05_nodes.html#applying-multiple-decorators-to-nodes">Applying multiple decorators to nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html">Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#building-pipelines">Building pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#tagging-pipeline-nodes">Tagging pipeline nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#merging-pipelines">Merging pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#fetching-pipeline-nodes">Fetching pipeline nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#developing-modular-pipelines">Developing modular pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#what-are-modular-pipelines">What are modular pipelines?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#how-do-we-construct-modular-pipelines">How do we construct modular pipelines?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#structure">Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#ease-of-use-and-portability">Ease of use and portability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#a-modular-pipeline-example-template">A modular pipeline example template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#datasets">Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#connecting-existing-pipelines">Connecting existing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#using-a-modular-pipeline-twice">Using a modular pipeline twice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#bad-pipelines">Bad pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#pipeline-with-bad-nodes">Pipeline with bad nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#pipeline-with-circular-dependencies">Pipeline with circular dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#running-pipelines">Running pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#runners">Runners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#running-a-pipeline-by-name">Running a pipeline by name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#modifying-a-kedro-run">Modifying a <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#applying-decorators-on-pipelines">Applying decorators on pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#running-pipelines-with-io">Running pipelines with IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#outputting-to-a-file">Outputting to a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#partial-pipelines">Partial pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#partial-pipeline-starting-from-inputs">Partial pipeline starting from inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#partial-pipeline-starting-from-nodes">Partial pipeline starting from nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#partial-pipeline-ending-at-nodes">Partial pipeline ending at nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#partial-pipeline-from-nodes-with-tags">Partial pipeline from nodes with tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#running-only-some-nodes">Running only some nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/06_pipelines.html#recreating-missing-outputs">Recreating Missing Outputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/07_logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/07_logging.html#configure-logging">Configure logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/07_logging.html#use-logging">Use logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/07_logging.html#logging-for-anyconfig">Logging for <code class="docutils literal notranslate"><span class="pre">anyconfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html">Advanced IO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#abstractdataset">AbstractDataSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#versioning">Versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#version-namedtuple"><code class="docutils literal notranslate"><span class="pre">version</span></code> namedtuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#versioning-using-the-yaml-api">Versioning using the YAML API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#versioning-using-the-code-api">Versioning using the Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#supported-datasets">Supported datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#partitioned-dataset">Partitioned dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#partitioned-dataset-definition">Partitioned dataset definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#dataset-definition">Dataset definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#partitioned-dataset-credentials">Partitioned dataset credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#partitioned-dataset-load">Partitioned dataset load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#partitioned-dataset-save">Partitioned dataset save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#incremental-loads-with-incrementaldataset">Incremental loads with <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#incremental-dataset-load">Incremental dataset load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#incremental-dataset-save">Incremental dataset save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#incremental-dataset-confirm">Incremental dataset confirm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#checkpoint-configuration">Checkpoint configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/08_advanced_io.html#special-checkpoint-config-keys">Special checkpoint config keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/09_pyspark.html">Working with PySpark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/09_pyspark.html#initialising-a-sparksession">Initialising a <code class="docutils literal notranslate"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/09_pyspark.html#creating-a-sparkdataset">Creating a <code class="docutils literal notranslate"><span class="pre">SparkDataSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/09_pyspark.html#code-api">Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/09_pyspark.html#yaml-api">YAML API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/09_pyspark.html#working-with-pyspark-and-kedro-pipelines">Working with PySpark and Kedro pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html">Developing Kedro plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#global-and-project-commands">global and project commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#suggested-command-convention">Suggested command convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#working-with-click">Working with <code class="docutils literal notranslate"><span class="pre">click</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#contributing-process">Contributing process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#example-of-a-simple-plugin">Example of a simple plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#supported-plugins">Supported plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/10_developing_plugins.html#community-developed-plugins">Community-developed plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/11_ipython.html">Working with IPython and Jupyter Notebooks / Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#startup-script">Startup script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#working-with-context">Working with <code class="docutils literal notranslate"><span class="pre">context</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#additional-parameters-for-context-run">Additional parameters for <code class="docutils literal notranslate"><span class="pre">context.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#adding-global-variables">Adding global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#working-with-ipython">Working with IPython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#loading-datacatalog-in-ipython">Loading <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in IPython</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#working-from-jupyter">Working from Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#idle-notebooks">Idle notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#what-if-i-cannot-run-kedro-jupyter-notebook">What if I cannot run <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#loading-datacatalog-in-jupyter">Loading <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#saving-datacatalog-in-jupyter">Saving <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#using-parameters">Using parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#running-the-pipeline">Running the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#converting-functions-from-jupyter-notebooks-into-kedro-nodes">Converting functions from Jupyter Notebooks into Kedro nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#extras">Extras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#ipython-loader">IPython loader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../04_user_guide/11_ipython.html#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/12_working_with_databricks.html">Working with Databricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/12_working_with_databricks.html#databricks-connect-recommended">Databricks Connect (recommended)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/12_working_with_databricks.html#github-workflow-with-databricks">GitHub workflow with Databricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/13_journal.html">Journal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/13_journal.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/13_journal.html#context-journal-record">Context journal record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../04_user_guide/13_journal.html#dataset-journal-record">Dataset journal record</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/13_journal.html#steps-to-manually-reproduce-your-code-and-run-the-previous-pipeline">Steps to manually reproduce your code and run the previous pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html">Creating a new dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#scenario">Scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#project-setup">Project setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#problem">Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#the-anatomy-of-a-dataset">The anatomy of a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#implement-the-load-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_load</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#implement-the-save-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_save</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#implement-the-describe-method">Implement the <code class="docutils literal notranslate"><span class="pre">_describe</span></code> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#bringing-it-all-together">Bringing it all together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#integrating-with-partitioneddataset">Integrating with <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#adding-versioning">Adding Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#thread-safety-consideration">Thread-safety consideration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#handling-credentials-and-different-filesystems">Handling credentials and different filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../04_user_guide/14_create_a_new_dataset.html#contribute-your-dataset-to-kedro">Contribute your dataset to Kedro</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_resources/01_faq.html">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#what-are-the-primary-advantages-of-kedro">What are the primary advantages of Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#how-does-kedro-compare-to-other-projects">How does Kedro compare to other projects?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/01_faq.html#kedro-vs-workflow-schedulers">Kedro vs workflow schedulers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/01_faq.html#kedro-vs-other-etl-frameworks">Kedro vs other ETL frameworks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#how-can-i-find-out-more-about-kedro">How can I find out more about Kedro?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/01_faq.html#articles-podcasts-and-talks">Articles, podcasts and talks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/01_faq.html#kedro-used-on-real-world-use-cases">Kedro used on real-world use cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/01_faq.html#community-interaction">Community interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#what-is-data-engineering-convention">What is data engineering convention?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#what-version-of-python-does-kedro-use">What version of Python does Kedro use?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#how-do-i-upgrade-kedro">How do I upgrade Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#what-best-practice-should-i-follow-to-avoid-leaking-confidential-data">What best practice should I follow to avoid leaking confidential data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#what-is-the-philosophy-behind-kedro">What is the philosophy behind Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#where-do-i-store-my-custom-editor-configuration">Where do I store my custom editor configuration?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#how-do-i-look-up-an-api-function">How do I look up an API function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#how-do-i-build-documentation-for-my-project">How do I build documentation for my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/01_faq.html#how-do-i-build-documentation-about-kedro">How do I build documentation about Kedro?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html">Kedro architecture overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#building-blocks">Building blocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#project">Project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#kedro-cli-py"><code class="docutils literal notranslate"><span class="pre">kedro_cli.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#run-py"><code class="docutils literal notranslate"><span class="pre">run.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#kedro-yml"><code class="docutils literal notranslate"><span class="pre">.kedro.yml</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#kedro-init-py"><code class="docutils literal notranslate"><span class="pre">00-kedro-init.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#projectcontext"><code class="docutils literal notranslate"><span class="pre">ProjectContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#framework">Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#kedro-cli"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#kedro-cli-cli-py"><code class="docutils literal notranslate"><span class="pre">kedro/cli/cli.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#plugins"><code class="docutils literal notranslate"><span class="pre">plugins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#get-project-context"><code class="docutils literal notranslate"><span class="pre">get_project_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#load-context"><code class="docutils literal notranslate"><span class="pre">load_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#kedrocontext"><code class="docutils literal notranslate"><span class="pre">KedroContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#library">Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#configloader"><code class="docutils literal notranslate"><span class="pre">ConfigLoader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#pipeline"><code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#abstractrunner"><code class="docutils literal notranslate"><span class="pre">AbstractRunner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#datacatalog"><code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../06_resources/02_architecture_overview.html#abstractdataset"><code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_resources/03_commands_reference.html">Guide to CLI commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#autocomplete">Autocomplete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#global-kedro-commands">Global Kedro commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#project-specific-kedro-commands">Project-specific Kedro commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-run"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-install"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-test"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">test</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-package"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-build-docs"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">build-docs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-jupyter-notebook-kedro-jupyter-lab-kedro-ipython"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>, <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">lab</span></code>, <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">ipython</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-jupyter-convert"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">convert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-lint"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">lint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#kedro-activate-nbstripout"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">activate-nbstripout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/03_commands_reference.html#using-python">Using Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_resources/04_lint.html">Linting your Kedro project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_resources/05_logos.html">Images and icons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/05_logos.html#white-background">White background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/05_logos.html#icon">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/05_logos.html#icon-with-text">Icon with text</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../06_resources/05_logos.html#black-background">Black background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/05_logos.html#id1">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../06_resources/05_logos.html#id2">Icon with text</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../kedro.html">kedro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.config.html">kedro.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.config.ConfigLoader.html">kedro.config.ConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.config.TemplatedConfigLoader.html">kedro.config.TemplatedConfigLoader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.io.html">kedro.io</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.io.html#data-catalog">Data Catalog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.DataCatalog.html">kedro.io.DataCatalog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.io.html#data-sets">Data Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.CSVLocalDataSet.html">kedro.io.CSVLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.CSVHTTPDataSet.html">kedro.io.CSVHTTPDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.CSVS3DataSet.html">kedro.io.CSVS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.HDFLocalDataSet.html">kedro.io.HDFLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.HDFS3DataSet.html">kedro.io.HDFS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.JSONLocalDataSet.html">kedro.io.JSONLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.JSONDataSet.html">kedro.io.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.LambdaDataSet.html">kedro.io.LambdaDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.MemoryDataSet.html">kedro.io.MemoryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.ParquetLocalDataSet.html">kedro.io.ParquetLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.PartitionedDataSet.html">kedro.io.PartitionedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.IncrementalDataSet.html">kedro.io.IncrementalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.PickleLocalDataSet.html">kedro.io.PickleLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.PickleS3DataSet.html">kedro.io.PickleS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.SQLTableDataSet.html">kedro.io.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.SQLQueryDataSet.html">kedro.io.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.TextLocalDataSet.html">kedro.io.TextLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.ExcelLocalDataSet.html">kedro.io.ExcelLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.CachedDataSet.html">kedro.io.CachedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.DataCatalogWithDefault.html">kedro.io.DataCatalogWithDefault</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.io.html#errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.DataSetAlreadyExistsError.html">kedro.io.DataSetAlreadyExistsError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.DataSetError.html">kedro.io.DataSetError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.DataSetNotFoundError.html">kedro.io.DataSetNotFoundError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.io.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.AbstractDataSet.html">kedro.io.AbstractDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.AbstractVersionedDataSet.html">kedro.io.AbstractVersionedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.AbstractTransformer.html">kedro.io.AbstractTransformer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.io.Version.html">kedro.io.Version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.pipeline.html">kedro.pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.pipeline.Pipeline.html">kedro.pipeline.Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.pipeline.node.Node.html">kedro.pipeline.node.Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.pipeline.node.html">kedro.pipeline.node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.pipeline.decorators.log_time.html">kedro.pipeline.decorators.log_time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.runner.html">kedro.runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.runner.AbstractRunner.html">kedro.runner.AbstractRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.runner.SequentialRunner.html">kedro.runner.SequentialRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.runner.ParallelRunner.html">kedro.runner.ParallelRunner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.context.html">kedro.context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.context.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.context.KedroContext.html">kedro.context.KedroContext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.context.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.context.load_context.html">kedro.context.load_context</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.context.html#errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.context.KedroContextError.html">kedro.context.KedroContextError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.contrib.html">kedro.contrib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.io.html">kedro.contrib.io</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.catalog_with_default.DataCatalogWithDefault.html">kedro.contrib.io.catalog_with_default.DataCatalogWithDefault</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.azure.CSVBlobDataSet.html">kedro.contrib.io.azure.CSVBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.azure.JSONBlobDataSet.html">kedro.contrib.io.azure.JSONBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet.html">kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.cached.CachedDataSet.html">kedro.contrib.io.cached.CachedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.feather.FeatherLocalDataSet.html">kedro.contrib.io.feather.FeatherLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.matplotlib.MatplotlibLocalWriter.html">kedro.contrib.io.matplotlib.MatplotlibLocalWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.matplotlib.MatplotlibS3Writer.html">kedro.contrib.io.matplotlib.MatplotlibS3Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.parquet.ParquetS3DataSet.html">kedro.contrib.io.parquet.ParquetS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.pyspark.SparkDataSet.html">kedro.contrib.io.pyspark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.pyspark.SparkHiveDataSet.html">kedro.contrib.io.pyspark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.pyspark.SparkJDBCDataSet.html">kedro.contrib.io.pyspark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.yaml_local.YAMLLocalDataSet.html">kedro.contrib.io.yaml_local.YAMLLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.gcs.CSVGCSDataSet.html">kedro.contrib.io.gcs.CSVGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.gcs.JSONGCSDataSet.html">kedro.contrib.io.gcs.JSONGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.gcs.ParquetGCSDataSet.html">kedro.contrib.io.gcs.ParquetGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.networkx.NetworkXLocalDataSet.html">kedro.contrib.io.networkx.NetworkXLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.contrib.io.transformers.ProfileTimeTransformer.html">kedro.contrib.io.transformers.ProfileTimeTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.config.templated_config.TemplatedConfigLoader.html">kedro.contrib.config.templated_config.TemplatedConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.colors.logging.ColorHandler.html">kedro.contrib.colors.logging.ColorHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.decorators.pyspark.pandas_to_spark.html">kedro.contrib.decorators.pyspark.pandas_to_spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.decorators.pyspark.spark_to_pandas.html">kedro.contrib.decorators.pyspark.spark_to_pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.decorators.retry.retry.html">kedro.contrib.decorators.retry.retry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.contrib.decorators.memory_profiler.mem_profile.html">kedro.contrib.decorators.memory_profiler.mem_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.cli.html">kedro.cli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.cli.get_project_context.html">kedro.cli.get_project_context</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.versioning.html">kedro.versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.versioning.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.versioning.Journal.html">kedro.versioning.Journal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.versioning.html#modules">Modules</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.versioning.html#errors">Errors</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.extras.datasets.html">kedro.extras.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.extras.datasets.html#data-sets">Data Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.biosequence.BioSequenceDataSet.html">kedro.extras.datasets.biosequence.BioSequenceDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.dask.ParquetDataSet.html">kedro.extras.datasets.dask.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.matplotlib.MatplotlibWriter.html">kedro.extras.datasets.matplotlib.MatplotlibWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.networkx.NetworkXDataSet.html">kedro.extras.datasets.networkx.NetworkXDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.CSVBlobDataSet.html">kedro.extras.datasets.pandas.CSVBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.CSVDataSet.html">kedro.extras.datasets.pandas.CSVDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.ExcelDataSet.html">kedro.extras.datasets.pandas.ExcelDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.FeatherDataSet.html">kedro.extras.datasets.pandas.FeatherDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.GBQTableDataSet.html">kedro.extras.datasets.pandas.GBQTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.HDFDataSet.html">kedro.extras.datasets.pandas.HDFDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.JSONBlobDataSet.html">kedro.extras.datasets.pandas.JSONBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.JSONDataSet.html">kedro.extras.datasets.pandas.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.ParquetDataSet.html">kedro.extras.datasets.pandas.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.SQLQueryDataSet.html">kedro.extras.datasets.pandas.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.pandas.SQLTableDataSet.html">kedro.extras.datasets.pandas.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.spark.SparkDataSet.html">kedro.extras.datasets.spark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.spark.SparkHiveDataSet.html">kedro.extras.datasets.spark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.spark.SparkJDBCDataSet.html">kedro.extras.datasets.spark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.text.TextDataSet.html">kedro.extras.datasets.text.TextDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../kedro.extras.datasets.yaml.YAMLDataSet.html">kedro.extras.datasets.yaml.YAMLDataSet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.extras.decorators.html">kedro.extras.decorators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.extras.decorators.retry_node.retry.html">kedro.extras.decorators.retry_node.retry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.extras.decorators.memory_profiler.mem_profile.html">kedro.extras.decorators.memory_profiler.mem_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.extras.transformers.html">kedro.extras.transformers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.extras.transformers.time_profiler.ProfileTimeTransformer.html">kedro.extras.transformers.time_profiler.ProfileTimeTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../kedro.extras.logging.html">kedro.extras.logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../kedro.extras.logging.ColorHandler.html">kedro.extras.logging.ColorHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Kedro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>kedro.cli.cli</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for kedro.cli.cli</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2020 QuantumBlack Visual Analytics Limited</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,</span>
+<span class="c1"># EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES</span>
+<span class="c1"># OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND</span>
+<span class="c1"># NONINFRINGEMENT. IN NO EVENT WILL THE LICENSOR OR OTHER CONTRIBUTORS</span>
+<span class="c1"># BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN</span>
+<span class="c1"># ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF, OR IN</span>
+<span class="c1"># CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span>
+<span class="c1">#</span>
+<span class="c1"># The QuantumBlack Visual Analytics Limited (&quot;QuantumBlack&quot;) name and logo</span>
+<span class="c1"># (either separately or in combination, &quot;QuantumBlack Trademarks&quot;) are</span>
+<span class="c1"># trademarks of QuantumBlack. The License does not grant you any right or</span>
+<span class="c1"># license to the QuantumBlack Trademarks. You may not use the QuantumBlack</span>
+<span class="c1"># Trademarks or any confusingly similar mark as a trademark for your product,</span>
+<span class="c1">#     or use the QuantumBlack Trademarks in any other manner that might cause</span>
+<span class="c1"># confusion in the marketplace, including but not limited to in advertising,</span>
+<span class="c1"># on websites, or on software.</span>
+<span class="c1">#</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;kedro is a CLI for creating Kedro projects.</span>
+
+<span class="sd">This module implements commands available from the kedro CLI.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">import</span> <span class="nn">click</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">cookiecutter.main</span> <span class="kn">import</span> <span class="n">cookiecutter</span>
+
+<span class="kn">import</span> <span class="nn">kedro.config.default_logger</span>  <span class="c1"># noqa</span>
+<span class="kn">from</span> <span class="nn">kedro</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">version</span>
+<span class="kn">from</span> <span class="nn">kedro.cli.utils</span> <span class="kn">import</span> <span class="n">CommandCollection</span><span class="p">,</span> <span class="n">KedroCliError</span>
+<span class="kn">from</span> <span class="nn">kedro.context</span> <span class="kn">import</span> <span class="n">load_context</span>
+
+<span class="n">KEDRO_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">kedro</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="n">TEMPLATE_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">KEDRO_PATH</span><span class="p">,</span> <span class="s2">&quot;template&quot;</span><span class="p">)</span>
+<span class="n">CONTEXT_SETTINGS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">help_option_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;--help&quot;</span><span class="p">])</span>
+
+<span class="n">_VERBOSE</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">LOGO</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"> _            _</span>
+<span class="s2">| | _____  __| |_ __ ___</span>
+<span class="s2">| |/ / _ \/ _` | &#39;__/ _ \</span>
+<span class="s2">|   &lt;  __/ (_| | | | (_) |</span>
+<span class="s2">|_|\_\___|\__,_|_|  \___/</span>
+<span class="s2">v</span><span class="si">{}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">version</span>
+<span class="p">)</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="n">context_settings</span><span class="o">=</span><span class="n">CONTEXT_SETTINGS</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Kedro&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">version_option</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="s2">&quot;-V&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Show version and exit&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+    <span class="s2">&quot;--verbose&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-v&quot;</span><span class="p">,</span>
+    <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;See extensive logging and error stack traces.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">cli</span><span class="p">(</span><span class="n">verbose</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Kedro is a CLI for creating and using Kedro projects</span>
+<span class="sd">    For more information, type ``kedro info``.</span>
+
+<span class="sd">    When inside a Kedro project (created with `kedro new`) commands from</span>
+<span class="sd">    the project&#39;s `kedro_cli.py` file will also be available here.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_VERBOSE</span>  <span class="c1"># pylint: disable=global-statement</span>
+    <span class="n">_VERBOSE</span> <span class="o">=</span> <span class="n">verbose</span>
+
+
+<span class="n">ENTRY_POINT_GROUPS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;global&quot;</span><span class="p">:</span> <span class="s2">&quot;kedro.global_commands&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;project&quot;</span><span class="p">:</span> <span class="s2">&quot;kedro.project_commands&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;init&quot;</span><span class="p">:</span> <span class="s2">&quot;kedro.init&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;line_magic&quot;</span><span class="p">:</span> <span class="s2">&quot;kedro.line_magic&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">info</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get more information about kedro.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">LOGO</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span>
+        <span class="s2">&quot;kedro allows teams to create analytics</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;projects. It is developed as part of</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="s2">&quot;the Kedro initiative at QuantumBlack.&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">plugin_versions</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">plugin_hooks</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">hook</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">ENTRY_POINT_GROUPS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">entry_point</span> <span class="ow">in</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">iter_entry_points</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">):</span>
+            <span class="n">module_name</span> <span class="o">=</span> <span class="n">entry_point</span><span class="o">.</span><span class="n">module_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">plugin_version</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_distribution</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span><span class="o">.</span><span class="n">version</span>
+            <span class="n">plugin_versions</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">plugin_version</span>
+            <span class="n">plugin_hooks</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">hook</span><span class="p">)</span>
+
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">plugin_versions</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Installed plugins:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">plugin_name</span><span class="p">,</span> <span class="n">plugin_version</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">plugin_versions</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+            <span class="n">hooks</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">plugin_hooks</span><span class="p">[</span><span class="n">plugin_name</span><span class="p">]))</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2"> (hooks:</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">plugin_name</span><span class="p">,</span> <span class="n">plugin_version</span><span class="p">,</span> <span class="n">hooks</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;No plugins installed&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">short_help</span><span class="o">=</span><span class="s2">&quot;Create a new kedro project.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+    <span class="s2">&quot;--config&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-c&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Non-interactive mode, using a configuration yaml file.&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create a new kedro project, either interactively or from a</span>
+<span class="sd">    configuration file.</span>
+
+<span class="sd">    Create projects according to the Kedro default project template. This</span>
+<span class="sd">    template is ideal for analytics projects and comes with a data</span>
+<span class="sd">    architecture, folders for notebooks, configuration, source code, etc.</span>
+
+<span class="sd">    \b</span>
+<span class="sd">    ``kedro new``</span>
+<span class="sd">    Create a new project interactively.</span>
+
+<span class="sd">    \b</span>
+<span class="sd">    You will have to provide four choices:</span>
+<span class="sd">    * ``Project Name`` - name of the project, not to be confused with name of</span>
+<span class="sd">    the project folder.</span>
+<span class="sd">    * ``Repository Name`` - intended name of your project folder.</span>
+<span class="sd">    * ``Package Name`` - intended name of your Python package.</span>
+<span class="sd">    * ``Generate Example Pipeline`` - yes/no to generating an example pipeline</span>
+<span class="sd">    in your project.</span>
+
+<span class="sd">    \b</span>
+<span class="sd">    ``kedro new --config &lt;config.yml&gt;``</span>
+<span class="sd">    ``kedro new -c &lt;config.yml&gt;``</span>
+<span class="sd">    Create a new project from configuration.</span>
+
+<span class="sd">    * ``config.yml`` - The configuration YAML must contain at the top level</span>
+<span class="sd">                    the above parameters (project_name, repo_name,</span>
+<span class="sd">                    python_package, include_example) and output_dir - the</span>
+<span class="sd">                    parent directory for the new project directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_create_project</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">_VERBOSE</span><span class="p">)</span>
+
+
+<span class="nd">@cli</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">short_help</span><span class="o">=</span><span class="s2">&quot;See the kedro API docs and introductory tutorial.&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">docs</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Display the API docs and introductory tutorial in the browser,</span>
+<span class="sd">    using the packaged HTML doc files.&quot;&quot;&quot;</span>
+    <span class="n">index_path</span> <span class="o">=</span> <span class="s2">&quot;file://&quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s2">&quot;html&quot;</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;Opening &quot;</span> <span class="o">+</span> <span class="n">index_path</span><span class="p">)</span>
+    <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">index_path</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_clean_pycache</span><span class="p">(</span><span class="n">project_path</span><span class="p">):</span>
+    <span class="c1"># Since template is part of the Kedro package __pycache__ is generated.</span>
+    <span class="c1"># This method recursively cleans all __pycache__ folders.</span>
+    <span class="n">to_delete</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">filename</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">project_path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">&quot;**/*&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;__pycache__&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">to_delete</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_create_project</span><span class="p">(</span><span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implementation of the kedro new cli command.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config_path: In non-interactive mode, the path of the config.yml which</span>
+<span class="sd">            should contain the project_name, output_dir and repo_name.</span>
+<span class="sd">        verbose: Extensive debug terminal logs.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">config_path</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">_parse_config</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">_check_config_ok</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">_get_config_from_prompts</span><span class="p">()</span>
+        <span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;kedro_version&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
+
+        <span class="n">result_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+            <span class="n">cookiecutter</span><span class="p">(</span>
+                <span class="n">TEMPLATE_PATH</span><span class="p">,</span>
+                <span class="n">output_dir</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;output_dir&quot;</span><span class="p">],</span>
+                <span class="n">no_input</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">extra_context</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;include_example&quot;</span><span class="p">]:</span>
+            <span class="p">(</span><span class="n">result_path</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;01_raw&quot;</span> <span class="o">/</span> <span class="s2">&quot;iris.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+            <span class="n">pipelines_dir</span> <span class="o">=</span> <span class="n">result_path</span> <span class="o">/</span> <span class="s2">&quot;src&quot;</span> <span class="o">/</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;python_package&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="s2">&quot;pipelines&quot;</span>
+
+            <span class="k">for</span> <span class="n">dir_path</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="n">pipelines_dir</span> <span class="o">/</span> <span class="s2">&quot;data_engineering&quot;</span><span class="p">,</span>
+                <span class="n">pipelines_dir</span> <span class="o">/</span> <span class="s2">&quot;data_science&quot;</span><span class="p">,</span>
+            <span class="p">]:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dir_path</span><span class="p">))</span>
+
+        <span class="n">_clean_pycache</span><span class="p">(</span><span class="n">result_path</span><span class="p">)</span>
+        <span class="n">_print_kedro_new_success_message</span><span class="p">(</span><span class="n">result_path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">click</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Abort</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="n">_handle_exception</span><span class="p">(</span><span class="s2">&quot;User interrupt.&quot;</span><span class="p">)</span>
+    <span class="c1"># we don&#39;t want the user to see a stack trace on the cli</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+        <span class="n">_handle_exception</span><span class="p">(</span><span class="s2">&quot;Failed to generate project.&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_config_from_prompts</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Ask user to provide necessary inputs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Resulting config dictionary.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_get_user_input</span><span class="p">(</span>
+        <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">assert_or_check_funcs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Callable</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get user input and validate it.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text: Text to display in command line prompt.</span>
+<span class="sd">            default: Default value for the input.</span>
+<span class="sd">            assert_or_check_funcs: List of functions to apply to user input.</span>
+<span class="sd">                Value is overridden by function output if the latter is</span>
+<span class="sd">                not None.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Processed user value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">assert_or_check_funcs</span><span class="p">):</span>
+            <span class="n">assert_or_check_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">assert_or_check_funcs</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">assert_or_check_funcs</span> <span class="o">=</span> <span class="n">assert_or_check_funcs</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">click</span><span class="o">.</span><span class="n">prompt</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">_func</span> <span class="ow">in</span> <span class="n">assert_or_check_funcs</span><span class="p">:</span>
+                    <span class="n">_func</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">KedroCliError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">),</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="c1"># set output directory to the current directory</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
+
+    <span class="c1"># get project name</span>
+    <span class="n">project_name_prompt</span> <span class="o">=</span> <span class="n">_get_prompt_text</span><span class="p">(</span>
+        <span class="s2">&quot;Project Name:&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Please enter a human readable name for your new project.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Spaces and punctuation are allowed.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">project_name</span> <span class="o">=</span> <span class="n">_get_user_input</span><span class="p">(</span><span class="n">project_name_prompt</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;New Kedro Project&quot;</span><span class="p">)</span>
+
+    <span class="n">normalized_project_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^\w-]+&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">project_name</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+
+    <span class="c1"># get repo name</span>
+    <span class="n">repo_name_prompt</span> <span class="o">=</span> <span class="n">_get_prompt_text</span><span class="p">(</span>
+        <span class="s2">&quot;Repository Name:&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Please enter a directory name for your new project repository.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Alphanumeric characters, hyphens and underscores are allowed.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Lowercase is recommended.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">repo_name</span> <span class="o">=</span> <span class="n">_get_user_input</span><span class="p">(</span>
+        <span class="n">repo_name_prompt</span><span class="p">,</span> <span class="n">normalized_project_name</span><span class="p">,</span> <span class="n">_assert_repo_name_ok</span>
+    <span class="p">)</span>
+
+    <span class="c1"># get python package_name</span>
+    <span class="n">default_pkg_name</span> <span class="o">=</span> <span class="n">normalized_project_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+    <span class="n">pkg_name_prompt</span> <span class="o">=</span> <span class="n">_get_prompt_text</span><span class="p">(</span>
+        <span class="s2">&quot;Python Package Name:&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Please enter a valid Python package name for your project package.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Alphanumeric characters and underscores are allowed.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Lowercase is recommended. Package name must start with a letter &quot;</span>
+        <span class="s2">&quot;or underscore.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">python_package</span> <span class="o">=</span> <span class="n">_get_user_input</span><span class="p">(</span>
+        <span class="n">pkg_name_prompt</span><span class="p">,</span> <span class="n">default_pkg_name</span><span class="p">,</span> <span class="n">_assert_pkg_name_ok</span>
+    <span class="p">)</span>
+
+    <span class="c1"># option for whether iris example code is included in the project</span>
+    <span class="n">code_example_prompt</span> <span class="o">=</span> <span class="n">_get_prompt_text</span><span class="p">(</span>
+        <span class="s2">&quot;Generate Example Pipeline:&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Do you want to generate an example pipeline in your project?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Good for first-time users. (default=N)&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">include_example</span> <span class="o">=</span> <span class="n">click</span><span class="o">.</span><span class="n">confirm</span><span class="p">(</span><span class="n">code_example_prompt</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;output_dir&quot;</span><span class="p">:</span> <span class="n">output_dir</span><span class="p">,</span>
+        <span class="s2">&quot;project_name&quot;</span><span class="p">:</span> <span class="n">project_name</span><span class="p">,</span>
+        <span class="s2">&quot;repo_name&quot;</span><span class="p">:</span> <span class="n">repo_name</span><span class="p">,</span>
+        <span class="s2">&quot;python_package&quot;</span><span class="p">:</span> <span class="n">python_package</span><span class="p">,</span>
+        <span class="s2">&quot;include_example&quot;</span><span class="p">:</span> <span class="n">include_example</span><span class="p">,</span>
+    <span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_config</span><span class="p">(</span><span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Parse the config YAML from its path.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config_path: The path of the config.yml file.</span>
+<span class="sd">        verbose: Print the config contents.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception: If the file cannot be parsed.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The config as a dictionary.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">config_file</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="n">config_path</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">config</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s2">&quot;Failed to parse &quot;</span> <span class="o">+</span> <span class="n">config_path</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">_show_example_config</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="n">exc</span>
+
+
+<span class="k">def</span> <span class="nf">_check_config_ok</span><span class="p">(</span><span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Check that the configuration file contains all needed variables.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config_path: The path of the config file.</span>
+<span class="sd">        config: The config as a dictionary.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Config dictionary.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KedroCliError: If the config file is empty or does not contain all</span>
+<span class="sd">            keys from template/cookiecutter.json and output_dir.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_show_example_config</span><span class="p">()</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">config_path</span> <span class="o">+</span> <span class="s2">&quot; is empty&quot;</span><span class="p">)</span>
+
+    <span class="n">required_in_config</span> <span class="o">=</span> <span class="n">_get_default_config</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">required_in_config</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">var</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">config_path</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+            <span class="n">_show_example_config</span><span class="p">()</span>
+
+            <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">var</span> <span class="o">+</span> <span class="s2">&quot;] not found in &quot;</span> <span class="o">+</span> <span class="n">config_path</span><span class="p">)</span>
+
+    <span class="n">config</span><span class="p">[</span><span class="s2">&quot;output_dir&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_fix_user_path</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;output_dir&quot;</span><span class="p">])</span>
+    <span class="n">_assert_output_dir_ok</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;output_dir&quot;</span><span class="p">])</span>
+    <span class="n">_assert_repo_name_ok</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;repo_name&quot;</span><span class="p">])</span>
+    <span class="n">_assert_pkg_name_ok</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;python_package&quot;</span><span class="p">])</span>
+    <span class="n">_assert_include_example_ok</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;include_example&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">config</span>
+
+
+<span class="k">def</span> <span class="nf">_get_default_config</span><span class="p">():</span>
+    <span class="n">default_config_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TEMPLATE_PATH</span><span class="p">,</span> <span class="s2">&quot;default_config.yml&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">default_config_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">default_config_file</span><span class="p">:</span>
+        <span class="n">default_config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">default_config_file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">default_config</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_output_dir_ok</span><span class="p">(</span><span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check that output directory exists.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        output_dir: Output directory path.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KedroCliError: If the output directory does not exist.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` is not a valid output directory. &quot;</span>
+            <span class="s2">&quot;It must be a relative or absolute path &quot;</span>
+            <span class="s2">&quot;to an existing directory.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_pkg_name_ok</span><span class="p">(</span><span class="n">pkg_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check that python package name is in line with PEP8 requirements.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pkg_name: Candidate Python package name.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KedroCliError: If package name violates the requirements.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">base_message</span> <span class="o">=</span> <span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` is not a valid Python package name.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pkg_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[a-zA-Z_]&quot;</span><span class="p">,</span> <span class="n">pkg_name</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">base_message</span> <span class="o">+</span> <span class="s2">&quot; It must start with a letter or underscore.&quot;</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pkg_name</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">base_message</span> <span class="o">+</span> <span class="s2">&quot; It must be at least 2 characters long.&quot;</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\w+$&quot;</span><span class="p">,</span> <span class="n">pkg_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">base_message</span> <span class="o">+</span> <span class="s2">&quot; It must contain only letters, &quot;</span>
+            <span class="s2">&quot;digits, and/or underscores.&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_repo_name_ok</span><span class="p">(</span><span class="n">repo_name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\w+(-*\w+)*$&quot;</span><span class="p">,</span> <span class="n">repo_name</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` is not a valid repository name. It must contain &quot;</span>
+            <span class="s2">&quot;only word symbols and/or hyphens, must also start and &quot;</span>
+            <span class="s2">&quot;end with alphanumeric symbol.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">repo_name</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_include_example_ok</span><span class="p">(</span><span class="n">include_example</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">include_example</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;`</span><span class="si">{}</span><span class="s2">` value for `include_example` is invalid. It must be a boolean value &quot;</span>
+            <span class="s2">&quot;True or False.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">include_example</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_fix_user_path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">output_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">_show_example_config</span><span class="p">():</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s2">&quot;Example of valid config.yml:&quot;</span><span class="p">)</span>
+    <span class="n">default_config</span> <span class="o">=</span> <span class="n">_get_default_config</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">default_config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="n">key</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">click</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_print_kedro_new_success_message</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span>
+        <span class="s2">&quot;Change directory to the project generated in &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">resolve</span><span class="p">()),</span>
+        <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span>
+        <span class="s2">&quot;A best-practice setup includes initialising git and creating &quot;</span>
+        <span class="s2">&quot;a virtual environment before running `kedro install` to install &quot;</span>
+        <span class="s2">&quot;project-specific dependencies. Refer to the Kedro documentation: &quot;</span>
+        <span class="s2">&quot;https://kedro.readthedocs.io/&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_prompt_text</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="o">*</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">click</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">),</span> <span class="n">bold</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">prompt_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">prompt_text</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+
+<div class="viewcode-block" id="get_project_context"><a class="viewcode-back" href="../../../kedro.cli.get_project_context.html#kedro.cli.get_project_context">[docs]</a><span class="k">def</span> <span class="nf">get_project_context</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;context&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Gets the context value from context associated with the key.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key: Optional key to get associated value from Kedro context.</span>
+<span class="sd">        Supported keys are &quot;verbose&quot; and &quot;context&quot;, and it defaults to &quot;context&quot;.</span>
+<span class="sd">        kwargs: Optional custom arguments defined by users, which will be passed into</span>
+<span class="sd">        the constructor of the projects KedroContext subclass.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Requested value from Kedro context dictionary or the default if the key</span>
+<span class="sd">            was not found.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KedroCliError: When the key is not found and the default value was not</span>
+<span class="sd">            specified.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_deprecation_msg</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+        <span class="n">msg_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;get_config&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;config_loader&quot;</span><span class="p">,</span> <span class="s2">&quot;ConfigLoader&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;create_catalog&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;DataCatalog&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;create_pipeline&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pipeline&quot;</span><span class="p">,</span> <span class="s2">&quot;Pipeline&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;template_version&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;project_version&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="s2">&quot;project_name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;project_name&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+            <span class="s2">&quot;project_path&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;project_path&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="n">attr</span><span class="p">,</span> <span class="n">obj_name</span> <span class="o">=</span> <span class="n">msg_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;`get_project_context(&quot;</span><span class="si">{}</span><span class="s1">&quot;)` is now deprecated. &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">obj_name</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="p">(</span>
+                <span class="s2">&quot;This is still returning a function that returns `</span><span class="si">{}</span><span class="s2">` &quot;</span>
+                <span class="s2">&quot;instance, however passed arguments have no effect anymore &quot;</span>
+                <span class="s2">&quot;since Kedro 0.15.0. &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">obj_name</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">msg</span> <span class="o">+=</span> <span class="p">(</span>
+            <span class="s2">&quot;Please get `KedroContext` instance by calling `get_project_context()` &quot;</span>
+            <span class="s2">&quot;and use its `</span><span class="si">{}</span><span class="s2">` attribute.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">msg</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="n">load_context</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="c1"># Dictionary to be compatible with existing Plugins. Future plugins should</span>
+    <span class="c1"># retrieve necessary Kedro project properties from context</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;context&quot;</span><span class="p">:</span> <span class="n">context</span><span class="p">,</span>
+        <span class="s2">&quot;get_config&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">project_path</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">config_loader</span><span class="p">,</span>
+        <span class="s2">&quot;create_catalog&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">config</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">catalog</span><span class="p">,</span>
+        <span class="s2">&quot;create_pipeline&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="o">**</span><span class="n">kw</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">pipeline</span><span class="p">,</span>
+        <span class="s2">&quot;template_version&quot;</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">project_version</span><span class="p">,</span>
+        <span class="s2">&quot;project_name&quot;</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">project_name</span><span class="p">,</span>
+        <span class="s2">&quot;project_path&quot;</span><span class="p">:</span> <span class="n">context</span><span class="o">.</span><span class="n">project_path</span><span class="p">,</span>
+        <span class="s2">&quot;verbose&quot;</span><span class="p">:</span> <span class="n">_VERBOSE</span><span class="p">,</span>
+    <span class="p">}[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="s2">&quot;context&quot;</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">_deprecation_msg</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">load_entry_points</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Load package entry point commands.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name: The key value specified in ENTRY_POINT_GROUPS.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        Exception: If loading an entry point failed.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of entry point commands.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">entry_points</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">iter_entry_points</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">ENTRY_POINT_GROUPS</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+    <span class="n">entry_point_commands</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">entry_point</span> <span class="ow">in</span> <span class="n">entry_points</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">entry_point_commands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry_point</span><span class="o">.</span><span class="n">load</span><span class="p">())</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+            <span class="n">_handle_exception</span><span class="p">(</span>
+                <span class="s2">&quot;Loading </span><span class="si">{}</span><span class="s2"> commands from </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">entry_point</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span>
+    <span class="k">return</span> <span class="n">entry_point_commands</span>
+
+
+<span class="k">def</span> <span class="nf">_init_plugins</span><span class="p">():</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">ENTRY_POINT_GROUPS</span><span class="p">[</span><span class="s2">&quot;init&quot;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">entry_point</span> <span class="ow">in</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">iter_entry_points</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">init_hook</span> <span class="o">=</span> <span class="n">entry_point</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+            <span class="n">init_hook</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+            <span class="n">_handle_exception</span><span class="p">(</span><span class="s2">&quot;Initializing </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">entry_point</span><span class="p">)),</span> <span class="n">end</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Main entry point, look for a `kedro_cli.py` and if found add its</span>
+<span class="sd">    commands to `kedro`&#39;s then invoke the cli.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_init_plugins</span><span class="p">()</span>
+
+    <span class="n">global_groups</span> <span class="o">=</span> <span class="p">[</span><span class="n">cli</span><span class="p">]</span>
+    <span class="n">global_groups</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">load_entry_points</span><span class="p">(</span><span class="s2">&quot;global&quot;</span><span class="p">))</span>
+    <span class="n">project_groups</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># load project commands from kedro_cli.py</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+    <span class="n">kedro_cli_path</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">&quot;kedro_cli.py&quot;</span>
+
+    <span class="k">if</span> <span class="n">kedro_cli_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+            <span class="n">kedro_cli</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;kedro_cli&quot;</span><span class="p">)</span>
+            <span class="n">project_groups</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">load_entry_points</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">))</span>
+            <span class="n">project_groups</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kedro_cli</span><span class="o">.</span><span class="n">cli</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pylint: disable=broad-except</span>
+            <span class="n">_handle_exception</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot load commands from </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">kedro_cli_path</span><span class="p">))</span>
+            <span class="p">)</span>
+    <span class="n">CommandCollection</span><span class="p">(</span>
+        <span class="p">(</span><span class="s2">&quot;Global commands&quot;</span><span class="p">,</span> <span class="n">global_groups</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;Project specific commands&quot;</span><span class="p">,</span> <span class="n">project_groups</span><span class="p">),</span>
+    <span class="p">)()</span>
+
+
+<span class="k">def</span> <span class="nf">_handle_exception</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pretty print the current exception then exit.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_VERBOSE</span><span class="p">:</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">(),</span> <span class="n">nl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">etype</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span>
+            <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">traceback</span><span class="o">.</span><span class="n">format_exception_only</span><span class="p">(</span><span class="n">etype</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+            <span class="o">+</span> <span class="s2">&quot;Run with --verbose to see the full exception&quot;</span><span class="p">,</span>
+            <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;yellow&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">end</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">KedroCliError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">secho</span><span class="p">(</span><span class="s2">&quot;Error: &quot;</span> <span class="o">+</span> <span class="n">msg</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>  <span class="c1"># pragma: no cover</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, QuantumBlack Visual Analytics Limited
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -4,6 +4,8 @@
 # `src/pipelines/`
 model_classification_name: "classification"
 model_favour_against_name: "favour_against"
+model_opinion_towards_name: "opinion_towards"
+model_sentiment_name: "sentiment"
 example_test_data_ratio: 0.2
 example_num_train_iter: 10000
 example_learning_rate: 0.01

@@ -1,0 +1,38 @@
+kedro.extras.datasets.pandas.FeatherDataSet
+===========================================
+
+.. currentmodule:: kedro.extras.datasets.pandas
+
+.. autoclass:: FeatherDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      FeatherDataSet.DEFAULT_LOAD_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      FeatherDataSet.__init__
+      FeatherDataSet.exists
+      FeatherDataSet.from_config
+      FeatherDataSet.get_last_load_version
+      FeatherDataSet.get_last_save_version
+      FeatherDataSet.invalidate_cache
+      FeatherDataSet.load
+      FeatherDataSet.release
+      FeatherDataSet.save
+    
+   

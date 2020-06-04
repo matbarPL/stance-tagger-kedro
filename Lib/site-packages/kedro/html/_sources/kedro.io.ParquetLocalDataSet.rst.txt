@@ -1,0 +1,38 @@
+kedro.io.ParquetLocalDataSet
+============================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: ParquetLocalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      ParquetLocalDataSet.DEFAULT_LOAD_ARGS
+      ParquetLocalDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ParquetLocalDataSet.__init__
+      ParquetLocalDataSet.exists
+      ParquetLocalDataSet.from_config
+      ParquetLocalDataSet.get_last_load_version
+      ParquetLocalDataSet.get_last_save_version
+      ParquetLocalDataSet.load
+      ParquetLocalDataSet.release
+      ParquetLocalDataSet.save
+    
+   

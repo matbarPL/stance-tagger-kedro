@@ -1,0 +1,25 @@
+kedro.versioning.Journal
+========================
+
+.. currentmodule:: kedro.versioning
+
+.. autoclass:: Journal
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      Journal.__init__
+      Journal.log_catalog
+    
+   

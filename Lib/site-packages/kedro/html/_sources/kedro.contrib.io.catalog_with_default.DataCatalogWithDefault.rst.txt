@@ -1,0 +1,37 @@
+kedro.contrib.io.catalog\_with\_default.DataCatalogWithDefault
+==============================================================
+
+.. currentmodule:: kedro.contrib.io.catalog_with_default
+
+.. autoclass:: DataCatalogWithDefault
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      DataCatalogWithDefault.__init__
+      DataCatalogWithDefault.add
+      DataCatalogWithDefault.add_all
+      DataCatalogWithDefault.add_feed_dict
+      DataCatalogWithDefault.add_transformer
+      DataCatalogWithDefault.confirm
+      DataCatalogWithDefault.exists
+      DataCatalogWithDefault.from_config
+      DataCatalogWithDefault.from_data_catalog
+      DataCatalogWithDefault.list
+      DataCatalogWithDefault.load
+      DataCatalogWithDefault.release
+      DataCatalogWithDefault.save
+      DataCatalogWithDefault.shallow_copy
+    
+   

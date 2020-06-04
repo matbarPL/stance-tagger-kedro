@@ -1,13 +1,12 @@
 from app.api import bp
-from flask import jsonify
+from flask import jsonify, redirect
 from app.models import User
 from flask import request
 from app.api.errors import bad_request
 from flask import url_for
 from app import db
-from flask import g, abort
+from flask import g
 from app.api.auth import token_auth
-from app.api.auth import basic_auth
 
 @bp.route('/users/<int:id>', methods=['GET'])
 @token_auth.login_required
@@ -25,27 +24,27 @@ def get_users():
 @bp.route('/users/login', methods=['POST'])
 def login_user():
     data = request.get_json() or {}
-    if 'username' not in data or 'password' not in data:
-        return bad_request('must include username and password fields')
-    if not basic_auth.verify_password(data['username'], data['password']):
+    if 'email' not in data or 'password' not in data:
+        return bad_request('Invalid form')
+    user = User.query.filter_by(email=data['email']).first()
+    if user is None:
+        return False
+    if not user.check_password(data['password']):
         response = jsonify({"error": "Invalid username or password"})
     else:
-        user = User.query.filter_by(username=data['username']).first()
+        g.current_user = user
         response = jsonify({'token': user.get_token()})
         response.status_code = 201
         response.headers['Location'] = url_for('api.login_user', id=user.id)
     return response
 
-
 @bp.route('/users/register', methods=['POST'])
 def create_user():
     data = request.get_json() or {}
-    if 'username' not in data or 'email' not in data or 'password' not in data:
-        return bad_request('must include username, email and password fields')
-    if User.query.filter_by(username=data['username']).first():
-        return bad_request('please use a different username')
+    if 'first_name' not in data or 'last_name' not in data or 'password' not in data:
+        return bad_request('Invalid form')
     if User.query.filter_by(email=data['email']).first():
-        return bad_request('please use a different email address')
+        return bad_request('please use a different email')
     user = User()
     user.from_dict(data, new_user=True)
     db.session.add(user)
@@ -55,20 +54,11 @@ def create_user():
     response.headers['Location'] = url_for('api.get_user', id=user.id)
     return response
 
-@bp.route('/users/<int:id>', methods=['PUT'])
-@token_auth.login_required
-def update_user(id):
-    if g.current_user.id != id:
-        abort(403)
-    user = User.query.get_or_404(id)
+@bp.route('/users/update', methods=['PUT'])
+def update_user():
     data = request.get_json() or {}
-    if 'username' in data and data['username'] != user.username and \
-            User.query.filter_by(username=data['username']).first():
-        return bad_request('please use a different username')
-    if 'email' in data and data['email'] != user.email and \
-            User.query.filter_by(email=data['email']).first():
-        return bad_request('please use a different email address')
+    user = User.check_token(data['token'])
     user.from_dict(data, new_user=False)
+    user.get_token()
     db.session.commit()
     return jsonify(user.to_dict())
-

@@ -1,0 +1,25 @@
+kedro.contrib.io.transformers.ProfileTimeTransformer
+====================================================
+
+.. currentmodule:: kedro.contrib.io.transformers
+
+.. autoclass:: ProfileTimeTransformer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ProfileTimeTransformer.load
+      ProfileTimeTransformer.save
+    
+   

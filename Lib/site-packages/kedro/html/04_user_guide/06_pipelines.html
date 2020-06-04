@@ -1,0 +1,1816 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Pipelines &mdash; Kedro 0.15.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/qb1-sphinx-rtd.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme-overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/copybutton.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging" href="07_logging.html" />
+    <link rel="prev" title="Nodes" href="05_nodes.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Kedro
+          
+
+          
+            
+            <img src="../_static/kedro_logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/01_introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#learning-about-kedro">Learning about Kedro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_introduction/01_introduction.html#assumptions">Assumptions</a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://www.python.org/">Official Python programming language website</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md#python">List of free programming books and tutorials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/01_prerequisites.html">Installation prerequisites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#macos-linux">macOS / Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#windows">Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#python-virtual-environments">Python virtual environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#using-conda">Using <code class="docutils literal notranslate"><span class="pre">conda</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#create-an-environment-with-conda">Create an environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#activate-an-environment-with-conda">Activate an environment with <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#other-conda-commands">Other <code class="docutils literal notranslate"><span class="pre">conda</span></code> commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/01_prerequisites.html#alternatives-to-conda">Alternatives to <code class="docutils literal notranslate"><span class="pre">conda</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/02_install.html">Installation guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/03_new_project.html">Creating a new project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#create-a-new-project-interactively">Create a new project interactively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#create-a-new-project-from-a-configuration-file">Create a new project from a configuration file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#starting-with-an-existing-project">Starting with an existing project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/03_new_project.html#install-project-dependencies">Install project dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_getting_started/04_hello_world.html">A “Hello World” example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-directory-structure">Project directory structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-source-code">Project source code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/04_hello_world.html#writing-code">Writing code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-components">Project components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#example-pipeline">Example pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/04_hello_world.html#project-specific-configuration">Project-specific configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02_getting_started/04_hello_world.html#sensitive-or-personal-configuration">Sensitive or personal configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#running-the-example">Running the example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_getting_started/04_hello_world.html#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/01_workflow.html">Typical Kedro workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/01_workflow.html#development-workflow">Development workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#set-up-the-project-template">1. Set up the project template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#set-up-the-data">2. Set up the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#create-the-pipeline">3. Create the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#package-the-project">4. Package the project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/01_workflow.html#git-workflow">Git workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#creating-a-project-repository">Creating a project repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/01_workflow.html#submitting-your-changes-to-github">Submitting your changes to GitHub</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html">Kedro Spaceflights tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#creating-the-tutorial-project">Creating the tutorial project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#install-project-dependencies">Install project dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/02_tutorial_template.html#project-configuration">Project configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/03_set_up_data.html">Setting up the data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#adding-your-datasets-to-data">Adding your datasets to <code class="docutils literal notranslate"><span class="pre">data</span></code></a><ul>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/reviews.csv">reviews.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/companies.csv">companies.csv</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://quantumblacklabs.github.io/kedro/shuttles.xlsx">shuttles.xlsx</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#reference-all-datasets">Reference all datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#creating-custom-datasets">Creating custom datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/03_set_up_data.html#contributing-a-custom-dataset-implementation">Contributing a custom dataset implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html">Creating a pipeline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#node-basics">Node basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#assemble-nodes-into-a-pipeline">Assemble nodes into a pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#persisting-pre-processed-data">Persisting pre-processed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#creating-a-master-table">Creating a master table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#working-in-a-jupyter-notebook">Working in a Jupyter notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#extending-the-project-s-code">Extending the project’s code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#working-with-multiple-pipelines">Working with multiple pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#partial-pipeline-runs">Partial pipeline runs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#using-pipeline-name">Using pipeline name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#using-tags">Using tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#using-decorators-for-nodes-and-pipelines">Using decorators for nodes and pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#decorating-the-nodes">Decorating the nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#decorating-the-pipeline">Decorating the pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/04_create_pipelines.html#kedro-runners">Kedro runners</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_tutorial/05_package_a_project.html">Packaging a project</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#add-documentation-to-your-project">Add documentation to your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#package-your-project">Package your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#manage-project-dependencies">Manage project dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#extend-your-project">Extend your project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_tutorial/05_package_a_project.html#what-is-next">What is next?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_setting_up_vscode.html">Setting up Visual Studio Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_setting_up_vscode.html#advanced-for-those-using-venv-virtualenv">Advanced: For those using <code class="docutils literal notranslate"><span class="pre">venv</span></code> / <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_setting_up_vscode.html#setting-up-tasks">Setting up tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_setting_up_vscode.html#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="01_setting_up_vscode.html#advanced-remote-interpreter-debugging">Advanced: Remote Interpreter / Debugging</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_setting_up_pycharm.html">Setting up PyCharm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_setting_up_pycharm.html#set-up-run-configurations">Set up Run configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_setting_up_pycharm.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_setting_up_pycharm.html#advanced-remote-ssh-interpreter">Advanced: Remote SSH interpreter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03_configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#local-and-base-configuration">Local and base configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#loading">Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#additional-configuration-environments">Additional configuration environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#templating-configuration">Templating configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#parameters">Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#loading-parameters">Loading parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#specifying-parameters-at-runtime">Specifying parameters at runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#using-parameters">Using parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#credentials">Credentials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="03_configuration.html#aws-credentials">AWS credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="03_configuration.html#configuring-kedro-run-arguments">Configuring <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code> arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_data_catalog.html">The Data Catalog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#using-the-data-catalog-within-kedro-configuration">Using the Data Catalog within Kedro configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#specifying-the-location-of-the-dataset">Specifying the location of the dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#using-the-data-catalog-with-the-yaml-api">Using the Data Catalog with the YAML API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#adding-parameters">Adding parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#feeding-in-credentials">Feeding in credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#loading-multiple-datasets-that-have-similar-configuration">Loading multiple datasets that have similar configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#transcoding-datasets">Transcoding datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#a-typical-example-of-transcoding">A typical example of transcoding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#how-does-transcoding-work">How does transcoding work?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#transforming-datasets">Transforming datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#applying-built-in-transformers">Applying built-in transformers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#developing-your-own-transformer">Developing your own transformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#versioning-datasets-and-ml-models">Versioning datasets and ML models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#using-the-data-catalog-with-the-code-api">Using the Data Catalog with the Code API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#configuring-a-data-catalog">Configuring a Data Catalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#loading-datasets">Loading datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#behind-the-scenes">Behind the scenes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#viewing-the-available-data-sources">Viewing the available data sources</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_data_catalog.html#saving-data">Saving data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#saving-data-to-memory">Saving data to memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#saving-data-to-a-sql-database-for-querying">Saving data to a SQL database for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#saving-data-in-parquet">Saving data in parquet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="04_data_catalog.html#creating-your-own-dataset">Creating your own dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05_nodes.html">Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_nodes.html#creating-a-pipeline-node">Creating a pipeline node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#node-definition-syntax">Node definition syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#syntax-for-input-variables">Syntax for input variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#syntax-for-output-variables">Syntax for output variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="05_nodes.html#tagging-nodes">Tagging nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_nodes.html#running-nodes">Running nodes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#applying-decorators-to-nodes">Applying decorators to nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="05_nodes.html#applying-multiple-decorators-to-nodes">Applying multiple decorators to nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pipelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-pipelines">Building pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tagging-pipeline-nodes">Tagging pipeline nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merging-pipelines">Merging pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fetching-pipeline-nodes">Fetching pipeline nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#developing-modular-pipelines">Developing modular pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-modular-pipelines">What are modular pipelines?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-we-construct-modular-pipelines">How do we construct modular pipelines?</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ease-of-use-and-portability">Ease of use and portability</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#a-modular-pipeline-example-template">A modular pipeline example template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datasets">Datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-existing-pipelines">Connecting existing pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-a-modular-pipeline-twice">Using a modular pipeline twice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bad-pipelines">Bad pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline-with-bad-nodes">Pipeline with bad nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline-with-circular-dependencies">Pipeline with circular dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-pipelines">Running pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#runners">Runners</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-a-pipeline-by-name">Running a pipeline by name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-a-kedro-run">Modifying a <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#applying-decorators-on-pipelines">Applying decorators on pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-pipelines-with-io">Running pipelines with IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputting-to-a-file">Outputting to a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#partial-pipelines">Partial pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#partial-pipeline-starting-from-inputs">Partial pipeline starting from inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partial-pipeline-starting-from-nodes">Partial pipeline starting from nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partial-pipeline-ending-at-nodes">Partial pipeline ending at nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#partial-pipeline-from-nodes-with-tags">Partial pipeline from nodes with tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-only-some-nodes">Running only some nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recreating-missing-outputs">Recreating Missing Outputs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="07_logging.html">Logging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="07_logging.html#configure-logging">Configure logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_logging.html#use-logging">Use logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_logging.html#logging-for-anyconfig">Logging for <code class="docutils literal notranslate"><span class="pre">anyconfig</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="08_advanced_io.html">Advanced IO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="08_advanced_io.html#error-handling">Error handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_advanced_io.html#abstractdataset">AbstractDataSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="08_advanced_io.html#versioning">Versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#version-namedtuple"><code class="docutils literal notranslate"><span class="pre">version</span></code> namedtuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#versioning-using-the-yaml-api">Versioning using the YAML API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#versioning-using-the-code-api">Versioning using the Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#supported-datasets">Supported datasets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="08_advanced_io.html#partitioned-dataset">Partitioned dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#partitioned-dataset-definition">Partitioned dataset definition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#dataset-definition">Dataset definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#partitioned-dataset-credentials">Partitioned dataset credentials</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#partitioned-dataset-load">Partitioned dataset load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#partitioned-dataset-save">Partitioned dataset save</a></li>
+<li class="toctree-l3"><a class="reference internal" href="08_advanced_io.html#incremental-loads-with-incrementaldataset">Incremental loads with <code class="docutils literal notranslate"><span class="pre">IncrementalDataSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#incremental-dataset-load">Incremental dataset load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#incremental-dataset-save">Incremental dataset save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#incremental-dataset-confirm">Incremental dataset confirm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#checkpoint-configuration">Checkpoint configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="08_advanced_io.html#special-checkpoint-config-keys">Special checkpoint config keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="09_pyspark.html">Working with PySpark</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="09_pyspark.html#initialising-a-sparksession">Initialising a <code class="docutils literal notranslate"><span class="pre">SparkSession</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="09_pyspark.html#creating-a-sparkdataset">Creating a <code class="docutils literal notranslate"><span class="pre">SparkDataSet</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="09_pyspark.html#code-api">Code API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="09_pyspark.html#yaml-api">YAML API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="09_pyspark.html#working-with-pyspark-and-kedro-pipelines">Working with PySpark and Kedro pipelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_developing_plugins.html">Developing Kedro plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#initialisation">Initialisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#global-and-project-commands">global and project commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_developing_plugins.html#suggested-command-convention">Suggested command convention</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#working-with-click">Working with <code class="docutils literal notranslate"><span class="pre">click</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#contributing-process">Contributing process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#example-of-a-simple-plugin">Example of a simple plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#supported-plugins">Supported plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_developing_plugins.html#community-developed-plugins">Community-developed plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_ipython.html">Working with IPython and Jupyter Notebooks / Lab</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#startup-script">Startup script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#working-with-context">Working with <code class="docutils literal notranslate"><span class="pre">context</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#additional-parameters-for-context-run">Additional parameters for <code class="docutils literal notranslate"><span class="pre">context.run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#adding-global-variables">Adding global variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#working-with-ipython">Working with IPython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#loading-datacatalog-in-ipython">Loading <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in IPython</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#working-from-jupyter">Working from Jupyter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#idle-notebooks">Idle notebooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#what-if-i-cannot-run-kedro-jupyter-notebook">What if I cannot run <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#loading-datacatalog-in-jupyter">Loading <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#saving-datacatalog-in-jupyter">Saving <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> in Jupyter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#using-parameters">Using parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#running-the-pipeline">Running the pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#converting-functions-from-jupyter-notebooks-into-kedro-nodes">Converting functions from Jupyter Notebooks into Kedro nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_ipython.html#extras">Extras</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ipython.html#ipython-loader">IPython loader</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="11_ipython.html#installation">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="11_ipython.html#prerequisites">Prerequisites</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_working_with_databricks.html">Working with Databricks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="12_working_with_databricks.html#databricks-connect-recommended">Databricks Connect (recommended)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_working_with_databricks.html#github-workflow-with-databricks">GitHub workflow with Databricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="13_journal.html">Journal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="13_journal.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13_journal.html#context-journal-record">Context journal record</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_journal.html#dataset-journal-record">Dataset journal record</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_journal.html#steps-to-manually-reproduce-your-code-and-run-the-previous-pipeline">Steps to manually reproduce your code and run the previous pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="14_create_a_new_dataset.html">Creating a new dataset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#scenario">Scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#project-setup">Project setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#problem">Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#the-anatomy-of-a-dataset">The anatomy of a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#implement-the-load-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_load</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#implement-the-save-method-with-fsspec">Implement the <code class="docutils literal notranslate"><span class="pre">_save</span></code> method with <code class="docutils literal notranslate"><span class="pre">fsspec</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#implement-the-describe-method">Implement the <code class="docutils literal notranslate"><span class="pre">_describe</span></code> method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#bringing-it-all-together">Bringing it all together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#integrating-with-partitioneddataset">Integrating with <code class="docutils literal notranslate"><span class="pre">PartitionedDataSet</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#adding-versioning">Adding Versioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#thread-safety-consideration">Thread-safety consideration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#handling-credentials-and-different-filesystems">Handling credentials and different filesystems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_create_a_new_dataset.html#contribute-your-dataset-to-kedro">Contribute your dataset to Kedro</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/01_faq.html">Frequently asked questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-is-kedro">What is Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-are-the-primary-advantages-of-kedro">What are the primary advantages of Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-does-kedro-compare-to-other-projects">How does Kedro compare to other projects?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#kedro-vs-workflow-schedulers">Kedro vs workflow schedulers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#kedro-vs-other-etl-frameworks">Kedro vs other ETL frameworks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-can-i-find-out-more-about-kedro">How can I find out more about Kedro?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#articles-podcasts-and-talks">Articles, podcasts and talks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#kedro-used-on-real-world-use-cases">Kedro used on real-world use cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/01_faq.html#community-interaction">Community interaction</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-is-data-engineering-convention">What is data engineering convention?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-version-of-python-does-kedro-use">What version of Python does Kedro use?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-upgrade-kedro">How do I upgrade Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-best-practice-should-i-follow-to-avoid-leaking-confidential-data">What best practice should I follow to avoid leaking confidential data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#what-is-the-philosophy-behind-kedro">What is the philosophy behind Kedro?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#where-do-i-store-my-custom-editor-configuration">Where do I store my custom editor configuration?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-look-up-an-api-function">How do I look up an API function?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-build-documentation-for-my-project">How do I build documentation for my project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/01_faq.html#how-do-i-build-documentation-about-kedro">How do I build documentation about Kedro?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/02_architecture_overview.html">Kedro architecture overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/02_architecture_overview.html#building-blocks">Building blocks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/02_architecture_overview.html#project">Project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-cli-py"><code class="docutils literal notranslate"><span class="pre">kedro_cli.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#run-py"><code class="docutils literal notranslate"><span class="pre">run.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-yml"><code class="docutils literal notranslate"><span class="pre">.kedro.yml</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-init-py"><code class="docutils literal notranslate"><span class="pre">00-kedro-init.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#projectcontext"><code class="docutils literal notranslate"><span class="pre">ProjectContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/02_architecture_overview.html#framework">Framework</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-cli"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">cli</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedro-cli-cli-py"><code class="docutils literal notranslate"><span class="pre">kedro/cli/cli.py</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#plugins"><code class="docutils literal notranslate"><span class="pre">plugins</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#get-project-context"><code class="docutils literal notranslate"><span class="pre">get_project_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#load-context"><code class="docutils literal notranslate"><span class="pre">load_context()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#kedrocontext"><code class="docutils literal notranslate"><span class="pre">KedroContext</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/02_architecture_overview.html#library">Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#configloader"><code class="docutils literal notranslate"><span class="pre">ConfigLoader</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#pipeline"><code class="docutils literal notranslate"><span class="pre">Pipeline</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#abstractrunner"><code class="docutils literal notranslate"><span class="pre">AbstractRunner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#datacatalog"><code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../06_resources/02_architecture_overview.html#abstractdataset"><code class="docutils literal notranslate"><span class="pre">AbstractDataSet</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/03_commands_reference.html">Guide to CLI commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#autocomplete">Autocomplete</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#global-kedro-commands">Global Kedro commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#project-specific-kedro-commands">Project-specific Kedro commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-run"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-install"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">install</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-test"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">test</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-package"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">package</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-build-docs"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">build-docs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-jupyter-notebook-kedro-jupyter-lab-kedro-ipython"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>, <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">lab</span></code>, <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">ipython</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-jupyter-convert"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">jupyter</span> <span class="pre">convert</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-lint"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">lint</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/03_commands_reference.html#kedro-activate-nbstripout"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">activate-nbstripout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/03_commands_reference.html#using-python">Using Python</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/04_lint.html">Linting your Kedro project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_resources/05_logos.html">Images and icons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/05_logos.html#white-background">White background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#icon">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#icon-with-text">Icon with text</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../06_resources/05_logos.html#black-background">Black background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#id1">Icon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../06_resources/05_logos.html#id2">Icon with text</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../kedro.html">kedro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.config.html">kedro.config</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.ConfigLoader.html">kedro.config.ConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.config.TemplatedConfigLoader.html">kedro.config.TemplatedConfigLoader</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.io.html">kedro.io</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#data-catalog">Data Catalog</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataCatalog.html">kedro.io.DataCatalog</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#data-sets">Data Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CSVLocalDataSet.html">kedro.io.CSVLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CSVHTTPDataSet.html">kedro.io.CSVHTTPDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CSVS3DataSet.html">kedro.io.CSVS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.HDFLocalDataSet.html">kedro.io.HDFLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.HDFS3DataSet.html">kedro.io.HDFS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.JSONLocalDataSet.html">kedro.io.JSONLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.JSONDataSet.html">kedro.io.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.LambdaDataSet.html">kedro.io.LambdaDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.MemoryDataSet.html">kedro.io.MemoryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.ParquetLocalDataSet.html">kedro.io.ParquetLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.PartitionedDataSet.html">kedro.io.PartitionedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.IncrementalDataSet.html">kedro.io.IncrementalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.PickleLocalDataSet.html">kedro.io.PickleLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.PickleS3DataSet.html">kedro.io.PickleS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.SQLTableDataSet.html">kedro.io.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.SQLQueryDataSet.html">kedro.io.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.TextLocalDataSet.html">kedro.io.TextLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.ExcelLocalDataSet.html">kedro.io.ExcelLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.CachedDataSet.html">kedro.io.CachedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataCatalogWithDefault.html">kedro.io.DataCatalogWithDefault</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataSetAlreadyExistsError.html">kedro.io.DataSetAlreadyExistsError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataSetError.html">kedro.io.DataSetError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.DataSetNotFoundError.html">kedro.io.DataSetNotFoundError</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.io.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.AbstractDataSet.html">kedro.io.AbstractDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.AbstractVersionedDataSet.html">kedro.io.AbstractVersionedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.AbstractTransformer.html">kedro.io.AbstractTransformer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.io.Version.html">kedro.io.Version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.pipeline.html">kedro.pipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.Pipeline.html">kedro.pipeline.Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.node.Node.html">kedro.pipeline.node.Node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.node.html">kedro.pipeline.node</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.pipeline.decorators.log_time.html">kedro.pipeline.decorators.log_time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.runner.html">kedro.runner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.AbstractRunner.html">kedro.runner.AbstractRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.SequentialRunner.html">kedro.runner.SequentialRunner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.runner.ParallelRunner.html">kedro.runner.ParallelRunner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.context.html">kedro.context</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.context.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.context.KedroContext.html">kedro.context.KedroContext</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.context.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.context.load_context.html">kedro.context.load_context</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.context.html#errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.context.KedroContextError.html">kedro.context.KedroContextError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.contrib.html">kedro.contrib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.io.html">kedro.contrib.io</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.catalog_with_default.DataCatalogWithDefault.html">kedro.contrib.io.catalog_with_default.DataCatalogWithDefault</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.azure.CSVBlobDataSet.html">kedro.contrib.io.azure.CSVBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.azure.JSONBlobDataSet.html">kedro.contrib.io.azure.JSONBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet.html">kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.cached.CachedDataSet.html">kedro.contrib.io.cached.CachedDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.feather.FeatherLocalDataSet.html">kedro.contrib.io.feather.FeatherLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.matplotlib.MatplotlibLocalWriter.html">kedro.contrib.io.matplotlib.MatplotlibLocalWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.matplotlib.MatplotlibS3Writer.html">kedro.contrib.io.matplotlib.MatplotlibS3Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.parquet.ParquetS3DataSet.html">kedro.contrib.io.parquet.ParquetS3DataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.pyspark.SparkDataSet.html">kedro.contrib.io.pyspark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.pyspark.SparkHiveDataSet.html">kedro.contrib.io.pyspark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.pyspark.SparkJDBCDataSet.html">kedro.contrib.io.pyspark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.yaml_local.YAMLLocalDataSet.html">kedro.contrib.io.yaml_local.YAMLLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.gcs.CSVGCSDataSet.html">kedro.contrib.io.gcs.CSVGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.gcs.JSONGCSDataSet.html">kedro.contrib.io.gcs.JSONGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.gcs.ParquetGCSDataSet.html">kedro.contrib.io.gcs.ParquetGCSDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.networkx.NetworkXLocalDataSet.html">kedro.contrib.io.networkx.NetworkXLocalDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.contrib.io.transformers.ProfileTimeTransformer.html">kedro.contrib.io.transformers.ProfileTimeTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.config.templated_config.TemplatedConfigLoader.html">kedro.contrib.config.templated_config.TemplatedConfigLoader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.colors.logging.ColorHandler.html">kedro.contrib.colors.logging.ColorHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.pyspark.pandas_to_spark.html">kedro.contrib.decorators.pyspark.pandas_to_spark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.pyspark.spark_to_pandas.html">kedro.contrib.decorators.pyspark.spark_to_pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.retry.retry.html">kedro.contrib.decorators.retry.retry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.contrib.decorators.memory_profiler.mem_profile.html">kedro.contrib.decorators.memory_profiler.mem_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.cli.html">kedro.cli</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.cli.get_project_context.html">kedro.cli.get_project_context</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.versioning.html">kedro.versioning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.html#base-classes">Base Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.versioning.Journal.html">kedro.versioning.Journal</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.html#modules">Modules</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.versioning.html#errors">Errors</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.datasets.html">kedro.extras.datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.datasets.html#data-sets">Data Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.biosequence.BioSequenceDataSet.html">kedro.extras.datasets.biosequence.BioSequenceDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.dask.ParquetDataSet.html">kedro.extras.datasets.dask.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.matplotlib.MatplotlibWriter.html">kedro.extras.datasets.matplotlib.MatplotlibWriter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.networkx.NetworkXDataSet.html">kedro.extras.datasets.networkx.NetworkXDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.CSVBlobDataSet.html">kedro.extras.datasets.pandas.CSVBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.CSVDataSet.html">kedro.extras.datasets.pandas.CSVDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.ExcelDataSet.html">kedro.extras.datasets.pandas.ExcelDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.FeatherDataSet.html">kedro.extras.datasets.pandas.FeatherDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.GBQTableDataSet.html">kedro.extras.datasets.pandas.GBQTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.HDFDataSet.html">kedro.extras.datasets.pandas.HDFDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.JSONBlobDataSet.html">kedro.extras.datasets.pandas.JSONBlobDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.JSONDataSet.html">kedro.extras.datasets.pandas.JSONDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.ParquetDataSet.html">kedro.extras.datasets.pandas.ParquetDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.SQLQueryDataSet.html">kedro.extras.datasets.pandas.SQLQueryDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.pandas.SQLTableDataSet.html">kedro.extras.datasets.pandas.SQLTableDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkDataSet.html">kedro.extras.datasets.spark.SparkDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkHiveDataSet.html">kedro.extras.datasets.spark.SparkHiveDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.spark.SparkJDBCDataSet.html">kedro.extras.datasets.spark.SparkJDBCDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.text.TextDataSet.html">kedro.extras.datasets.text.TextDataSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../kedro.extras.datasets.yaml.YAMLDataSet.html">kedro.extras.datasets.yaml.YAMLDataSet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.decorators.html">kedro.extras.decorators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.decorators.retry_node.retry.html">kedro.extras.decorators.retry_node.retry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.decorators.memory_profiler.mem_profile.html">kedro.extras.decorators.memory_profiler.mem_profile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.transformers.html">kedro.extras.transformers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.transformers.time_profiler.ProfileTimeTransformer.html">kedro.extras.transformers.time_profiler.ProfileTimeTransformer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kedro.extras.logging.html">kedro.extras.logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../kedro.extras.logging.ColorHandler.html">kedro.extras.logging.ColorHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kedro</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Pipelines</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <!-- User defined GitHub URL -->
+              <a href="https://github.com/quantumblacklabs/kedro/tree/develop/docs/source" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="pipelines">
+<h1>Pipelines<a class="headerlink" href="#pipelines" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p><em>Note:</em> This documentation is based on <code class="docutils literal notranslate"><span class="pre">Kedro</span> <span class="pre">0.15.8</span></code>, if you spot anything that is incorrect then please create an <a class="reference external" href="https://github.com/quantumblacklabs/kedro/issues">issue</a> or pull request.</p>
+<p>In this section we introduce the concept of a pipeline.</p>
+</div></blockquote>
+<p>Relevant API documentation: <a class="reference internal" href="../kedro.pipeline.Pipeline.html"><span class="doc">Pipeline</span></a></p>
+<p>To benefit from Kedro’s automatic dependency resolution, <a class="reference internal" href="05_nodes.html#nodes"><span class="std std-ref">nodes</span></a> can be chained in a pipeline. A pipeline is a list of nodes that use a shared set of variables.</p>
+<div class="section" id="building-pipelines">
+<h2>Building pipelines<a class="headerlink" href="#building-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>In the following example, we construct a simple pipeline that computes the variance of a set of numbers. In practice, pipelines can use more complicated node definitions and variables usually correspond to entire datasets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="k">def</span> <span class="nf">mean_sos</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xs</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="k">def</span> <span class="nf">variance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">m2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">m2</span> <span class="o">-</span> <span class="n">m</span> <span class="o">*</span> <span class="n">m</span>
+
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">node</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">],</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mean node&quot;</span><span class="p">),</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">mean_sos</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">],</span> <span class="s2">&quot;m2&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;mean sos&quot;</span><span class="p">),</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">variance</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m2&quot;</span><span class="p">],</span> <span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;variance node&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">describe</span></code> can be used to understand what nodes are part of the pipeline:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: xs</span>
+
+<span class="go">len([xs]) -&gt; [n]</span>
+<span class="go">mean node</span>
+<span class="go">mean sos</span>
+<span class="go">variance node</span>
+
+<span class="go">Outputs: v</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<div class="section" id="tagging-pipeline-nodes">
+<h3>Tagging pipeline nodes<a class="headerlink" href="#tagging-pipeline-nodes" title="Permalink to this headline">¶</a></h3>
+<p>You can also tag your <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> by providing <code class="docutils literal notranslate"><span class="pre">tags</span></code> argument, which will tag all of the pipeline’s nodes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">node</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;node1&quot;</span><span class="p">),</span> <span class="n">node</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;node2&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="s2">&quot;node_tag&quot;</span><span class="p">)],</span>
+    <span class="n">tags</span><span class="o">=</span><span class="s2">&quot;pipeline_tag&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Node <code class="docutils literal notranslate"><span class="pre">node1</span></code> will only be tagged with <code class="docutils literal notranslate"><span class="pre">pipeline_tag</span></code>, while <code class="docutils literal notranslate"><span class="pre">node2</span></code> will have both <code class="docutils literal notranslate"><span class="pre">node_tag</span></code> and <code class="docutils literal notranslate"><span class="pre">pipeline_tag</span></code>.</p>
+</div>
+<div class="section" id="merging-pipelines">
+<h3>Merging pipelines<a class="headerlink" href="#merging-pipelines" title="Permalink to this headline">¶</a></h3>
+<p>You can merge multiple pipelines as shown below. Note that, in this case, <code class="docutils literal notranslate"><span class="pre">pipeline_de</span></code> and <code class="docutils literal notranslate"><span class="pre">pipeline_ds</span></code> are expanded to a list of their underlying nodes of nodes which are simply merged together:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline_de</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">),</span> <span class="n">node</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">],</span> <span class="s2">&quot;m&quot;</span><span class="p">)])</span>
+
+<span class="n">pipeline_ds</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">node</span><span class="p">(</span><span class="n">mean_sos</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">],</span> <span class="s2">&quot;m2&quot;</span><span class="p">),</span> <span class="n">node</span><span class="p">(</span><span class="n">variance</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;m2&quot;</span><span class="p">],</span> <span class="s2">&quot;v&quot;</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="n">last_node</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="nb">print</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">pipeline_all</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">pipeline_de</span><span class="p">,</span> <span class="n">pipeline_ds</span><span class="p">,</span> <span class="n">last_node</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pipeline_all</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: xs</span>
+
+<span class="go">len([xs]) -&gt; [n]</span>
+<span class="go">mean([n,xs]) -&gt; [m]</span>
+<span class="go">mean_sos([n,xs]) -&gt; [m2]</span>
+<span class="go">variance([m,m2]) -&gt; [v]</span>
+<span class="go">print([v]) -&gt; None</span>
+
+<span class="go">Outputs: None</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetching-pipeline-nodes">
+<h3>Fetching pipeline nodes<a class="headerlink" href="#fetching-pipeline-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Pipelines provide access to their nodes in a topological order for enabling custom functionality, e.g. custom visualisation of pipelines. Each node has information about its inputs and outputs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">nodes</span>
+<span class="n">nodes</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[5]:</span>
+<span class="go">[Node(len, &#39;xs&#39;, &#39;n&#39;, None),</span>
+<span class="go"> Node(mean, [&#39;xs&#39;, &#39;n&#39;], &#39;m&#39;, &#39;mean node&#39;),</span>
+<span class="go"> Node(mean_sos, [&#39;xs&#39;, &#39;n&#39;], &#39;m2&#39;, &#39;mean sos&#39;),</span>
+<span class="go"> Node(variance, [&#39;m&#39;, &#39;m2&#39;], &#39;v&#39;, &#39;variance node&#39;)]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">inputs</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[6]: [&#39;xs&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="developing-modular-pipelines">
+<h2>Developing modular pipelines<a class="headerlink" href="#developing-modular-pipelines" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><em>Note:</em> Although Kedro does not enforce the structure below, we strongly encourage following it when developing your modular pipelines. Future versions of Kedro may assume this structure, which would make your modular pipelines compatible with newer versions of Kedro.</div></blockquote>
+<div class="section" id="what-are-modular-pipelines">
+<h3>What are modular pipelines?<a class="headerlink" href="#what-are-modular-pipelines" title="Permalink to this headline">¶</a></h3>
+<p>Modular pipelines allow you to develop and maintain smaller pipelines. As your Kedro project evolves and gets more sophisticated, you may find out that a single (“master”) pipeline does not fit the purpose of discoverability anymore due to its complexity. Also, it may be quite hard to port any reusable parts of the original pipeline into a different project. The solution would be to split the pipeline into several logically isolated reusable components, i.e. modular pipelines.</p>
+<p>Modular pipelines serve the following main purposes:</p>
+<ul class="simple">
+<li>Discoverability: A modular pipeline represents a logically isolated unit of work that is much easier to develop, test and maintain</li>
+<li>Portability: The proposed internal structure of a modular pipeline makes it easy to copy the pipeline between projects</li>
+<li>Generalisability: A way to create reusable analytics code in future, depending on what you put in the modular pipeline</li>
+</ul>
+</div>
+<div class="section" id="how-do-we-construct-modular-pipelines">
+<h3>How do we construct modular pipelines?<a class="headerlink" href="#how-do-we-construct-modular-pipelines" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="structure">
+<h4>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h4>
+<p>Modular pipelines can contain any logic that can be reused. Let’s look at a generic example using:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/modular_pipeline_1</span></code> - A directory for modular pipeline 1</li>
+<li><code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/modular_pipeline_2</span></code> - A directory for modular pipeline 2</li>
+</ul>
+<p>Requirements for modular pipelines:</p>
+<ul class="simple">
+<li>Each modular pipeline should be placed in a Python module, like <code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/modular_pipeline_1</span></code>, and <code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines</span></code> should be a Python package</li>
+<li>A modular pipeline must expose a function called <code class="docutils literal notranslate"><span class="pre">create_pipeline</span></code> at the top-level of its package and calling <code class="docutils literal notranslate"><span class="pre">create_pipeline</span></code> with no arguments should return an instance of a <a class="reference internal" href="../kedro.pipeline.Pipeline.html"><span class="doc">Pipeline</span></a>:</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">new_kedro_project.pipelines.modular_pipeline_1</span> <span class="k">as</span> <span class="nn">mp1</span>
+
+<span class="n">pipeline1</span> <span class="o">=</span> <span class="n">mp1</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ease-of-use-and-portability">
+<h4>Ease of use and portability<a class="headerlink" href="#ease-of-use-and-portability" title="Permalink to this headline">¶</a></h4>
+<p>Here is a list of recommendations for developing a modular pipeline:</p>
+<ul class="simple">
+<li>A modular pipeline should include a <code class="docutils literal notranslate"><span class="pre">README.md</span></code>, with all the information regarding the execution of the pipeline for the end users</li>
+<li>A modular pipeline <em>may</em> have external dependencies specified in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. These dependencies are <em>not</em> currently installed by the <a class="reference external" href="https://kedro.readthedocs.io/en/stable/06_resources/03_commands_reference.html#kedro-install"><code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">install</span></code></a> command, so the users of your pipeline would have to run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">src/&lt;python_package&gt;/pipelines/&lt;pipeline_name&gt;/requirements.txt</span></code></li>
+<li>To ensure portability, modular pipelines should use relative imports when accessing their own objects and absolute imports otherwise. Look at an example from <code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/modular_pipeline_1/pipeline.py</span></code> below:</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">external_package</span> <span class="kn">import</span> <span class="n">add</span>  <span class="c1"># importing from external package</span>
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">node</span><span class="p">,</span> <span class="n">Pipeline</span>
+
+<span class="kn">from</span> <span class="nn">.nodes</span> <span class="kn">import</span> <span class="n">node1_func</span><span class="p">,</span> <span class="n">node2_func</span>  <span class="c1"># importing its own node functions</span>
+
+
+<span class="k">def</span> <span class="nf">create_pipeline</span><span class="p">():</span>
+    <span class="n">node1</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">node1_func</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+    <span class="n">node2</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">node2_func</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+    <span class="n">node3</span> <span class="o">=</span> <span class="n">node</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">add</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">,</span> <span class="n">node3</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Modular pipelines should <em>not</em> depend on the main Python package (<code class="docutils literal notranslate"><span class="pre">new_kedro_project</span></code> in this example) as it would break the portability to another project</li>
+<li>Modular pipelines should be stitched together in a master (or <code class="docutils literal notranslate"><span class="pre">__default__</span></code>) pipeline located in <code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipeline.py</span></code>. In our example, this pipeline combines <code class="docutils literal notranslate"><span class="pre">modular_pipeline_1</span></code> and <code class="docutils literal notranslate"><span class="pre">modular_pipeline_2</span></code>.</li>
+<li>Master pipeline should import and instantiate modular pipelines as shown in this example from <code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipeline.py</span></code>:</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">kedro.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="kn">from</span> <span class="nn">new_kedro_project.pipelines</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">modular_pipeline_1</span> <span class="k">as</span> <span class="n">mp1</span><span class="p">,</span>
+    <span class="n">modular_pipeline_2</span> <span class="k">as</span> <span class="n">mp2</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">create_pipelines</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">]:</span>
+    <span class="n">pipeline1</span> <span class="o">=</span> <span class="n">mp1</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">()</span>
+    <span class="n">pipeline2</span> <span class="o">=</span> <span class="n">mp2</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">()</span>
+    <span class="n">pipeline_all</span> <span class="o">=</span> <span class="n">pipeline_1</span> <span class="o">+</span> <span class="n">pipeline_2</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;mp1&quot;</span><span class="p">:</span> <span class="n">pipeline_1</span><span class="p">,</span> <span class="s2">&quot;mp2&quot;</span><span class="p">:</span> <span class="n">pipeline_2</span><span class="p">,</span> <span class="s2">&quot;__default__&quot;</span><span class="p">:</span> <span class="n">pipeline_all</span><span class="p">}</span>
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> To find out how you can run a pipeline by its name, please navigate to <a class="reference external" href="#running-a-pipeline-by-name">this section</a>.</div></blockquote>
+</div>
+</div>
+<div class="section" id="a-modular-pipeline-example-template">
+<h3>A modular pipeline example template<a class="headerlink" href="#a-modular-pipeline-example-template" title="Permalink to this headline">¶</a></h3>
+<p>Linking all of these concepts together, here is an example of a modular pipeline structure which combines all of these concepts within a Kedro project:</p>
+<ul class="simple">
+<li>The modular pipelines:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/data_engineering</span></code> - A pipeline that imputes missing data and discovers outlier data points</li>
+<li><code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/feature_engineering</span></code> - A pipeline that generates temporal features while aggregating data and performs a train/test split on the data</li>
+<li><code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipelines/modelling</span></code> - A pipeline that fits models, does hyperparameter search and reports on model performance</li>
+</ul>
+</li>
+<li>A master (or <code class="docutils literal notranslate"><span class="pre">__default__</span></code>) pipeline:<ul>
+<li><code class="docutils literal notranslate"><span class="pre">src/new_kedro_project/pipeline.py</span></code> - combines 3 modular pipelines from the above</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">new-kedro-project</span>
+<span class="go">├── .ipython/</span>
+<span class="go">├── conf/</span>
+<span class="go">├── data/</span>
+<span class="go">├── docs/</span>
+<span class="go">├── logs/</span>
+<span class="go">├── notebooks/</span>
+<span class="go">├── src</span>
+<span class="go">│   ├── new_kedro_project</span>
+<span class="go">│   │   ├── pipelines</span>
+<span class="go">│   │   │   ├── data_engineering</span>
+<span class="go">│   │   │   │   ├── __init__.py</span>
+<span class="go">│   │   │   │   ├── nodes.py</span>
+<span class="go">│   │   │   │   ├── pipeline.py</span>
+<span class="go">│   │   │   │   ├── requirements.txt</span>
+<span class="go">│   │   │   │   └── README.md</span>
+<span class="go">│   │   │   ├── feature_engineering</span>
+<span class="go">│   │   │   │   ├── __init__.py</span>
+<span class="go">│   │   │   │   ├── nodes.py</span>
+<span class="go">│   │   │   │   ├── pipeline.py</span>
+<span class="go">│   │   │   │   ├── requirements.txt</span>
+<span class="go">│   │   │   │   └── README.md</span>
+<span class="go">│   │   │   ├── modelling</span>
+<span class="go">│   │   │   │   ├── __init__.py</span>
+<span class="go">│   │   │   │   ├── nodes.py</span>
+<span class="go">│   │   │   │   ├── pipeline.py</span>
+<span class="go">│   │   │   │   ├── requirements.txt</span>
+<span class="go">│   │   │   │   └── README.md</span>
+<span class="go">│   │   │   └── __init__.py</span>
+<span class="go">│   │   ├── __init__.py</span>
+<span class="go">│   │   ├── nodes.py</span>
+<span class="go">│   │   ├── pipeline.py</span>
+<span class="go">│   │   └── run.py</span>
+<span class="go">│   ├── tests</span>
+<span class="go">│   │   ├── __init__.py</span>
+<span class="go">│   │   └── test_run.py</span>
+<span class="go">│   ├── requirements.txt</span>
+<span class="go">│   └── setup.py</span>
+<span class="go">├── .kedro.yml</span>
+<span class="go">├── README.md</span>
+<span class="go">├── kedro_cli.py</span>
+<span class="go">└── setup.cfg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>Nested configuration in modular pipelines is <em>not</em> currently supported by Kedro. It means that putting config files (like <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code>) in <code class="docutils literal notranslate"><span class="pre">src/&lt;python_package&gt;/pipelines/&lt;pipeline_name&gt;/conf</span></code> will have no effect on Kedro project configuration.</p>
+<p>The recommended way to apply the changes to project catalog or any other project configuration is to document those changes in the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> of your modular pipeline. For example, you may instruct the users to copy <code class="docutils literal notranslate"><span class="pre">catalog.yml</span></code> into their top-level configuration like that:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p conf/base/pipelines/data_engineering  <span class="c1"># create a separate folder for the pipeline configs</span>
+cp -r src/&lt;python_package&gt;/pipelines/data_engineering/conf/* conf/base/pipelines/data_engineering  <span class="c1"># copy the pipeline configs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datasets">
+<h3>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h3>
+<p>It is important to keep in mind that Kedro resolves node execution order based on their input and output datasets. For example, if node 1 outputs the dataset <code class="docutils literal notranslate"><span class="pre">A</span></code>, and node 2 requires the dataset <code class="docutils literal notranslate"><span class="pre">A</span></code> as an input, node 1 is guaranteed to be executed before node 2 when Kedro runs the pipeline.</p>
+<p>As a modular pipeline developer, you may not know how your pipeline will be integrated in the downstream projects and what data catalog configuration they may have. Therefore, it is crucial to make it clear in the pipeline documentation what datasets (names and types) are required as inputs by your modular pipeline and what datasets it produces as outputs.</p>
+</div>
+</div>
+<div class="section" id="connecting-existing-pipelines">
+<h2>Connecting existing pipelines<a class="headerlink" href="#connecting-existing-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>When two existing pipelines need to work together, they should be connected by the datasets.
+But the names might be different, requiring manual fixes to be applied to the pipeline itself.
+Alternative solution would be to <code class="docutils literal notranslate"><span class="pre">transform</span></code> an existing pipeline. Consider this example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cook_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">node</span><span class="p">(</span><span class="n">defrost</span><span class="p">,</span> <span class="s2">&quot;frozen_meat&quot;</span><span class="p">,</span> <span class="s2">&quot;meat&quot;</span><span class="p">),</span> <span class="n">node</span><span class="p">(</span><span class="n">grill</span><span class="p">,</span> <span class="s2">&quot;meat&quot;</span><span class="p">,</span> <span class="s2">&quot;grilled_meat&quot;</span><span class="p">),]</span>
+<span class="p">)</span>
+
+<span class="n">lunch_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span><span class="p">(</span><span class="n">eat</span><span class="p">,</span> <span class="s2">&quot;food&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),])</span>
+</pre></div>
+</div>
+<p>A simple <code class="docutils literal notranslate"><span class="pre">cook_pipeline</span> <span class="pre">+</span> <span class="pre">lunch_pipeline</span></code> doesn’t work, <code class="docutils literal notranslate"><span class="pre">food</span></code> input needs to be mapped to <code class="docutils literal notranslate"><span class="pre">grilled_meat</span></code> output.
+That’s how it can be done, all three resulting pipelines do the job equally fine:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">final_pipeline1</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">cook_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;grilled_meat&quot;</span><span class="p">:</span> <span class="s2">&quot;food&quot;</span><span class="p">})</span> <span class="o">+</span> <span class="n">lunch_pipeline</span>
+<span class="p">)</span>
+<span class="n">final_pipeline2</span> <span class="o">=</span> <span class="n">cook_pipeline</span> <span class="o">+</span> <span class="n">lunch_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
+    <span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;food&quot;</span><span class="p">:</span> <span class="s2">&quot;grilled_meat&quot;</span><span class="p">}</span>
+<span class="p">)</span>
+<span class="n">final_pipeline3</span> <span class="o">=</span> <span class="n">cook_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
+    <span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;grilled_meat&quot;</span><span class="p">:</span> <span class="s2">&quot;new_name&quot;</span><span class="p">}</span>
+<span class="p">)</span> <span class="o">+</span> <span class="n">lunch_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;food&quot;</span><span class="p">:</span> <span class="s2">&quot;new_name&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Pipeline.transform()</span></code> will skip prefixing when node inputs and outputs contain parameter references (<code class="docutils literal notranslate"><span class="pre">params:</span></code> and <code class="docutils literal notranslate"><span class="pre">parameters</span></code>).
+Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transformed_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">node</span><span class="p">(</span><span class="n">node_func</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="s2">&quot;params:x&quot;</span><span class="p">],</span> <span class="kc">None</span><span class="p">)]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;new&quot;</span><span class="p">)</span>
+<span class="c1"># `transformed_pipeline` will be `Pipeline([node(node_func, [&quot;new.input&quot;, &quot;params:x&quot;], None)])`</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-a-modular-pipeline-twice">
+<h2>Using a modular pipeline twice<a class="headerlink" href="#using-a-modular-pipeline-twice" title="Permalink to this headline">¶</a></h2>
+<p>Consider the example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cook_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">defrost</span><span class="p">,</span> <span class="s2">&quot;frozen_meat&quot;</span><span class="p">,</span> <span class="s2">&quot;meat&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;defrost_node&quot;</span><span class="p">),</span>
+        <span class="n">node</span><span class="p">(</span><span class="n">grill</span><span class="p">,</span> <span class="s2">&quot;meat&quot;</span><span class="p">,</span> <span class="s2">&quot;grilled_meat&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">breakfast_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span><span class="p">(</span><span class="n">eat_breakfast</span><span class="p">,</span> <span class="s2">&quot;breakfast_food&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),])</span>
+<span class="n">lunch_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span><span class="p">(</span><span class="n">eat_lunch</span><span class="p">,</span> <span class="s2">&quot;lunch_food&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),])</span>
+</pre></div>
+</div>
+<p>Now we need to “defrost” two different types of food and feed it to different pipelines.
+But we can’t use the <code class="docutils literal notranslate"><span class="pre">cook_pipeline</span></code> twice, the internal dataset names will conflict.
+We might try to call <code class="docutils literal notranslate"><span class="pre">transform</span></code> and rename all datasets,
+but the conflicting explicitly set <code class="docutils literal notranslate"><span class="pre">name=&quot;defrost_node&quot;</span></code> remains.</p>
+<p>The right solution is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">cook_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span>
+        <span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;grilled_meat&quot;</span><span class="p">:</span> <span class="s2">&quot;breakfast_food&quot;</span><span class="p">},</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;breakfast&quot;</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="n">breakfast_pipeline</span>
+    <span class="o">+</span> <span class="n">cook_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">datasets</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;grilled_meat&quot;</span><span class="p">:</span> <span class="s2">&quot;lunch_food&quot;</span><span class="p">},</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;lunch&quot;</span><span class="p">)</span>
+    <span class="o">+</span> <span class="n">lunch_pipeline</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">prefix=&quot;lunch&quot;</span></code> renames all datasets and nodes, prefixing them with <code class="docutils literal notranslate"><span class="pre">&quot;lunch.&quot;</span></code>,
+except those datasets that we rename explicitly (<code class="docutils literal notranslate"><span class="pre">grilled_meat</span></code>).</p>
+<p>The resulting pipeline now has two separate nodes, <code class="docutils literal notranslate"><span class="pre">breakfast.defrost_node</span></code> and
+<code class="docutils literal notranslate"><span class="pre">lunch.defrost_node</span></code>. Also two separate datasets <code class="docutils literal notranslate"><span class="pre">breakfast.meat</span></code> and <code class="docutils literal notranslate"><span class="pre">lunch.meat</span></code>
+connect the nodes inside the pipelines, causing no confusion between them.</p>
+</div>
+<div class="section" id="bad-pipelines">
+<h2>Bad pipelines<a class="headerlink" href="#bad-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>As you notice, pipelines can usually readily resolve their dependencies. In some cases, resolution is not possible and pipelines are not well-formed.</p>
+<div class="section" id="pipeline-with-bad-nodes">
+<h3>Pipeline with bad nodes<a class="headerlink" href="#pipeline-with-bad-nodes" title="Permalink to this headline">¶</a></h3>
+<p>In this case we have a pipeline consisting of a single node with no input and output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">Pipeline</span><span class="p">([</span><span class="n">node</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;!&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)])</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Invalid Node definition: it must have some `inputs` or `outputs`.</span>
+<span class="go">Format should be: node(function, inputs, outputs)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pipeline-with-circular-dependencies">
+<h3>Pipeline with circular dependencies<a class="headerlink" href="#pipeline-with-circular-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>For every two variables where the first depends on the second, there must not be a way in which the second also depends on the first, otherwise, a circular dependency will prevent us from compiling the pipeline.</p>
+<p>The first node captures the relationship of how to calculate <code class="docutils literal notranslate"><span class="pre">y</span></code> from <code class="docutils literal notranslate"><span class="pre">x</span></code> and the second captures the relationship of how to calculate <code class="docutils literal notranslate"><span class="pre">x</span></code> knowing <code class="docutils literal notranslate"><span class="pre">y</span></code>. Both cannot coexist in the same pipeline:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">Pipeline</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">node</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;first node&quot;</span><span class="p">),</span>
+            <span class="n">node</span><span class="p">(</span><span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;second node&quot;</span><span class="p">),</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Circular dependencies exist among these items: [&#39;first node: &lt;lambda&gt;([x]) -&gt; [y]&#39;, &#39;second node: &lt;lambda&gt;([y]) -&gt; [x]&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-pipelines">
+<h2>Running pipelines<a class="headerlink" href="#running-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>When running pipelines, it can be useful to check the inputs and outputs of a pipeline:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">inputs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[7]: {&#39;xs&#39;}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span><span class="o">.</span><span class="n">outputs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[8]: {&#39;v&#39;}</span>
+</pre></div>
+</div>
+<div class="section" id="runners">
+<h3>Runners<a class="headerlink" href="#runners" title="Permalink to this headline">¶</a></h3>
+<p>Runners are different execution mechanisms for running pipelines. They all inherit from <code class="docutils literal notranslate"><span class="pre">AbstractRunner</span></code>. You can use <code class="docutils literal notranslate"><span class="pre">SequentialRunner</span></code> to execute pipeline nodes one-by-one based on their dependencies.</p>
+<p>We recommend using <code class="docutils literal notranslate"><span class="pre">SequentialRunner</span></code> in cases where:</p>
+<ul class="simple">
+<li>the pipeline has limited branching</li>
+<li>the pipeline is fast</li>
+<li>the resource consuming steps require most of a scarce resource (e.g., significant RAM, disk memory or CPU)</li>
+</ul>
+<p>Now we can execute the pipeline by providing a runner and values for each of the inputs.</p>
+<p>From the command line, you can run the pipeline as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2019-04-26 17:19:01,341 - root - INFO - ** Kedro project new-kedro-project</span>
+<span class="go">2019-04-26 17:19:01,360 - kedro.io.data_catalog - INFO - Loading data from `example_iris_data` (CSVLocalDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,387 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,387 - kedro.pipeline.node - INFO - Running node: split_data([example_iris_data,params:example_test_data_ratio]) -&gt; [example_test_x,example_test_y,example_train_x,example_train_y]</span>
+<span class="go">2019-04-26 17:19:01,437 - kedro.io.data_catalog - INFO - Saving data to `example_test_x` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,439 - kedro.io.data_catalog - INFO - Saving data to `example_train_y` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,443 - kedro.io.data_catalog - INFO - Saving data to `example_train_x` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,447 - kedro.io.data_catalog - INFO - Saving data to `example_test_y` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,447 - kedro.runner.sequential_runner - INFO - Completed 1 out of 4 tasks</span>
+<span class="go">2019-04-26 17:19:01,448 - kedro.io.data_catalog - INFO - Loading data from `example_train_x` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,454 - kedro.io.data_catalog - INFO - Loading data from `example_train_y` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,461 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,461 - kedro.pipeline.node - INFO - Running node: train_model([example_train_x,example_train_y,parameters]) -&gt; [example_model]</span>
+<span class="go">2019-04-26 17:19:01,887 - kedro.io.data_catalog - INFO - Saving data to `example_model` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,887 - kedro.runner.sequential_runner - INFO - Completed 2 out of 4 tasks</span>
+<span class="go">2019-04-26 17:19:01,888 - kedro.io.data_catalog - INFO - Loading data from `example_test_x` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,888 - kedro.io.data_catalog - INFO - Loading data from `example_model` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,888 - kedro.pipeline.node - INFO - Running node: predict([example_model,example_test_x]) -&gt; [example_predictions]</span>
+<span class="go">2019-04-26 17:19:01,890 - kedro.io.data_catalog - INFO - Saving data to `example_predictions` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,891 - kedro.runner.sequential_runner - INFO - Completed 3 out of 4 tasks</span>
+<span class="go">2019-04-26 17:19:01,891 - kedro.io.data_catalog - INFO - Loading data from `example_predictions` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,891 - kedro.io.data_catalog - INFO - Loading data from `example_test_y` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:19:01,891 - kedro.pipeline.node - INFO - Running node: report_accuracy([example_predictions,example_test_y]) -&gt; None</span>
+<span class="go">2019-04-26 17:19:01,892 - new_kedro_project.nodes.example - INFO - Model accuracy on test set: 96.67%</span>
+<span class="go">2019-04-26 17:19:01,892 - kedro.runner.sequential_runner - INFO - Completed 4 out of 4 tasks</span>
+<span class="go">2019-04-26 17:19:01,892 - kedro.runner.sequential_runner - INFO - Pipeline execution completed successfully.</span>
+</pre></div>
+</div>
+<p>which will run the pipeline using <code class="docutils literal notranslate"><span class="pre">SequentialRunner</span></code> by default. You can also explicitly use <code class="docutils literal notranslate"><span class="pre">SequentialRunner</span></code> as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --runner<span class="o">=</span>SequentialRunner
+</pre></div>
+</div>
+<p>In case you want to run the pipeline using <code class="docutils literal notranslate"><span class="pre">ParallelRunner</span></code>, add a flag as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --parallel
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --runner<span class="o">=</span>ParallelRunner
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2019-04-26 17:20:45,012 - root - INFO - ** Kedro project new-kedro-project</span>
+<span class="go">2019-04-26 17:20:45,081 - kedro.io.data_catalog - INFO - Loading data from `example_iris_data` (CSVLocalDataSet)...</span>
+<span class="go">2019-04-26 17:20:45,099 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:20:45,099 - kedro.pipeline.node - INFO - Running node: split_data([example_iris_data,params:example_test_data_ratio]) -&gt; [example_test_x,example_test_y,example_train_x,example_train_y]</span>
+<span class="go">2019-04-26 17:20:45,115 - kedro.io.data_catalog - INFO - Saving data to `example_test_x` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,121 - kedro.io.data_catalog - INFO - Saving data to `example_test_y` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,123 - kedro.io.data_catalog - INFO - Saving data to `example_train_x` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,125 - kedro.io.data_catalog - INFO - Saving data to `example_train_y` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,135 - kedro.io.data_catalog - INFO - Loading data from `example_train_x` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,140 - kedro.io.data_catalog - INFO - Loading data from `example_train_y` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,142 - kedro.io.data_catalog - INFO - Loading data from `parameters` (MemoryDataSet)...</span>
+<span class="go">2019-04-26 17:20:45,142 - kedro.pipeline.node - INFO - Running node: train_model([example_train_x,example_train_y,parameters]) -&gt; [example_model]</span>
+<span class="go">2019-04-26 17:20:45,437 - kedro.io.data_catalog - INFO - Saving data to `example_model` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,444 - kedro.io.data_catalog - INFO - Loading data from `example_test_x` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,449 - kedro.io.data_catalog - INFO - Loading data from `example_model` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,449 - kedro.pipeline.node - INFO - Running node: predict([example_model,example_test_x]) -&gt; [example_predictions]</span>
+<span class="go">2019-04-26 17:20:45,451 - kedro.io.data_catalog - INFO - Saving data to `example_predictions` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,457 - kedro.io.data_catalog - INFO - Loading data from `example_predictions` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,461 - kedro.io.data_catalog - INFO - Loading data from `example_test_y` (AutoProxy[MemoryDataSet])...</span>
+<span class="go">2019-04-26 17:20:45,461 - kedro.pipeline.node - INFO - Running node: report_accuracy([example_predictions,example_test_y]) -&gt; None</span>
+<span class="go">2019-04-26 17:20:45,466 - new_kedro_project.nodes.example - INFO - Model accuracy on test set: 100.00%</span>
+<span class="go">2019-04-26 17:20:45,494 - kedro.runner.parallel_runner - INFO - Pipeline execution completed successfully.</span>
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> You cannot use both <code class="docutils literal notranslate"><span class="pre">--parallel</span></code> and <code class="docutils literal notranslate"><span class="pre">--runner</span></code> flags at the same time (e.g. <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--parallel</span> <span class="pre">--runner=SequentialRunner</span></code> raises an exception).</div></blockquote>
+</div>
+<div class="section" id="running-a-pipeline-by-name">
+<h3>Running a pipeline by name<a class="headerlink" href="#running-a-pipeline-by-name" title="Permalink to this headline">¶</a></h3>
+<p>To run the pipeline by its name, you need to add your new pipeline to <code class="docutils literal notranslate"><span class="pre">create_pipelines()</span></code> function <code class="docutils literal notranslate"><span class="pre">src/&lt;python_package&gt;/pipeline.py</span></code> as below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_pipelines</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Create the project&#39;s pipeline.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        kwargs: Ignore any additional arguments added in the future.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Pipeline: The resulting pipeline.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">data_engineering_pipeline</span> <span class="o">=</span> <span class="n">de</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">()</span>
+    <span class="n">data_science_pipeline</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">create_pipeline</span><span class="p">()</span>
+    <span class="n">my_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="c1"># your definition goes here</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="n">data_engineering_pipeline</span><span class="p">,</span>
+        <span class="s2">&quot;my_pipeline&quot;</span><span class="p">:</span> <span class="n">my_pipeline</span><span class="p">,</span>
+        <span class="s2">&quot;__default__&quot;</span><span class="p">:</span> <span class="n">data_engineering_pipeline</span> <span class="o">+</span> <span class="n">data_science_pipeline</span><span class="p">,</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Then from the command line, execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --pipeline my_pipeline
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code> without <code class="docutils literal notranslate"><span class="pre">--pipeline</span></code> option runs <code class="docutils literal notranslate"><span class="pre">__default__</span></code> pipeline from the dictionary returned by <code class="docutils literal notranslate"><span class="pre">create_pipelines()</span></code>.</div></blockquote>
+</div>
+<div class="section" id="modifying-a-kedro-run">
+<h3>Modifying a <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span></code><a class="headerlink" href="#modifying-a-kedro-run" title="Permalink to this headline">¶</a></h3>
+<p>Kedro has options to modify pipeline runs. Here is a list of CLI arguments supported out of the box:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="48%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">CLI command</th>
+<th class="head">Description</th>
+<th class="head">Multiple options allowed?</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--pipeline</span> <span class="pre">de</span></code></td>
+<td>Run the whole pipeline by its name</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--node</span> <span class="pre">debug_me,debug_me_too</span></code></td>
+<td>Run only nodes with specified names</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--from-nodes</span> <span class="pre">node1,node2</span></code></td>
+<td>A list of node names which should be used as a starting point</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--to-nodes</span> <span class="pre">node3,node4</span></code></td>
+<td>A list of node names which should be used as an end point</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--from-inputs</span> <span class="pre">dataset1,dataset2</span></code></td>
+<td>A list of dataset names which should be used as a starting point</td>
+<td>No</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--tag</span> <span class="pre">some_tag1,some_tag2</span></code></td>
+<td>Run only nodes which have any of these tags attached</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--params</span> <span class="pre">param_key1:value1,param_key2:2.0</span></code></td>
+<td>Does a parametrised kedro run with {“param_key1”: “value1”, “param_key2”: 2}</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--env</span> <span class="pre">env_name</span></code></td>
+<td>Run the pipeline in the env_name environment. Defaults to local if not provided</td>
+<td>No</td>
+</tr>
+<tr class="row-even"><td><code class="code docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--config</span> <span class="pre">config.yml</span></code></td>
+<td>Specify all command line options in a configuration file called config.yml</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>You can also combine these options together, so the command <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--from-nodes</span> <span class="pre">split</span> <span class="pre">--to-nodes</span> <span class="pre">predict,</span> <span class="pre">report</span></code> will run all the nodes from <code class="docutils literal notranslate"><span class="pre">split</span></code> to <code class="docutils literal notranslate"><span class="pre">predict</span></code> and <code class="docutils literal notranslate"><span class="pre">report</span></code>. And this functionality is extended to the <code class="docutils literal notranslate"><span class="pre">kedro</span> <span class="pre">run</span> <span class="pre">--config</span> <span class="pre">config.yml</span></code> command which allows you to <a class="reference internal" href="03_configuration.html#configuring-kedro-run-arguments"><span class="std std-ref">specify run commands in a configuration file</span></a>. And note, a parameterized run is best used for dynamic parameters, i.e. running the same pipeline with different inputs, for static parameters that do not change we recommend following this <a class="reference internal" href="03_configuration.html#parameters"><span class="std std-ref">methodology</span></a>.</p>
+</div>
+<div class="section" id="applying-decorators-on-pipelines">
+<h3>Applying decorators on pipelines<a class="headerlink" href="#applying-decorators-on-pipelines" title="Permalink to this headline">¶</a></h3>
+<p>You can apply decorators on whole pipelines, the same way you apply decorators on single nodes. For example, if you want to apply the decorators defined in the earlier section to all pipeline nodes simultaneously, you can do so as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hello_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">node</span><span class="p">(</span><span class="n">say_hello</span><span class="p">,</span> <span class="s2">&quot;name1&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span> <span class="n">node</span><span class="p">(</span><span class="n">say_hello</span><span class="p">,</span> <span class="s2">&quot;name2&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">decorate</span><span class="p">(</span><span class="n">apply_g</span><span class="p">,</span> <span class="n">apply_h</span><span class="p">)</span>
+
+<span class="n">SequentialRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">hello_pipeline</span><span class="p">,</span> <span class="n">DataCatalog</span><span class="p">({},</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name1</span><span class="o">=</span><span class="s2">&quot;Kedro&quot;</span><span class="p">,</span> <span class="n">name2</span><span class="o">=</span><span class="s2">&quot;Python&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Hello f(h(g(Kedro)))!</span>
+<span class="go">Hello f(h(g(Python)))!</span>
+<span class="go">Out[9]: {}</span>
+</pre></div>
+</div>
+<p>Decorators can be useful for monitoring your pipeline. Kedro currently has 1 built-in decorator: <code class="docutils literal notranslate"><span class="pre">log_time</span></code>, which will log the time taken for executing your node. You can find it in <code class="docutils literal notranslate"><span class="pre">kedro.pipeline.decorators</span></code>. Other decorators can be found in <code class="docutils literal notranslate"><span class="pre">kedro.contrib.decorators</span></code>, for which you will need to install the required dependencies.</p>
+</div>
+</div>
+<div class="section" id="running-pipelines-with-io">
+<h2>Running pipelines with IO<a class="headerlink" href="#running-pipelines-with-io" title="Permalink to this headline">¶</a></h2>
+<p>The above definition of pipelines only applies for non-stateful or “pure” pipelines that do not interact with the outside world. In practice, we would like to interact with APIs, databases, files and other sources of data. By combining IO and pipelines, we can tackle these more complex use cases.</p>
+<p>By using <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> from the IO module we are still able to write pure functions that work with our data and outsource file saving and loading to <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code>.</p>
+<p>Through <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code>, we can control where inputs are loaded from, where intermediate variables get persisted and ultimately the location to which output variables are written:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">MemoryDataSet</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[10]: [&#39;xs&#39;]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;xs&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SequentialRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">catalog</span><span class="o">=</span><span class="n">io</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[11]: {&#39;v&#39;: 0.666666666666667}</span>
+</pre></div>
+</div>
+<p>In this simple example, we defined a <code class="docutils literal notranslate"><span class="pre">MemoryDataSet</span></code> called <code class="docutils literal notranslate"><span class="pre">xs</span></code> to store our inputs, saved our input list <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> into <code class="docutils literal notranslate"><span class="pre">xs</span></code>, then instantiated <code class="docutils literal notranslate"><span class="pre">SequentialRunner</span></code> and called its <code class="docutils literal notranslate"><span class="pre">run</span></code> method with the pipeline and data catalog instances.</p>
+</div>
+<div class="section" id="outputting-to-a-file">
+<h2>Outputting to a file<a class="headerlink" href="#outputting-to-a-file" title="Permalink to this headline">¶</a></h2>
+<p>We can also use IO to save outputs to a file. In this example, we define a custom LambdaDataSet that would serialise the output to a file locally:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./data/07_model_output/variance.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">load</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./data/07_model_output/variance.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
+<span class="n">pickler</span> <span class="o">=</span> <span class="n">LambdaDataSet</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="n">save</span><span class="p">)</span>
+<span class="n">io</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="n">pickler</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is important to make sure that the data catalog variable name <code class="docutils literal notranslate"><span class="pre">v</span></code> matches the name <code class="docutils literal notranslate"><span class="pre">v</span></code> in the pipeline definition.</p>
+<p>Next we can confirm that this <code class="docutils literal notranslate"><span class="pre">LambdaDataSet</span></code> works:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Ouput</span></code>:</p>
+<div class="highlight-Console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[12]: 5</span>
+</pre></div>
+</div>
+<p>Finally, let’s run the pipeline again now serialising the output:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SequentialRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">catalog</span><span class="o">=</span><span class="n">io</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Ouput</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[13]: {}</span>
+</pre></div>
+</div>
+<p>Because the output has been persisted to a local file we don’t see it directly, but it can be retrieved from the catalog:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;v&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Ouput</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[14]: 0.666666666666667</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;./data/07_model_output/variance.pickle&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="partial-pipelines">
+<h2>Partial pipelines<a class="headerlink" href="#partial-pipelines" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes it is desirable to work with only a subset of a pipeline’s nodes. Let’s look at the example pipeline we created earlier:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Ouput</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: xs</span>
+
+<span class="go">len([xs]) -&gt; [n]</span>
+<span class="go">mean node</span>
+<span class="go">mean sos</span>
+<span class="go">variance node</span>
+
+<span class="go">Outputs: v</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<div class="section" id="partial-pipeline-starting-from-inputs">
+<h3>Partial pipeline starting from inputs<a class="headerlink" href="#partial-pipeline-starting-from-inputs" title="Permalink to this headline">¶</a></h3>
+<p>One way to specify a partial pipeline is by providing a set of pre-calculated inputs which should serve as a start of the partial pipeline. For example, in order to fetch the partial pipeline running from input <code class="docutils literal notranslate"><span class="pre">m2</span></code> downstream you can specify it like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">from_inputs</span><span class="p">(</span><span class="s2">&quot;m2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: m, m2</span>
+
+<span class="go">variance node</span>
+
+<span class="go">Outputs: v</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>Specifying that the partial pipeline from inputs <code class="docutils literal notranslate"><span class="pre">m</span></code> and <code class="docutils literal notranslate"><span class="pre">xs</span></code> is needed will result in the following pipeline:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">from_inputs</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;xs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: xs</span>
+
+<span class="go">len([xs]) -&gt; [n]</span>
+<span class="go">mean node</span>
+<span class="go">mean sos</span>
+<span class="go">variance node</span>
+
+<span class="go">Outputs: v</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>As it can been seen from the pipeline description, adding <code class="docutils literal notranslate"><span class="pre">m</span></code> in the <code class="docutils literal notranslate"><span class="pre">from_inputs</span></code> list does not guarantee that it will not be recomputed if another provided input like <code class="docutils literal notranslate"><span class="pre">xs</span></code> forces recomputing it.</p>
+</div>
+<div class="section" id="partial-pipeline-starting-from-nodes">
+<h3>Partial pipeline starting from nodes<a class="headerlink" href="#partial-pipeline-starting-from-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Another way of selecting a partial pipeline is by specifying the nodes which should be used as a start of the new pipeline. For example you can do as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">from_nodes</span><span class="p">(</span><span class="s2">&quot;mean node&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: m2, n, xs</span>
+
+<span class="go">mean node</span>
+<span class="go">variance node</span>
+
+<span class="go">Outputs: v</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>As you can see, this will create a partial pipeline starting from the specified node and continuing to all other nodes downstream.</p>
+<p>You can run the resulting partial pipeline by running the following command in your terminal window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --from-nodes<span class="o">=</span><span class="s2">&quot;mean node&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="partial-pipeline-ending-at-nodes">
+<h3>Partial pipeline ending at nodes<a class="headerlink" href="#partial-pipeline-ending-at-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Similarly, you can specify the nodes which should be used as an end of the new pipeline. For example, you can do as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">to_nodes</span><span class="p">(</span><span class="s2">&quot;mean node&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: xs</span>
+
+<span class="go">len([xs]) -&gt; [n]</span>
+<span class="go">mean node</span>
+
+<span class="go">Outputs: m</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>As you can see, this will create a partial pipeline starting at the top and ending with the specified node.</p>
+<p>You can run the resulting partial pipeline by running the following command in your terminal window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --to-nodes<span class="o">=</span><span class="s2">&quot;mean node&quot;</span>
+</pre></div>
+</div>
+<p>Furthermore, you can combine these two flags to specify a range of nodes to be included in the new pipeline. This would look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --from-nodes A --to-nodes Z
+</pre></div>
+</div>
+<p>or, when specifying multiple nodes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --from-nodes A,D --to-nodes X,Y,Z
+</pre></div>
+</div>
+</div>
+<div class="section" id="partial-pipeline-from-nodes-with-tags">
+<h3>Partial pipeline from nodes with tags<a class="headerlink" href="#partial-pipeline-from-nodes-with-tags" title="Permalink to this headline">¶</a></h3>
+<p>One can also create a partial pipeline from the nodes that have specific tags attached to them. In order to construct a partial pipeline out of nodes that have both tag <code class="docutils literal notranslate"><span class="pre">t1</span></code> <em>AND</em> tag <code class="docutils literal notranslate"><span class="pre">t2</span></code>, you can run the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span><span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: None</span>
+
+<span class="go">Outputs: None</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>To construct a partial pipeline out of nodes that have tag <code class="docutils literal notranslate"><span class="pre">t1</span></code> <em>OR</em> tag <code class="docutils literal notranslate"><span class="pre">t2</span></code>, please execute the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">partial_pipeline</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span><span class="s2">&quot;t1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes_with_tags</span><span class="p">(</span>
+    <span class="s2">&quot;t2&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">partial_pipeline</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: None</span>
+
+<span class="go">Outputs: None</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-only-some-nodes">
+<h3>Running only some nodes<a class="headerlink" href="#running-only-some-nodes" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you might need to run only some of the nodes in a pipeline. To do that, you can do as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">only_nodes</span><span class="p">(</span><span class="s2">&quot;mean node&quot;</span><span class="p">,</span> <span class="s2">&quot;mean sos&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: n, xs</span>
+
+<span class="go">mean node</span>
+<span class="go">mean sos</span>
+
+<span class="go">Outputs: m, m2</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>This will create a partial pipeline, consisting solely of the nodes you specify as arguments in the method call.</p>
+<p>You can check this out for yourself by updating the definition of the first node in the example code provided in <code class="docutils literal notranslate"><span class="pre">pipeline.py</span></code> as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">node</span><span class="p">(</span>
+    <span class="n">split_data</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;example_iris_data&quot;</span><span class="p">,</span> <span class="s2">&quot;parameters&quot;</span><span class="p">],</span>
+    <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">train_x</span><span class="o">=</span><span class="s2">&quot;example_train_x&quot;</span><span class="p">,</span>
+        <span class="n">train_y</span><span class="o">=</span><span class="s2">&quot;example_train_y&quot;</span><span class="p">,</span>
+        <span class="n">test_x</span><span class="o">=</span><span class="s2">&quot;example_test_x&quot;</span><span class="p">,</span>
+        <span class="n">test_y</span><span class="o">=</span><span class="s2">&quot;example_test_y&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;node1&quot;</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+</div>
+<p>and then run the following command in your terminal window:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --node<span class="o">=</span>node1
+</pre></div>
+</div>
+<p>You may specify multiple names like so:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>kedro run --node<span class="o">=</span>node1,node2
+</pre></div>
+</div>
+<blockquote>
+<div><em>Note:</em> The run will only succeed if all the inputs required by those nodes already exist, i.e. already produced or present in the data catalog.</div></blockquote>
+</div>
+<div class="section" id="recreating-missing-outputs">
+<h3>Recreating Missing Outputs<a class="headerlink" href="#recreating-missing-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Kedro supports the automatic generation of partial pipelines that take into account existing node outputs. This can be helpful to avoid re-running nodes that take a long time:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1">### Pipeline execution order ####</span>
+<span class="go">Name: None</span>
+<span class="go">Inputs: xs</span>
+
+<span class="go">len([xs]) -&gt; [n]</span>
+<span class="go">mean node</span>
+<span class="go">mean sos</span>
+<span class="go">variance node</span>
+
+<span class="go">Outputs: v</span>
+<span class="gp">#</span><span class="c1">#################################</span>
+</pre></div>
+</div>
+<p>To demonstrate this, let us save the intermediate output <code class="docutils literal notranslate"><span class="pre">n</span></code> using a <code class="docutils literal notranslate"><span class="pre">JSONLocalDataSet</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_json</span> <span class="o">=</span> <span class="n">JSONLocalDataSet</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="s2">&quot;./data/07_model_output/len.json&quot;</span><span class="p">)</span>
+<span class="n">io</span> <span class="o">=</span> <span class="n">DataCatalog</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">MemoryDataSet</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="n">n</span><span class="o">=</span><span class="n">n_json</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">n</span></code> was not saved previously, checking for its existence returns <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[15]: False</span>
+</pre></div>
+</div>
+<p>Running the pipeline calculates <code class="docutils literal notranslate"><span class="pre">n</span></code> and saves the result to disk:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SequentialRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">io</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[16]: {&#39;v&#39;: 0.666666666666667}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">io</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Output</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[17]: True</span>
+</pre></div>
+</div>
+<p>We can avoid re-calculating <code class="docutils literal notranslate"><span class="pre">n</span></code> (and all other results that have already been saved) by using the <code class="docutils literal notranslate"><span class="pre">Runner.run_only_missing</span></code> method. Note that the first node of the original pipeline (<code class="docutils literal notranslate"><span class="pre">len([xs])</span> <span class="pre">-&gt;</span> <span class="pre">[n]</span></code>) has been removed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SequentialRunner</span><span class="p">()</span><span class="o">.</span><span class="n">run_only_missing</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">io</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Ouput</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Out[18]: {&#39;v&#39;: 0.666666666666667}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;./data/07_model_output/len.json&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="07_logging.html" class="btn btn-neutral float-right" title="Logging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="05_nodes.html" class="btn btn-neutral float-left" title="Nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, QuantumBlack Visual Analytics Limited
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

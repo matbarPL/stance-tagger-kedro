@@ -1,0 +1,38 @@
+kedro.contrib.io.gcs.JSONGCSDataSet
+===================================
+
+.. currentmodule:: kedro.contrib.io.gcs
+
+.. autoclass:: JSONGCSDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      JSONGCSDataSet.DEFAULT_LOAD_ARGS
+      JSONGCSDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      JSONGCSDataSet.__init__
+      JSONGCSDataSet.exists
+      JSONGCSDataSet.from_config
+      JSONGCSDataSet.get_last_load_version
+      JSONGCSDataSet.get_last_save_version
+      JSONGCSDataSet.load
+      JSONGCSDataSet.release
+      JSONGCSDataSet.save
+    
+   

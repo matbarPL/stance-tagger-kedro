@@ -42,12 +42,19 @@ def prepare_dataset(data: pd.DataFrame, method_flag: str) -> Dict[str,pd.DataFra
     __label__<var1> text"""
     data["Target"] = data["Target"].apply(lambda x: x.replace(" ", "_").lower())
     if method_flag == "favour_against":
-        data["label"] = np.where(data["Stance"] == "NONE", "__label__stance", "__label__nostance")
+        data["label"] = data["Stance"].map({"FAVOR":"__label__favour",
+                                          "AGAINST":"__label__against",
+                                          "NONE": "__label__none"})
     elif method_flag == "classification":
-        data = data[data["Stance"] != "NONE"]
         data["label"] = "__label__" + data["Target"]
-    else:
-        return
+    elif method_flag == "opinion_towards":
+        data["label"] = data["Opinion towards"].map({"TARGET": "__label__target",
+                                            "OTHER": "__label__other",
+                                            "NO ONE": "__label__noone"})
+    elif method_flag == "sentiment":
+        data["label"] = data["Sentiment"].map({"POSITIVE": "__label__positive",
+                                                 "NEGATIVE": "__label__negative",
+                                                 "NEITHER": "__label__neither"})
     data["Final"] = data["label"] + " " + data["Tweet"]
     return dict(final_dataset=pd.DataFrame(data["Final"]))
 
@@ -77,6 +84,7 @@ def split_train_test(data:pd.DataFrame, example_test_data_ratio: float, method_f
     n_test = int(n * example_test_data_ratio)
     training_data = data.iloc[n_test:, :].reset_index(drop=True) #to be changed not to take first rows only for test
     training_data_path = "data/05_model_input/stance."+method_flag+".train.preprocessed.tokenized.txt"
+    training_data.dropna(inplace=True)
     training_data[["Final"]].to_csv(
         training_data_path,
         header=None, index=False, sep="|",
@@ -84,6 +92,7 @@ def split_train_test(data:pd.DataFrame, example_test_data_ratio: float, method_f
         quotechar='', escapechar='\\')
     test_data = data.iloc[:n_test, :].reset_index(drop=True)
     test_data_path = "data/05_model_input/stance"+method_flag+".test.preprocessed.tokenized.txt"
+    test_data.dropna(inplace=True)
     test_data[["Final"]].to_csv(
         test_data_path,
         header=None, index=False, sep="|",

@@ -1,0 +1,32 @@
+kedro.io.PartitionedDataSet
+===========================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: PartitionedDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      PartitionedDataSet.__init__
+      PartitionedDataSet.exists
+      PartitionedDataSet.from_config
+      PartitionedDataSet.get_last_load_version
+      PartitionedDataSet.get_last_save_version
+      PartitionedDataSet.invalidate_cache
+      PartitionedDataSet.load
+      PartitionedDataSet.release
+      PartitionedDataSet.save
+    
+   

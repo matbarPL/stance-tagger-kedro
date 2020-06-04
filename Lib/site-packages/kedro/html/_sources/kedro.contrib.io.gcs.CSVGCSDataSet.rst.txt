@@ -1,0 +1,39 @@
+kedro.contrib.io.gcs.CSVGCSDataSet
+==================================
+
+.. currentmodule:: kedro.contrib.io.gcs
+
+.. autoclass:: CSVGCSDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      CSVGCSDataSet.DEFAULT_LOAD_ARGS
+      CSVGCSDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      CSVGCSDataSet.__init__
+      CSVGCSDataSet.exists
+      CSVGCSDataSet.from_config
+      CSVGCSDataSet.get_last_load_version
+      CSVGCSDataSet.get_last_save_version
+      CSVGCSDataSet.invalidate_cache
+      CSVGCSDataSet.load
+      CSVGCSDataSet.release
+      CSVGCSDataSet.save
+    
+   

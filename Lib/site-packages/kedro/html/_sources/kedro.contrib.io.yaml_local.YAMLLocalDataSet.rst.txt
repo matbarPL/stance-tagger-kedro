@@ -1,0 +1,38 @@
+kedro.contrib.io.yaml\_local.YAMLLocalDataSet
+=============================================
+
+.. currentmodule:: kedro.contrib.io.yaml_local
+
+.. autoclass:: YAMLLocalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      YAMLLocalDataSet.DEFAULT_LOAD_ARGS
+      YAMLLocalDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      YAMLLocalDataSet.__init__
+      YAMLLocalDataSet.exists
+      YAMLLocalDataSet.from_config
+      YAMLLocalDataSet.get_last_load_version
+      YAMLLocalDataSet.get_last_save_version
+      YAMLLocalDataSet.load
+      YAMLLocalDataSet.release
+      YAMLLocalDataSet.save
+    
+   

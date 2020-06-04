@@ -1,0 +1,38 @@
+kedro.contrib.io.parquet.ParquetS3DataSet
+=========================================
+
+.. currentmodule:: kedro.contrib.io.parquet
+
+.. autoclass:: ParquetS3DataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      ParquetS3DataSet.DEFAULT_LOAD_ARGS
+      ParquetS3DataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ParquetS3DataSet.__init__
+      ParquetS3DataSet.exists
+      ParquetS3DataSet.from_config
+      ParquetS3DataSet.get_last_load_version
+      ParquetS3DataSet.get_last_save_version
+      ParquetS3DataSet.load
+      ParquetS3DataSet.release
+      ParquetS3DataSet.save
+    
+   

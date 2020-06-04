@@ -1,0 +1,18 @@
+kedro.io.DataSetNotFoundError
+=============================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: DataSetNotFoundError
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   

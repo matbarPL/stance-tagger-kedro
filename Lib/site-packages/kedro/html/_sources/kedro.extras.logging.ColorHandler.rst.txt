@@ -1,0 +1,6 @@
+kedro.extras.logging.ColorHandler
+=================================
+
+.. currentmodule:: kedro.extras.logging
+
+.. autoclass:: ColorHandler

@@ -1,0 +1,39 @@
+kedro.extras.datasets.pandas.HDFDataSet
+=======================================
+
+.. currentmodule:: kedro.extras.datasets.pandas
+
+.. autoclass:: HDFDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      HDFDataSet.DEFAULT_LOAD_ARGS
+      HDFDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      HDFDataSet.__init__
+      HDFDataSet.exists
+      HDFDataSet.from_config
+      HDFDataSet.get_last_load_version
+      HDFDataSet.get_last_save_version
+      HDFDataSet.invalidate_cache
+      HDFDataSet.load
+      HDFDataSet.release
+      HDFDataSet.save
+    
+   

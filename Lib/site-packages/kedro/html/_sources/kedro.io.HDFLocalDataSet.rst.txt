@@ -1,0 +1,38 @@
+kedro.io.HDFLocalDataSet
+========================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: HDFLocalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      HDFLocalDataSet.DEFAULT_LOAD_ARGS
+      HDFLocalDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      HDFLocalDataSet.__init__
+      HDFLocalDataSet.exists
+      HDFLocalDataSet.from_config
+      HDFLocalDataSet.get_last_load_version
+      HDFLocalDataSet.get_last_save_version
+      HDFLocalDataSet.load
+      HDFLocalDataSet.release
+      HDFLocalDataSet.save
+    
+   

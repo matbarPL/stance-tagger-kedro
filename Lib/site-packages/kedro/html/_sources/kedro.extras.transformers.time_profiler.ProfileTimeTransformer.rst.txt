@@ -1,0 +1,6 @@
+kedro.extras.transformers.time\_profiler.ProfileTimeTransformer
+===============================================================
+
+.. currentmodule:: kedro.extras.transformers.time_profiler
+
+.. autoclass:: ProfileTimeTransformer

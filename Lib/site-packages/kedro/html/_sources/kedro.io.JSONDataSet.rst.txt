@@ -1,0 +1,39 @@
+kedro.io.JSONDataSet
+====================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: JSONDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      JSONDataSet.DEFAULT_LOAD_ARGS
+      JSONDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      JSONDataSet.__init__
+      JSONDataSet.exists
+      JSONDataSet.from_config
+      JSONDataSet.get_last_load_version
+      JSONDataSet.get_last_save_version
+      JSONDataSet.invalidate_cache
+      JSONDataSet.load
+      JSONDataSet.release
+      JSONDataSet.save
+    
+   

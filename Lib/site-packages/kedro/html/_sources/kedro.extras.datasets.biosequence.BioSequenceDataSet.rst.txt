@@ -1,0 +1,39 @@
+kedro.extras.datasets.biosequence.BioSequenceDataSet
+====================================================
+
+.. currentmodule:: kedro.extras.datasets.biosequence
+
+.. autoclass:: BioSequenceDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      BioSequenceDataSet.DEFAULT_LOAD_ARGS
+      BioSequenceDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      BioSequenceDataSet.__init__
+      BioSequenceDataSet.exists
+      BioSequenceDataSet.from_config
+      BioSequenceDataSet.get_last_load_version
+      BioSequenceDataSet.get_last_save_version
+      BioSequenceDataSet.invalidate_cache
+      BioSequenceDataSet.load
+      BioSequenceDataSet.release
+      BioSequenceDataSet.save
+    
+   

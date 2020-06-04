@@ -1,0 +1,6 @@
+kedro.pipeline.node
+===================
+
+.. currentmodule:: kedro.pipeline
+
+.. autofunction:: node

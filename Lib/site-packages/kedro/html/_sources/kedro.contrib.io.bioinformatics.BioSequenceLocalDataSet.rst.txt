@@ -1,0 +1,38 @@
+kedro.contrib.io.bioinformatics.BioSequenceLocalDataSet
+=======================================================
+
+.. currentmodule:: kedro.contrib.io.bioinformatics
+
+.. autoclass:: BioSequenceLocalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      BioSequenceLocalDataSet.DEFAULT_LOAD_ARGS
+      BioSequenceLocalDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      BioSequenceLocalDataSet.__init__
+      BioSequenceLocalDataSet.exists
+      BioSequenceLocalDataSet.from_config
+      BioSequenceLocalDataSet.get_last_load_version
+      BioSequenceLocalDataSet.get_last_save_version
+      BioSequenceLocalDataSet.load
+      BioSequenceLocalDataSet.release
+      BioSequenceLocalDataSet.save
+    
+   

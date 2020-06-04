@@ -1,0 +1,39 @@
+kedro.extras.datasets.pandas.ExcelDataSet
+=========================================
+
+.. currentmodule:: kedro.extras.datasets.pandas
+
+.. autoclass:: ExcelDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      ExcelDataSet.DEFAULT_LOAD_ARGS
+      ExcelDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ExcelDataSet.__init__
+      ExcelDataSet.exists
+      ExcelDataSet.from_config
+      ExcelDataSet.get_last_load_version
+      ExcelDataSet.get_last_save_version
+      ExcelDataSet.invalidate_cache
+      ExcelDataSet.load
+      ExcelDataSet.release
+      ExcelDataSet.save
+    
+   

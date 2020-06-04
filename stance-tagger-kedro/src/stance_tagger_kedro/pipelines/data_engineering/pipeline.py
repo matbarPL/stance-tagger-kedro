@@ -55,6 +55,20 @@ def create_pipeline(**kwargs):
                 ),
             ),
             node(
+                prepare_dataset,
+                ["stances_data", "params:model_opinion_towards_name"],
+                dict(
+                    final_dataset="preprocessed_data_opinion_towards"
+                ),
+            ),
+            node(
+                prepare_dataset,
+                ["stances_data", "params:model_sentiment_name"],
+                dict(
+                    final_dataset="preprocessed_data_sentiment"
+                ),
+            ),
+            node(
                 split_data,
                 ["preprocessed_data_classification", "params:model_classification_name",
                  "params:example_test_data_ratio"],
@@ -70,7 +84,25 @@ def create_pipeline(**kwargs):
                 dict(
                     train="favour_against_train",
                     test="favour_against_test",
+                ),  # to the test variable classification_train name will be assigned
+            ),
+            node(
+                split_data,
+                ["preprocessed_data_opinion_towards", "params:model_opinion_towards_name",
+                 "params:example_test_data_ratio"],
+                dict(
+                    train="opinion_towards_train",
+                    test="opinion_towards_test",
                 ), #to the test variable classification_train name will be assigned
+            ),
+            node(
+                split_data,
+                ["preprocessed_data_sentiment", "params:model_sentiment_name",
+                 "params:example_test_data_ratio"],
+                dict(
+                    train="sentiment_train",
+                    test="sentiment_test",
+                ),  # to the test variable classification_train name will be assigned
             )
         ]
     )

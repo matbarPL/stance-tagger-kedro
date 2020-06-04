@@ -1,0 +1,26 @@
+kedro.runner.SequentialRunner
+=============================
+
+.. currentmodule:: kedro.runner
+
+.. autoclass:: SequentialRunner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      SequentialRunner.create_default_data_set
+      SequentialRunner.run
+      SequentialRunner.run_only_missing
+    
+   

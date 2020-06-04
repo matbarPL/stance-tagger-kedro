@@ -1,0 +1,25 @@
+kedro.config.TemplatedConfigLoader
+==================================
+
+.. currentmodule:: kedro.config
+
+.. autoclass:: TemplatedConfigLoader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      TemplatedConfigLoader.__init__
+      TemplatedConfigLoader.get
+    
+   

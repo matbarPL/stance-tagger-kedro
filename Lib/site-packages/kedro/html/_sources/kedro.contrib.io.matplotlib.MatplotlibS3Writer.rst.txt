@@ -1,0 +1,31 @@
+kedro.contrib.io.matplotlib.MatplotlibS3Writer
+==============================================
+
+.. currentmodule:: kedro.contrib.io.matplotlib
+
+.. autoclass:: MatplotlibS3Writer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      MatplotlibS3Writer.__init__
+      MatplotlibS3Writer.exists
+      MatplotlibS3Writer.from_config
+      MatplotlibS3Writer.get_last_load_version
+      MatplotlibS3Writer.get_last_save_version
+      MatplotlibS3Writer.load
+      MatplotlibS3Writer.release
+      MatplotlibS3Writer.save
+    
+   

@@ -1,0 +1,31 @@
+kedro.io.CSVHTTPDataSet
+=======================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: CSVHTTPDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      CSVHTTPDataSet.__init__
+      CSVHTTPDataSet.exists
+      CSVHTTPDataSet.from_config
+      CSVHTTPDataSet.get_last_load_version
+      CSVHTTPDataSet.get_last_save_version
+      CSVHTTPDataSet.load
+      CSVHTTPDataSet.release
+      CSVHTTPDataSet.save
+    
+   

@@ -1,0 +1,39 @@
+kedro.contrib.io.gcs.ParquetGCSDataSet
+======================================
+
+.. currentmodule:: kedro.contrib.io.gcs
+
+.. autoclass:: ParquetGCSDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      ParquetGCSDataSet.DEFAULT_LOAD_ARGS
+      ParquetGCSDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      ParquetGCSDataSet.__init__
+      ParquetGCSDataSet.exists
+      ParquetGCSDataSet.from_config
+      ParquetGCSDataSet.get_last_load_version
+      ParquetGCSDataSet.get_last_save_version
+      ParquetGCSDataSet.invalidate_cache
+      ParquetGCSDataSet.load
+      ParquetGCSDataSet.release
+      ParquetGCSDataSet.save
+    
+   

@@ -1,0 +1,6 @@
+kedro.pipeline.decorators.log\_time
+===================================
+
+.. currentmodule:: kedro.pipeline.decorators
+
+.. autofunction:: log_time

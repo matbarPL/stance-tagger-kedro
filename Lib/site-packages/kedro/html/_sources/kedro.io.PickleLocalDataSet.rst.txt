@@ -1,0 +1,39 @@
+kedro.io.PickleLocalDataSet
+===========================
+
+.. currentmodule:: kedro.io
+
+.. autoclass:: PickleLocalDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      PickleLocalDataSet.BACKENDS
+      PickleLocalDataSet.DEFAULT_LOAD_ARGS
+      PickleLocalDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      PickleLocalDataSet.__init__
+      PickleLocalDataSet.exists
+      PickleLocalDataSet.from_config
+      PickleLocalDataSet.get_last_load_version
+      PickleLocalDataSet.get_last_save_version
+      PickleLocalDataSet.load
+      PickleLocalDataSet.release
+      PickleLocalDataSet.save
+    
+   

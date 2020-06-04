@@ -1,0 +1,38 @@
+kedro.extras.datasets.spark.SparkDataSet
+========================================
+
+.. currentmodule:: kedro.extras.datasets.spark
+
+.. autoclass:: SparkDataSet
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+      
+      SparkDataSet.DEFAULT_LOAD_ARGS
+      SparkDataSet.DEFAULT_SAVE_ARGS
+   
+   
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      
+      SparkDataSet.__init__
+      SparkDataSet.exists
+      SparkDataSet.from_config
+      SparkDataSet.get_last_load_version
+      SparkDataSet.get_last_save_version
+      SparkDataSet.load
+      SparkDataSet.release
+      SparkDataSet.save
+    
+   
