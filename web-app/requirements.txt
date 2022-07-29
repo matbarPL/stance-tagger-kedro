@@ -56,7 +56,7 @@ kiwisolver==1.1.0
 Mako==1.0.7
 MarkupSafe==1.0
 matplotlib==3.1.2
-mistune==0.8.4
+mistune==2.0.3
 more-itertools==8.1.0
 mysql==0.0.2
 mysqlclient==1.4.6
